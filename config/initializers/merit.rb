@@ -1,5 +1,10 @@
 # Use this hook to configure merit parameters
 Merit.setup do |config|
+  config.checks_on_each_request = true
+  config.user_model_name = 'User'
+  config.current_user_method = 'current_user'
+  config.add_observer 'ReputationChangeObserver'
+end
 
   Merit::Badge.create!(
   id: 1,
@@ -33,7 +38,7 @@ Merit.setup do |config|
   # to retrieve :user_model_name object if no `:to` option is given. Default
   # is "current_#{user_model_name.downcase}".
   # config.current_user_method = 'current_user'
-end
+
 
 # Create application badges (uses https://github.com/norman/ambry)
 # badge_id = 0

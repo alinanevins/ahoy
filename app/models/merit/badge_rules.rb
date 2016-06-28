@@ -22,13 +22,12 @@ module Merit
 
     def initialize
 
-    grant_on ['users#create'], badge: 'create-account' do |user|
-      user.email?
-    end
+      grant_on 'users/registrations#create', badge: 'create-account', model_name: 'User'
 
-    grant_on ['presentation#show'], badge: 'first-presentation', to: :user do |presentation|
-      presentation.count == 1
-    end
+
+      grant_on ['presentation#show'], badge: 'first-presentation', to: :user do |presentation|
+        presentation.count == 1
+      end
 
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.

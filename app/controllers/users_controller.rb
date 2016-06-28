@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = build_resource
   end
 
   def new
@@ -12,12 +13,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
-    binding.pry
 
   end
 
   def update
+    @user = resource
   end
 
   def destroy

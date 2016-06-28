@@ -21,6 +21,15 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
+
+    grant_on ['users#create'], badge: 'create-account' do |user|
+      user.email?
+    end
+
+    grant_on ['presentation#show'], badge: 'first-presentation', to: :user do |presentation|
+      presentation.count == 1
+    end
+
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.
       # Find badge by badge_id, badge_id takes presidence over badge

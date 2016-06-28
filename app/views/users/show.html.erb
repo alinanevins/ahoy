@@ -1,0 +1,8 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<ul>
+  <% current_user.badges.each do |badge| %>
+    <li><%= badge.name %></li>
+  <% end %>
+</ul>

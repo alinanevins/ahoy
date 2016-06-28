@@ -3,11 +3,18 @@ Merit.setup do |config|
 
   Merit::Badge.create!(
   id: 1,
+  name: "create-account",
+  level: 1,
+  description: "Create a new account"
+  )
+
+  Merit::Badge.create!(
+  id: 2,
   name: "first-presentation",
   level: 1,
   description: "Give your first presentation",
   custom_fields: { type: :presentation }
-)
+  )
 
   # Check rules on each request or in background
   # config.checks_on_each_request = true

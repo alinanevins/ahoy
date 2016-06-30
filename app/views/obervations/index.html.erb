@@ -1,2 +1,24 @@
-<h1>Obervations#index</h1>
-<p>Find me in app/views/obervations/index.html.erb</p>
+<div class="container">
+  <h1>All Observations</h1>
+
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>School</th>
+      <th>Department</th>
+      <th>Presentation ID</th>
+      <th>Observer (ID)</th>
+      <th>Notes</th>
+    </tr>
+    <% @observation.each do |a| %>
+    <tr>
+      <td><%= a.date %></td>
+      <td><%= a.school %></td>
+      <td><%= a.department %></td>
+      <td><%= a.presentation_id %></td>
+      <td><%= a.user_id %></td>
+      <!-- <td><%= a.notes %></td> -->
+    </tr>
+    <% end %>
+  </table>
+</div>

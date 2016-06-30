@@ -1,0 +1,9 @@
+<%= form_for @presentation do |f| %>
+  <%= f.label :date %>:
+  <%= f.datetime_field :date %><br />
+
+  <%= f.label :school %>:
+  <%= f.text_field :school %><br />
+
+  <%= f.submit %>
+<% end %>

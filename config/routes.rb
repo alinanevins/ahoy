@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
 
-  # get 'presentations/show' => "presentations#show"
+
   devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  root 'welcome#index'
+
   resources :users
+  resources :consultations
+  resources :faculties
+  resources :documentations
+  resources :observations
   resources :presentations
+  resources :transitions
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

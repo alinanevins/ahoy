@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628192830) do
+ActiveRecord::Schema.define(version: 20160629013320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,36 @@ ActiveRecord::Schema.define(version: 20160628192830) do
   add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id", using: :btree
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
+
+  create_table "consultations", force: :cascade do |t|
+    t.integer  "faculty_id"
+    t.integer  "user_id"
+    t.datetime "date"
+    t.text     "focus"
+    t.string   "link_to_notes"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "documentations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "audience"
+    t.string   "link_to_documentation"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "faculties", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "school"
+    t.string   "department"
+    t.text     "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
@@ -60,6 +90,16 @@ ActiveRecord::Schema.define(version: 20160628192830) do
     t.string  "category", default: "default"
   end
 
+  create_table "observations", force: :cascade do |t|
+    t.datetime "date"
+    t.string   "school"
+    t.string   "department"
+    t.integer  "presentation_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "presentations", force: :cascade do |t|
     t.datetime "date"
     t.string   "school"
@@ -74,6 +114,15 @@ ActiveRecord::Schema.define(version: 20160628192830) do
   create_table "sashes", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "transitions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "faculty_id"
+    t.string   "course"
+    t.string   "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

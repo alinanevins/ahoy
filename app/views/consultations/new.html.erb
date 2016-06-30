@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Add a New Consultation</h1>
+
+  <div class="row">
+    <%= form_for(@consultation) do |f| %>
+
+    <%= f.label :faculty_id %>
+    <%= f.text_field :faculty_id %><p/>
+
+    <%= f.label :date %>
+    <%= f.text_field :date %><p/>
+
+    <%= f.label :focus %>
+    <%= f.text_field :focus %><p/>
+
+    <%= f.label :link_to_notes %>
+    <%= f.text_field :link_to_notes %><p/>
+  </div>
+  <%= f.submit %>
+  <% end %>
+</div>

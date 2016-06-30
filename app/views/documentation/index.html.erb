@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>All Documentation</h1>
+
+  <table>
+    <tr>
+      <th>Team Member (ID)</th>
+      <th>Name</th>
+      <th>Audience</th>
+      <th>Link to Documentation</th>
+      <th>Date Added</th>
+    </tr>
+    <% @documentation.each do |a| %>
+    <tr>
+      <td><%= a.user_id  %></td>
+      <td><%= a.name  %></td>
+      <td><%= a.audience  %></td>
+      <td><%= a.link_to_documentation %></td>
+      <td><%= a.created_at  %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

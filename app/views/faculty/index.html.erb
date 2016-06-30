@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>All Faculty</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>School</th>
+      <th>Department</th>
+      <th>Notes</th>
+    </tr>
+    <% @faculty.each do |a| %>
+    <tr>
+      <td><%= a.name %></td>
+      <td><%= a.email %></td>
+      <td><%= a.phone %></td>
+      <td><%= a.school %></td>
+      <td><%= a.department %></td>
+      <td><%= a.notes %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

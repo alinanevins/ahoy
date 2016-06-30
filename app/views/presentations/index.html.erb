@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>All Presentations</h1>
+
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>School</th>
+      <th>Department</th>
+      <th>Presenter (ID)</th>
+      <th>Date Added</th>
+    </tr>
+    <% @presentation.each do |a| %>
+    <tr>
+      <td><%= a.date %></td>
+      <td><%= a.school %></td>
+      <td><%= a.department %></td>
+      <td><%= a.user_id %></td>
+      <td><%= a.created_at  %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

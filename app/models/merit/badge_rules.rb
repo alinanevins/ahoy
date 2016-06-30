@@ -21,16 +21,30 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-      grant_on 'users/registrations#create', badge: 'create-account', model_name: 'User'
-      grant_on 'presentations#create', badge: "create-presentation", model_name: 'User'
-      grant_on 'users#show', badge_id: 4, badge: "create-presentations", model_name: 'User' do |user|
-        binding.pry
-        user.presentations.count == 9
+      grant_on 'presentations#create', badge_id: 1, badge: "1 Presentation", level: 1, model_name: 'User', to: :user do |presentation|
+        presentation.user.presentations.count == 1
+      end
+      grant_on 'presentations#create', badge_id: 2, badge: "3 Presentatios", level: 2, model_name: 'User', to: :user do |presentation|
+        presentation.user.presentations.count == 3
+      end
+      grant_on 'presentations#create', badge_id: 3, badge: "5 Presentations", level: 3, model_name: 'User', to: :user do |presentation|
+        presentation.user.presentations.count == 5
+      end
+      grant_on 'presentations#create', badge_id: 4, badge: "Presenter Ninja", level: 4, model_name: 'User', to: :user do |presentation|
+        presentation.user.presentations.count == 8
       end
 
-      grant_on ['presentation#show'], badge: 'first-presentation', to: :user do |presentation|
-        presentation.count == 1
-      end
+      # samples
+      # grant_on 'users/registrations#create', badge: 'create-account', model_name: 'User'
+      # grant_on 'presentations#create', badge: "create-presentation", model_name: 'User'
+      # grant_on 'users#show', badge_id: 4, badge: "create-presentations", model_name: 'User' do |user|
+      #   user.presentations.count == 9
+      # end
+      # grant_on 'presentations#create', badge_id: 5, badge: "create-11-presentations", level: 2, model_name: 'User', to: :user do |presentation|
+      #   binding.pry
+      #   presentation.user.presentations.count == 23
+      # end
+      #
 
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.

@@ -5,34 +5,65 @@ Merit.setup do |config|
   config.current_user_method = 'current_user'
   config.add_observer 'ReputationChangeObserver'
 end
+Merit::Badge.create!(
+id: 1,
+name: "1 Presentation",
+level: 1,
+description: "Gave 1 Canvas @ Yale Presentation"
+)
+Merit::Badge.create!(
+id: 2,
+name: "3 Presentations",
+level: 2,
+description: "Gave 3 Canvas @ Yale Presentation"
+)
+Merit::Badge.create!(
+id: 3,
+name: "5 Presentations",
+level: 3,
+description: "Gave 5 Canvas @ Yale Presentation"
+)
+Merit::Badge.create!(
+id: 4,
+name: "Presenter Ninja",
+level: 4,
+description: "Gave 8+ Canvas @ Yale Presentation"
+)
 
-  Merit::Badge.create!(
-  id: 1,
-  name: "create-account",
-  level: 1,
-  description: "Create a new account"
-  )
-
-  Merit::Badge.create!(
-  id: 2,
-  name: "first-presentation",
-  level: 1,
-  description: "Give your first presentation",
-  custom_fields: { type: :presentation }
-  )
-
-  Merit::Badge.create!(
-  id: 3,
-  name: "create-presentation",
-  level: 1,
-  description: "Submit a presentation form"
-  )
-  Merit::Badge.create!(
-  id: 4,
-  name: "create-presentations",
-  level: 1,
-  description: "Submit 5 presentation forms"
-  )
+  # samples
+  # Merit::Badge.create!(
+  # id: 1,
+  # name: "create-account",
+  # level: 1,
+  # description: "Create a new account"
+  # )
+  #
+  # Merit::Badge.create!(
+  # id: 2,
+  # name: "first-presentation",
+  # level: 1,
+  # description: "Give your first presentation",
+  # custom_fields: { type: :presentation }
+  # )
+  #
+  # Merit::Badge.create!(
+  # id: 3,
+  # name: "create-presentation",
+  # level: 1,
+  # description: "Submit a presentation form"
+  # )
+  # Merit::Badge.create!(
+  # id: 4,
+  # name: "create-presentations",
+  # level: 1,
+  # description: "Submit 5 presentation forms"
+  # )
+  # Merit::Badge.create!(
+  # id: 5,
+  # name: "create-11-presentations",
+  # level: 2,
+  # description: "Submit 11 presentation forms"
+  # )
   # Check rules on each request or in background
   # config.checks_on_each_request = true
 

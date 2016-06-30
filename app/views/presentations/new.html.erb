@@ -1,2 +1,11 @@
-<h1>Obervations#new</h1>
-<p>Find me in app/views/obervations/new.html.erb</p>
+
+<%= form_for @presentation do |f| %>
+  <%= f.label :date %>:
+  <%= f.datetime_field :date %><br />
+
+  <%= f.label :school %>:
+  <%= f.text_field :school %><br />
+
+  <%= f.submit %>
+<% end %>
+

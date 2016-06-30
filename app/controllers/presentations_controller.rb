@@ -1,9 +1,17 @@
 class PresentationsController < ApplicationController
+
   def index
     @presentation = Presentation.new
   end
 
   def create
+    @user = User.find(current_user.id)
+    @presentation = Presentation.new
+    @presentation.date = params['presentation']['date']
+    @presentation.school = params['presentation']['school']
+    @presentation.user_id = current_user.id
+    @presentation.save!
+    binding.pry
     presentation_hash = params.delete('presentation_hash')
     a = Presentation.new
     a.date = presentation_hash['date']

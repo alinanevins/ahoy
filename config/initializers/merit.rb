@@ -21,6 +21,18 @@ end
   custom_fields: { type: :presentation }
   )
 
+  Merit::Badge.create!(
+  id: 3,
+  name: "create-presentation",
+  level: 1,
+  description: "Submit a presentation form"
+  )
+  Merit::Badge.create!(
+  id: 4,
+  name: "create-presentations",
+  level: 1,
+  description: "Submit 5 presentation forms"
+  )
   # Check rules on each request or in background
   # config.checks_on_each_request = true
 

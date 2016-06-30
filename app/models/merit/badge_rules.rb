@@ -21,9 +21,12 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-
       grant_on 'users/registrations#create', badge: 'create-account', model_name: 'User'
-
+      grant_on 'presentations#create', badge: "create-presentation", model_name: 'User'
+      grant_on 'users#show', badge_id: 4, badge: "create-presentations", model_name: 'User' do |user|
+        binding.pry
+        user.presentations.count == 9
+      end
 
       grant_on ['presentation#show'], badge: 'first-presentation', to: :user do |presentation|
         presentation.count == 1

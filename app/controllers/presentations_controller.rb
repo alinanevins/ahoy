@@ -5,18 +5,7 @@ class PresentationsController < ApplicationController
   end
 
   def create
-<<<<<<< 8e1bec64a30b1918f3fe13d11234d789328fe439
-    @user = User.find(current_user.id)
-    @presentation = Presentation.new
-    @presentation.date = params['presentation']['date']
-    @presentation.school = params['presentation']['school']
-    @presentation.user_id = current_user.id
-    @presentation.save!
-    binding.pry
-    presentation_hash = params.delete('presentation_hash')
-=======
     presentation_hash = params.delete('presentation')
->>>>>>> added more views for the rest
     a = Presentation.new
     a.date = presentation_hash['date']
     a.school = presentation_hash['school']

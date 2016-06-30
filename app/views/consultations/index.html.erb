@@ -1,2 +1,24 @@
-<h1>Consultations#index</h1>
-<p>Find me in app/views/consultations/index.html.erb</p>
+<div class="container">
+  <h1>All Consultations</h1>
+
+  <table>
+    <tr>
+      <th>Faculty Member(ID)</th>
+      <th>Team Member (ID)</th>
+      <th>Date</th>
+      <th>Focus</th>
+      <th>Link to Notes</th>
+      <th>Date Added</th>
+    </tr>
+    <% @consultation.each do |a| %>
+    <tr>
+      <td><%= a.faculty_id  %></td>
+      <td><%= a.user_id  %></td>
+      <td><%= a.date  %></td>
+      <td><%= a.focus  %></td>
+      <td><%= a.link_to_notes %></td>
+      <td><%= a.created_at  %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

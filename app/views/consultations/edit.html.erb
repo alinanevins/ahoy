@@ -1,2 +1,9 @@
-<h1>Consultations#edit</h1>
-<p>Find me in app/views/consultations/edit.html.erb</p>
+<div class="container">
+  <h1>Edit your Consultation</h1>
+
+<div class="row">
+  <%= form_for @container do |f| %>
+  <div class="row">
+    <div class="input-field col s6"><%= f.label :name %>
+      <%= f.text_field :name %></p>
+    </div>

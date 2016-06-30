@@ -7,8 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <div class="container">
+  <div class="two columns">
+	<h1>AA</h1>
+</div>
+<div id="nav" class="ten columns">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/consultations">Consultations</a></li>
+		<li><a href="/documentations">Documentation</a></li>
+		<li><a href="/faculties">Faculty</a></li>
+    <li><a href="/observations">Observations</a></li>
+    <li><a href="/presentations">Presentations</a></li>
+    <li><a href="/transitions">Transitions</a></li>
+	</ul>
+</div>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+</div>
 
 <%= yield %>
 

@@ -1,11 +1,22 @@
+<div class="container">
+  <h1>Add a New Presentation</h1>
 
-<%= form_for @presentation do |f| %>
-  <%= f.label :date %>:
-  <%= f.datetime_field :date %><br />
+  <div class="row">
+    <%= form_for(@presentation) do |f| %>
 
-  <%= f.label :school %>:
-  <%= f.text_field :school %><br />
+    <%= f.label :date %>
+    <%= f.text_field :date %><p/>
 
+    <%= f.label :school %>
+    <%= f.text_field :school %><p/>
+
+    <%= f.label :department %>
+    <%= f.text_field :department %><p/>
+
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %><p/>
+
+  </div>
   <%= f.submit %>
-<% end %>
-
+  <% end %>
+</div>

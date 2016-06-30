@@ -1,2 +1,12 @@
-<h1>Transitions#show</h1>
-<p>Find me in app/views/transitions/show.html.erb</p>
+<div class="container">
+<h1>Classes*v2 to Canvas Transition <%= @transition.id %></h1>
+
+<div class="row">
+  <p>Team Member ID: <%= @transition.user_id %>
+  <p>Faculty ID: <%= @transition.faculty_id %>
+  <p>Course: <%= @transition.course %>
+  <p>Link: <%= @transition.link %>
+  <p>Date Added: <%= @transition.created_at %>
+</div>
+  <p><%= link_to "Edit", "/transitions/#{@transition.id}/edit", method: 'post' %>
+  </div>

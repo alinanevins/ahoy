@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Add New Documentation</h1>
+
+    <div class="row">
+      <%= form_for(@documentation) do |f| %>
+
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id %><p/>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %><p/>
+
+      <%= f.label :audience %>
+      <%= f.text_field :audience %><p/>
+
+      <%= f.label :link_to_documentation %>
+      <%= f.text_field :link_to_documentation %><p/>
+    </div>
+    <%= f.submit %>
+    <% end %>
+  </div>

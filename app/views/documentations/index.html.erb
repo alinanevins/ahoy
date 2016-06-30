@@ -3,6 +3,7 @@
 
   <table>
     <tr>
+      <th>Documentation ID</th>
       <th>Team Member (ID)</th>
       <th>Name</th>
       <th>Audience</th>
@@ -11,6 +12,7 @@
     </tr>
     <% @documentation.each do |a| %>
     <tr>
+      <td><%= link_to a.id, "/documentations/#{a.id}", method: 'get' %></td>
       <td><%= a.user_id  %></td>
       <td><%= a.name  %></td>
       <td><%= a.audience  %></td>

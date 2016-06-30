@@ -1,9 +1,24 @@
 <div class="container">
   <h1>Edit your Consultation</h1>
 
-<div class="row">
-  <%= form_for @container do |f| %>
-  <div class="row">
-    <div class="input-field col s6"><%= f.label :name %>
-      <%= f.text_field :name %></p>
+    <div class="row">
+      <%= form_for(@consultation) do |f| %>
+
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id %><p/>
+      
+      <%= f.label :faculty_id %>
+      <%= f.text_field :faculty_id %><p/>
+
+      <%= f.label :date %>
+      <%= f.text_field :date %><p/>
+
+      <%= f.label :focus %>
+      <%= f.text_field :focus %><p/>
+
+      <%= f.label :link_to_notes %>
+      <%= f.text_field :link_to_notes %><p/>
     </div>
+    <%= f.submit %>
+    <% end %>
+  </div>

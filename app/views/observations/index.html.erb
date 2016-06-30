@@ -3,21 +3,22 @@
 
   <table>
     <tr>
+      <th>Observation ID</th>
       <th>Date</th>
       <th>School</th>
       <th>Department</th>
       <th>Presentation ID</th>
       <th>Observer (ID)</th>
-      <th>Notes</th>
+
     </tr>
     <% @observation.each do |a| %>
     <tr>
+      <td><%= link_to a.id, "/observations/#{a.id}", method: 'get' %></td>
       <td><%= a.date %></td>
       <td><%= a.school %></td>
       <td><%= a.department %></td>
       <td><%= a.presentation_id %></td>
       <td><%= a.user_id %></td>
-      <!-- <td><%= a.notes %></td> -->
     </tr>
     <% end %>
   </table>

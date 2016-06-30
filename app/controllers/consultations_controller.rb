@@ -38,7 +38,7 @@ class ConsultationsController < ApplicationController
     @consultation.user_id = consultation_hash['user_id']
     @consultation.date = consultation_hash['date']
     @consultation.focus = consultation_hash['focus']
-    @consultation.link = consultation_hash['link']
+    @consultation.link_to_notes = consultation_hash['link_to_notes']
     if @consultation.save
       redirect_to consultation_path(@consultation.id)
     end

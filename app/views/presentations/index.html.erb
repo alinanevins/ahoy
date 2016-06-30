@@ -3,6 +3,7 @@
 
   <table>
     <tr>
+      <th>Presentation ID</th>
       <th>Date</th>
       <th>School</th>
       <th>Department</th>
@@ -11,6 +12,7 @@
     </tr>
     <% @presentation.each do |a| %>
     <tr>
+      <td><%= link_to a.id, "/presentations/#{a.id}", method: 'get' %></td>
       <td><%= a.date %></td>
       <td><%= a.school %></td>
       <td><%= a.department %></td>

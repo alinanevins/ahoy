@@ -1,4 +1,4 @@
-class FacultyController < ApplicationController
+class FacultiesController < ApplicationController
   def index
     @faculty = Faculty.all
   end

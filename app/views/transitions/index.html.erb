@@ -3,20 +3,20 @@
 
   <table>
     <tr>
+      <th>Transition ID</th>
       <th>Team Member (ID)</th>
       <th>Faculty (ID)</th>
       <th>Course</th>
       <th>Link</th>
-      <!-- <th>Date</th> -->
       <th>Date Added</th>
     </tr>
     <% @transition.each do |a| %>
     <tr>
+      <td><%= link_to a.id, "/transitions/#{a.id}", method: 'get' %></td>
       <td><%= a.user_id %></td>
       <td><%= a.faculty_id %></td>
       <td><%= a.course %></td>
       <td><%= a.link %></td>
-      <!-- <td><%= a.date %></td> -->
       <td><%= a.created_at  %></td>
     </tr>
     <% end %>

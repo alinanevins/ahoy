@@ -1,10 +1,10 @@
-class ObervationsController < ApplicationController
+class ObservationsController < ApplicationController
   def index
-    @observation = Observation.new
+    @observation = Observation.all
   end
 
   def create
-    observation_hash = params.delete('observation_hash')
+    observation_hash = params.delete('observation')
     a = Observation.new
     a.date = observation_hash['date']
     a.school = observation_hash['school']

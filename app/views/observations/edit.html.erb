@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>Edit your Presentation</h1>
+  <h1>Edit your Observation</h1>
 
     <div class="row">
-      <%= form_for(@presentation) do |f| %>
+      <%= form_for(@observation) do |f| %>
 
       <%= f.label :date %>
       <%= f.text_field :date %><p/>
@@ -12,6 +12,9 @@
 
       <%= f.label :department %>
       <%= f.text_field :department %><p/>
+
+      <%= f.label :presentation_id %>
+      <%= f.text_field :presentation_id %><p/>
 
       <%= f.label :user_id %>
       <%= f.text_field :user_id %><p/>

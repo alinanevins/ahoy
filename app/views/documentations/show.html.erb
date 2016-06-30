@@ -1,0 +1,12 @@
+<div class="container">
+<h1>Documentation <%= @documentation.id %></h1>
+
+<div class="row">
+  <p>Name: <%= @documentation.name %>
+  <p>Team Member ID: <%= @documentation.user_id %>
+  <p>Audience: <%= @documentation.audience %>
+  <p>Link to Documentation: <%= @documentation.link_to_documentation %>
+  <p>Date Added: <%= @documentation.created_at %>
+</div>
+  <p><%= link_to "Edit", "/documentations/#{@documentation.id}/edit", method: 'post' %>
+  </div>

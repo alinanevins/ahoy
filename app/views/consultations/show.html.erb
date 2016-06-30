@@ -1,2 +1,12 @@
-<h1>Consultations#show</h1>
-<p>Find me in app/views/consultations/show.html.erb</p>
+<div class="container">
+<h1>Consultation <%= @consultation.id %></h1>
+
+<div class="row">
+  <p>Faculty ID: <%= @consultation.faculty_id %>
+  <p>Team Member ID: <%= @consultation.user_id %>
+  <p>Consultation Date: <%= @consultation %>
+  <p>Consultation Focus: <%= @consultation.focus %>
+  <p>Link to Consultation Notes: <%= @consultation.link_to_notes %>
+</div>
+  <p><%= link_to "Edit", "/consultations/#{@consultation.id}/edit", method: 'post' %>
+  </div>

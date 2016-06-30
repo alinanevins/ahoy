@@ -1,2 +1,22 @@
-<h1>Transitions#new</h1>
-<p>Find me in app/views/transitions/new.html.erb</p>
+<div class="container">
+  <h1>New Classes*v2 to Canvas Transition</h1>
+
+    <div class="row">
+      <%= form_for(@transition) do |f| %>
+
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id %><p/>
+
+      <%= f.label :faculty_id %>
+      <%= f.text_field :faculty_id %><p/>
+
+      <%= f.label :course %>
+      <%= f.text_field :course %><p/>
+
+      <%= f.label :link %>
+      <%= f.text_field :link %><p/>
+
+    </div>
+    <%= f.submit %>
+    <% end %>
+  </div>

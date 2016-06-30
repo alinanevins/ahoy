@@ -3,6 +3,7 @@
 
   <table>
     <tr>
+      <th>Faculty ID</th>
       <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
@@ -12,6 +13,7 @@
     </tr>
     <% @faculty.each do |a| %>
     <tr>
+      <td><%= link_to a.id, "/faculties/#{a.id}", method: 'get' %></td>
       <td><%= a.name %></td>
       <td><%= a.email %></td>
       <td><%= a.phone %></td>

@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Edit Faculty Member</h1>
+
+    <div class="row">
+      <%= form_for(@faculty) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %><p/>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %><p/>
+
+      <%= f.label :phone %>
+      <%= f.text_field :phone %><p/>
+
+      <%= f.label :school %>
+      <%= f.text_field :school %><p/>
+
+      <%= f.label :department %>
+      <%= f.text_field :department %><p/>
+
+      <%= f.label :Notes %>
+      <%= f.text_field :Notes %><p/>
+
+    </div>
+    <%= f.submit %>
+    <% end %>
+  </div>

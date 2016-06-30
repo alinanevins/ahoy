@@ -1,2 +1,12 @@
-Here is the presentation!
-                 
+<div class="container">
+<h1>Presentation <%= @presentation.id %></h1>
+
+<div class="row">
+  <p>Date: <%= @presentation.date %>
+  <p>School: <%= @presentation.school %>
+  <p>Department: <%= @presentation.department %>
+  <p>Presenter ID: <%= @presentation.user_id %>
+  <p>Date Added: <%= @presentation.created_at %>
+</div>
+  <p><%= link_to "Edit", "/presentations/#{@presentation.id}/edit", method: 'post' %>
+  </div>

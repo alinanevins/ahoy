@@ -3,6 +3,7 @@
 
   <table>
     <tr>
+      <th>Consultation ID</th>
       <th>Faculty Member(ID)</th>
       <th>Team Member (ID)</th>
       <th>Date</th>
@@ -12,6 +13,7 @@
     </tr>
     <% @consultation.each do |a| %>
     <tr>
+      <td><%= link_to a.id, "/consultations/#{a.id}", method: 'get' %></td>
       <td><%= a.faculty_id  %></td>
       <td><%= a.user_id  %></td>
       <td><%= a.date  %></td>

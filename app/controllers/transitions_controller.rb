@@ -1,10 +1,10 @@
 class TransitionsController < ApplicationController
   def index
-    @transition = Transition.new
+    @transition = Transition.all
   end
 
   def create
-    transition_hash = params.delete('transition_hash')
+    transition_hash = params.delete('transition')
     a = Transition.new
     a.user_id = transition_hash['user_id']
     a.faculty_id = transition_hash['faculty_id']

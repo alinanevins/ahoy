@@ -5,6 +5,14 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  post '/consultations/:id/edit' => 'consultations#edit'
+  post '/documentations/:id/edit' => 'documentations#edit'
+  post '/faculties/:id/edit' => 'faculties#edit'
+  post '/observations/:id/edit' => 'observations#edit'
+  post '/presentations/:id/edit' => 'presentations#edit'
+  post '/transitions/:id/edit' => 'transitions#edit'
+
+
   resources :users
   resources :consultations
   resources :faculties

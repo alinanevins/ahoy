@@ -2,11 +2,14 @@
 <h1>Observation <%= @observation.id %></h1>
 
 <div class="row">
-  <p>Date: <%= @observation.date %>
+  <p>Date: <%= @observation.date.to_s(:pretty_dt) %>
+  <p>Observer ID: <%= @observation.user_id %>
+  <p>Observer Name: <%= @observer_name %>
   <p>School: <%= @observation.school %>
   <p>Department: <%= @observation.department %>
   <p>Presentation ID: <%= @observation.presentation_id %>
-  <p>Observer ID: <%= @observation.user_id %>
+  <p>Presenter ID: <%= @presenter %>
+
 
   <p><%= link_to "Edit", "/observations/#{@observation.id}/edit", method: 'post' %>
   </div>

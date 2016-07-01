@@ -19,7 +19,12 @@
       <%= f.label :user_id %>
       <%= f.text_field :user_id %><p/>
 
+      <%= f.submit %>
+      <% end %>
     </div>
-    <%= f.submit %>
-    <% end %>
+
+    <div class="row">
+      <%= link_to "Delete this observation", observation_path(@observation.id), method: 'delete' %>
+    </div>
+    
   </div>

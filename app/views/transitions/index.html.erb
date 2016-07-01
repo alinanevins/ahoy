@@ -17,7 +17,7 @@
       <td><%= a.faculty_id %></td>
       <td><%= a.course %></td>
       <td><%= a.link %></td>
-      <td><%= a.created_at  %></td>
+      <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>
     <% end %>
   </table>

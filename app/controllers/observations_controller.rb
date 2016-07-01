@@ -23,6 +23,15 @@ class ObservationsController < ApplicationController
   def show
     id = params[:id]
     @observation = Observation.find(id)
+    @presentation_id = @observation.presentation_id
+    a = Presentation.find(@presentation_id)
+    @presenter = a.user_id
+    @school = a.school
+    @department = a.department
+    @userid = @observation.user_id
+    b = User.find(@userid)
+    @observer_name = b.first_name.to_s + " " + b.last_name.to_s
+
   end
 
   def edit

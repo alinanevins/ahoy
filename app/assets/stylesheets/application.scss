@@ -16,8 +16,14 @@
  *= require_self
  */
 
- .container {
-	margin-top: 50px;
+body.welcome {
+  @import "bootstrap";
+  @import "font-awesome";
+  @import "templatemo_style";
+}
+
+th, td {
+  padding-left: 15px;
 }
 
 #nav {
@@ -32,8 +38,9 @@
 
 #nav a {
 	text-decoration: none;
+  color: blue;
 }
 
 #nav a:hover {
-	text-decoration: underline;
+	color: gray;
 }

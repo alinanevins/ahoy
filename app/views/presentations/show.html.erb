@@ -6,7 +6,7 @@
   <p>School: <%= @presentation.school %>
   <p>Department: <%= @presentation.department %>
   <p>Presenter ID: <%= @presentation.user_id %>
-  <p>Date Added: <%= @presentation.created_at %>
+  <p>Date Added: <%= @presentation.to_s(:pretty_dt) %>
 </div>
   <p><%= link_to "Edit", "/presentations/#{@presentation.id}/edit", method: 'post' %>
   </div>

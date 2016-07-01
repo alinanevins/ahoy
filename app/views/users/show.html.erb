@@ -1,8 +1,17 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+<h1>Hi, <%= @user.first_name %> <%= @user.first_name %>!</h1>
 
-<ul>
-  <% current_user.badges.each do |badge| %>
-    <li><%= badge.name %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <p>User ID: <%= @user.id %>
+  <p>Email: <%= @user.password %>
+  <p>Registered on: <%= @user.created_at.to_s(:pretty_dt) %>
+  <p>Badges:
+  <ul>
+    <% @user.badges.each do |badge| %>
+      <li><%= badge.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+  <p><%= link_to "Edit", "/users/#{@user.id}/edit", method: 'post' %>
+  </div>

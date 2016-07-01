@@ -15,7 +15,12 @@
 
       <%= f.label :link_to_documentation %>
       <%= f.text_field :link_to_documentation %><p/>
+
+      <%= f.submit %>
+      <% end %>
     </div>
-    <%= f.submit %>
-    <% end %>
+
+    <div class="row">
+      <%= link_to "Delete this documentation", documentation_path(@documentation.id), method: 'delete' %>
+    </div>
   </div>

@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CanvasLeaderboard</title>
+  <title>All Aboard Canvas</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <div class="container">
-  <div class="two columns">
-	<h1>AA</h1>
-</div>
-<div id="nav" class="ten columns">
-	<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/consultations">Consultations</a></li>
-		<li><a href="/documentations">Documentation</a></li>
-		<li><a href="/faculties">Faculty</a></li>
-    <li><a href="/observations">Observations</a></li>
-    <li><a href="/presentations">Presentations</a></li>
-    <li><a href="/transitions">Transitions</a></li>
-	</ul>
-</div>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-</div>
+<body class=<%= controller.controller_name %>>
+  
+  <div class="container" id="navBar">
+    <div class="two columns">
+      <h1>AA</h1>
+    </div>
+    <div id="nav" class="ten columns">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/consultations">Consultations</a></li>
+        <li><a href="/documentations">Documentation</a></li>
+        <li><a href="/faculties">Faculty</a></li>
+        <li><a href="/observations">Observations</a></li>
+        <li><a href="/presentations">Presentations</a></li>
+        <li><a href="/transitions">Transitions</a></li>
+        <li><a href="/users">Users</a></li>
+      </ul>
+    </div>
 
-<%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
+
+  <%= yield %>
 
 </body>
 </html>

@@ -1,2 +1,21 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+  <h1>Edit your Account</h1>
+
+    <div class="row">
+      <%= form_for(@user) do |f| %>
+
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %><p/>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %><p/>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %><p/>
+      
+      <%= f.submit %>
+      <% end %>
+    </div>
+
+    <%= link_to "Delete your account", user_path(@user.id), method: 'delete' %>
+  </div>

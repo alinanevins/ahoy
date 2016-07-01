@@ -6,7 +6,7 @@
 
       <%= f.label :user_id %>
       <%= f.text_field :user_id %><p/>
-      
+
       <%= f.label :faculty_id %>
       <%= f.text_field :faculty_id %><p/>
 
@@ -18,7 +18,12 @@
 
       <%= f.label :link_to_notes %>
       <%= f.text_field :link_to_notes %><p/>
+
+      <%= f.submit %>
+      <% end %>
     </div>
-    <%= f.submit %>
-    <% end %>
+
+    <div class="row">
+      <%= link_to "Delete this consultation", consultation_path(@consultation.id), method: 'delete' %>
+    </div>
   </div>

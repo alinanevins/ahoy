@@ -1,2 +1,22 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+  <h1>All Users</h1>
+
+  <table>
+    <tr>
+      <th>User ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Last Signed In</th>
+    </tr>
+    <% @user.each do |a| %>
+    <tr>
+      <td><%= link_to a.id, "/users/#{a.id}", method: 'get' %></td>
+      <td><%= a.first_name %></td>
+      <td><%= a.last_name %></td>
+      <td><%= a.email %></td>
+      <td><%= a.last_sign_in_at.to_s(:pretty_dt) %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

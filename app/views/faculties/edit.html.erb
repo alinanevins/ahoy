@@ -19,10 +19,11 @@
       <%= f.label :department %>
       <%= f.text_field :department %><p/>
 
-      <%= f.label :Notes %>
-      <%= f.text_field :Notes %><p/>
-
+      <%= f.submit %>
+      <% end %>
     </div>
-    <%= f.submit %>
-    <% end %>
+
+    <div class="row">
+      <%= link_to "Delete this faculty member", faculty_path(@faculty.id), method: 'delete' %>
+    </div>
   </div>

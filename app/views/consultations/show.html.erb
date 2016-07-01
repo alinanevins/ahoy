@@ -4,7 +4,7 @@
 <div class="row">
   <p>Faculty ID: <%= @consultation.faculty_id %>
   <p>Team Member ID: <%= @consultation.user_id %>
-  <p>Consultation Date: <%= @consultation %>
+  <p>Consultation Date: <%= @consultation.date.to_s(:pretty_dt) %>
   <p>Consultation Focus: <%= @consultation.focus %>
   <p>Link to Consultation Notes: <%= @consultation.link_to_notes %>
 </div>

@@ -2,15 +2,15 @@
   <h1>All Consultations</h1>
 
   <table>
-    <tr>
+    <thead>
       <th>Consultation ID</th>
       <th>Faculty Member(ID)</th>
-      <th>Team Member (ID)</th>
+      <th>Consultant ID</th>
       <th>Date</th>
       <th>Focus</th>
       <th>Link to Notes</th>
       <th>Date Added</th>
-    </tr>
+    </thead>
     <% @consultation.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/consultations/#{a.id}", method: 'get' %></td>

@@ -2,14 +2,14 @@
   <h1>All Classes*v2 to Canvas Transitions</h1>
 
   <table>
-    <tr>
+    <thead>
       <th>Transition ID</th>
       <th>Team Member (ID)</th>
       <th>Faculty (ID)</th>
       <th>Course</th>
       <th>Link</th>
       <th>Date Added</th>
-    </tr>
+    </thead>
     <% @transition.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/transitions/#{a.id}", method: 'get' %></td>

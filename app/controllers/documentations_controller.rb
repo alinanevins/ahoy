@@ -22,6 +22,10 @@ class DocumentationsController < ApplicationController
   def show
     id = params[:id]
     @documentation = Documentation.find(id)
+
+    @userid = @documentation.user_id
+    a = User.find(@userid)
+    @consultant_name = a.first_name.to_s + " " + a.last_name.to_s
   end
 
   def edit

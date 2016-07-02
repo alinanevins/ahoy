@@ -2,7 +2,7 @@
   <h1>All Faculty</h1>
 
   <table>
-    <tr>
+    <thead>
       <th>Faculty ID</th>
       <th>Name</th>
       <th>Email</th>
@@ -10,11 +10,11 @@
       <th>School</th>
       <th>Department</th>
       <th>Notes</th>
-    </tr>
+    </thead>
     <% @faculty.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/faculties/#{a.id}", method: 'get' %></td>
-      <td><%= a.name %></td>
+      <td><%= a.first_name.to_s + " " + a.last_name.to_s %></td>
       <td><%= a.email %></td>
       <td><%= a.phone %></td>
       <td><%= a.school %></td>

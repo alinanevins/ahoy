@@ -38,9 +38,12 @@ body.index {
     height: 100vh;
 }
 /***** Typography *****/
-body, p, a, th, td, li, dl, .form-control { font: normal normal 300 18px/2em 'Fira Sans';}
-b, strong, dt { font-weight: 400;}
-h1, h2, h3, h4, h5, h6 { line-height: 2em;}
+body.index {
+  font: normal normal 300 18px/2em 'Fira Sans';
+  body, p, a, th, td, li, dl, .form-control { font: normal normal 300 18px/2em 'Fira Sans';}
+  b, strong, dt { font-weight: 400;}
+  h1, h2, h3, h4, h5, h6 { line-height: 2em;}
+}
 /***** Material Shadow *****/
 .shadow-top-down {
     box-shadow: 0px 8px 8px -4px rgba(0,0,0,0.75);
@@ -102,18 +105,19 @@ form .checkbox input[type=checkbox] { margin-top: 12px;}
     margin: 10px 15px 15px 0;
 }
 /***** Template Header *****/
-header.template_header h1 {
+
+  header.template_header h1 {
     font: normal normal 200 50px/150px 'Fira Sans', sans-serif;
     text-align: center;
     margin-top: 50px;
     color: #fff;
-}
-header.template_header h1 span {
+  }
+  header.template_header h1 span {
     position: relative;
     top: -15px;
-}
+  }
 /***** Main Menu *****/
-nav.main-menu {
+  nav.main-menu {
     top: 130px;
     right: 100px;
     z-index: 998;
@@ -124,21 +128,21 @@ nav.main-menu {
     border-radius: 5px;
     border: 1px solid rgba(37,58,68,.15);
 }
-nav.main-menu a:link, nav.main-menu a:hover, nav.main-menu a:focus, nav.main-menu a {
+  nav.main-menu a:link, nav.main-menu a:hover, nav.main-menu a:focus, nav.main-menu       a {
     color: #455a64;
     text-align: left;
     font: normal normal 400 18px/30px 'Fira Sans', sans-serif;
     padding: 10px 50px 10px 30px;
     border-radius: 0;
 }
-.show-menu {
+  .show-menu {
     position: fixed;
     z-index: 999;
     top: 50px;
     right: 100px;
     text-align: center;
 }
-.show-menu a:hover, .show-menu a {
+  .show-menu a:hover, .show-menu a {
     font: normal normal 100 100px/70px 'Fira Sans', sans-serif;
     border: 1px solid rgba(37,58,68,.15);
     text-decoration: none;
@@ -151,6 +155,7 @@ nav.main-menu a:link, nav.main-menu a:hover, nav.main-menu a:focus, nav.main-men
     padding: 0px;
     outline: none;
 }
+
 /***** Home *****/
 #templatemo_home {
     background: #154558 url(/images/ship-sails.jpg) fixed;
@@ -158,7 +163,7 @@ nav.main-menu a:link, nav.main-menu a:hover, nav.main-menu a:focus, nav.main-men
     min-height: 100vh;
     padding-bottom: 130px;
     color: #fff;
-    margin-top: -45px;
+
 }
 #templatemo_home .templatemo_home_inner_wapper {
     width: 100%;
@@ -252,7 +257,11 @@ nav.main-menu a:link, nav.main-menu a:hover, nav.main-menu a:focus, nav.main-men
 }
 /***** Download *****/
 #templatemo_download {
-    background: url(/images/download_background.jpg) fixed;
+    background: url(/images/table-laptop.jpg) fixed;
+    background-size: cover;
+    min-height: 100vh;
+    padding-bottom: 130px;
+    color: #fff;
 }
 #templatemo_download h2 {
     font: normal normal 100 100px/150px 'Fira Sans', sans-serif;

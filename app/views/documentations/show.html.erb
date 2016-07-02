@@ -1,12 +1,11 @@
 <div class="container">
-<h1>Documentation <%= @documentation.id %></h1>
+  <h1>Documentation <%= @documentation.id %></h1>
 
-<div class="row">
-  <p>Name: <%= @documentation.name %>
-  <p>Team Member ID: <%= @documentation.user_id %>
-  <p>Audience: <%= @documentation.audience %>
-  <p>Link to Documentation: <%= @documentation.link_to_documentation %>
-  <p>Date Added: <%= @documentation.to_s(:pretty_dt) %>
+  <p>Name: <%= @documentation.name %></p>
+  <p>Author: <%= link_to @consultant_name, "/users/#{@documentation.user_id}" %></p>
+  <p>Audience: <%= @documentation.audience %></p>
+  <p>Link to Documentation: <%= @documentation.link_to_documentation %></p>
+  <p>Date Added: <%= @documentation.created_at.to_s(:pretty_dt) %></p>
+
+  <p><%= link_to "Edit", "/documentations/#{@documentation.id}/edit", method: 'post' %></p>
 </div>
-  <p><%= link_to "Edit", "/documentations/#{@documentation.id}/edit", method: 'post' %>
-  </div>

@@ -1,15 +1,14 @@
 <div class="container">
-<h1>Observation <%= @observation.id %></h1>
+  <h1>Observation <%= @observation.id %></h1>
+  <p>Presentation ID: <%= @observation.presentation_id %></p>
 
-<div class="row">
-  <p>Date: <%= @observation.date.to_s(:pretty_dt) %>
-  <p>Observer ID: <%= @observation.user_id %>
-  <p>Observer Name: <%= @observer_name %>
-  <p>School: <%= @observation.school %>
-  <p>Department: <%= @observation.department %>
-  <p>Presentation ID: <%= @observation.presentation_id %>
-  <p>Presenter ID: <%= @presenter %>
+  <p>Date: <%= @date %></p>
+  <p>School: <%= @school %></p>
+  <p>Department: <%= @department %></p>
 
+  <p>Observer Name: <%= link_to @observer_name, "/users/#{@observation.user_id}" %></p>
+  <p>Presenter Name: <%= link_to @presenter_name, "/users/#{@presenter_id}" %></p>
 
-  <p><%= link_to "Edit", "/observations/#{@observation.id}/edit", method: 'post' %>
-  </div>
+  <p><%= link_to "Edit", "/observations/#{@observation.id}/edit", method: 'post' %></p>
+
+</div>

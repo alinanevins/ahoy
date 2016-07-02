@@ -6,9 +6,6 @@ class ObservationsController < ApplicationController
   def create
     observation_hash = params.delete('observation')
     a = Observation.new
-    a.date = observation_hash['date']
-    a.school = observation_hash['school']
-    a.department = observation_hash['department']
     a.presentation_id = observation_hash['presentation_id']
     a.user_id = observation_hash['user_id']
     if a.save
@@ -23,15 +20,22 @@ class ObservationsController < ApplicationController
   def show
     id = params[:id]
     @observation = Observation.find(id)
-    @presentation_id = @observation.presentation_id
-    a = Presentation.find(@presentation_id)
-    @presenter = a.user_id
+
+    presentation_id = @observation.presentation_id
+
+    a = Presentation.find(presentation_id)
+
+    @date = a.date.to_s(:pretty_dt)
     @school = a.school
     @department = a.department
-    @userid = @observation.user_id
-    b = User.find(@userid)
-    @observer_name = b.first_name.to_s + " " + b.last_name.to_s
 
+    @presenter_id = a.user_id
+    c = User.find(@presenter_id)
+    @presenter_name = c.first_name.to_s + " " + c.last_name.to_s
+
+    observer_id = @observation.user_id
+    b = User.find(observer_id)
+    @observer_name = b.first_name.to_s + " " + b.last_name.to_s
   end
 
   def edit
@@ -43,9 +47,6 @@ class ObservationsController < ApplicationController
     id = params[:id]
     observation_hash = params.delete('observation')
     @observation = Observation.find(id)
-    @observation.date = observation_hash['date']
-    @observation.school = observation_hash['school']
-    @observation.department = observation_hash['department']
     @observation.presentation_id = observation_hash['presentation_id']
     @observation.user_id = observation_hash['user_id']
     if @observation.save

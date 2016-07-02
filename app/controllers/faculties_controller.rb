@@ -6,7 +6,8 @@ class FacultiesController < ApplicationController
   def create
     faculty_hash = params.delete('faculty')
     a = Faculty.new
-    a.name = faculty_hash['name']
+    a.first_name = faculty_hash['first_name']
+    a.last_name = faculty_hash['last_name']
     a.email = faculty_hash['email']
     a.phone = faculty_hash['phone']
     a.school = faculty_hash['school']
@@ -35,7 +36,8 @@ class FacultiesController < ApplicationController
     id = params[:id]
     faculty_hash = params.delete('faculty')
     @faculty = Faculty.find(id)
-    @faculty.name = faculty_hash['name']
+    @faculty.first_name = faculty_hash['first_name']
+    @faculty.last_name = faculty_hash['last_name']
     @faculty.email = faculty_hash['email']
     @faculty.phone = faculty_hash['phone']
     @faculty.school = faculty_hash['school']
@@ -49,7 +51,7 @@ class FacultiesController < ApplicationController
   def destroy
     id = params[:id]
     Faculty.delete(id)
-    flash[:notice] = "Faculty #{name} was successfully deleted"
+    flash[:notice] = "Faculty #{first_name.to_s + " " + last_name.to_s} was successfully deleted"
     redirect_to "/"
   end
 end

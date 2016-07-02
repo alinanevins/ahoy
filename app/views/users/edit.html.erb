@@ -1,21 +1,19 @@
 <div class="container">
   <h1>Edit your Account</h1>
 
-    <div class="row">
-      <%= form_for(@user) do |f| %>
+  <%= form_for(@user) do |f| %>
 
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %><p/>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><p/>
 
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %><p/>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><p/>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %><p/>
-      
-      <%= f.submit %>
-      <% end %>
-    </div>
+  <%= f.label :email %>
+  <%= f.text_field :email %><p/>
 
-    <%= link_to "Delete your account", user_path(@user.id), method: 'delete' %>
-  </div>
+  <%= f.submit %>
+  <% end %>
+
+  <%= link_to "Delete your account", user_path(@user.id), method: 'delete' %>
+</div>

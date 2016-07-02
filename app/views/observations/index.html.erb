@@ -2,21 +2,14 @@
   <h1>All Observations</h1>
 
   <table>
-    <tr>
+    <thead>
       <th>Observation ID</th>
-      <th>Date</th>
-      <th>School</th>
-      <th>Department</th>
       <th>Presentation ID</th>
       <th>Observer (ID)</th>
-
-    </tr>
+    </thead>
     <% @observation.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/observations/#{a.id}", method: 'get' %></td>
-      <td><%= a.date %></td>
-      <td><%= a.school %></td>
-      <td><%= a.department %></td>
       <td><%= a.presentation_id %></td>
       <td><%= a.user_id %></td>
     </tr>

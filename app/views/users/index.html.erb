@@ -2,13 +2,13 @@
   <h1>All Users</h1>
 
   <table>
-    <tr>
+    <thead>
       <th>User ID</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
       <th>Last Signed In</th>
-    </tr>
+    </thead>
     <% @user.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/users/#{a.id}", method: 'get' %></td>

@@ -23,6 +23,17 @@ class PresentationsController < ApplicationController
   def show
     id = params[:id]
     @presentation = Presentation.find(id)
+
+    presenter_id = @presentation.user_id
+    a = User.find(presenter_id)
+    @presenter_name = a.first_name.to_s + " " + a.last_name.to_s
+
+    observation = Observation.find_by presentation_id: id
+    @observer_id = observation.user_id
+    b = User.find(@observer_id)
+    @observer_name = b.first_name.to_s + " " + b.last_name.to_s
+
+
   end
 
   def edit

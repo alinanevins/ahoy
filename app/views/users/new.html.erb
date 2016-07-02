@@ -1,19 +1,17 @@
 <div class="container">
   <h1>Create a New Account</h1>
 
-    <div class="row">
-      <%= form_for(@user) do |f| %>
+  <%= form_for(@user) do |f| %>
 
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %><p/>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><p/>
 
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %><p/>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><p/>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %><p/>
+  <%= f.label :email %>
+  <%= f.text_field :email %><p/>
 
-    </div>
-    <%= f.submit %>
-    <% end %>
-  </div>
+  <%= f.submit %>
+  <% end %>
+</div>

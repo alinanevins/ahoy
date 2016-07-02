@@ -1,17 +1,15 @@
 <div class="container">
-<h1>Hi, <%= @user.first_name %> <%= @user.first_name %>!</h1>
+  <h1>Hi, <%= @user.first_name %> <%= @user.last_name %>!</h1>
 
-<div class="row">
-  <p>User ID: <%= @user.id %>
-  <p>Email: <%= @user.password %>
-  <p>Registered on: <%= @user.created_at.to_s(:pretty_dt) %>
+  <p>User ID: <%= @user.id %></p>
+  <p>Email: <%= @user.password %></p>
+  <p>Registered on: <%= @user.created_at.to_s(:pretty_dt) %></p>
   <p>Badges:
-  <ul>
-    <% @user.badges.each do |badge| %>
+    <ul>
+      <% @user.badges.each do |badge| %>
       <li><%= badge.name %></li>
-    <% end %>
-  </ul>
-</div>
+      <% end %>
+    </ul></p>
 
-  <p><%= link_to "Edit", "/users/#{@user.id}/edit", method: 'post' %>
+    <p><%= link_to "Edit", "/users/#{@user.id}/edit", method: 'post' %></p>
   </div>

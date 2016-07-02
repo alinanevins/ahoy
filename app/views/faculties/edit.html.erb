@@ -1,29 +1,29 @@
 <div class="container">
   <h1>Edit Faculty Member</h1>
 
-    <div class="row">
-      <%= form_for(@faculty) do |f| %>
+  <%= form_for(@faculty) do |f| %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %><p/>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><p/>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %><p/>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><p/>
 
-      <%= f.label :phone %>
-      <%= f.text_field :phone %><p/>
+  <%= f.label :email %>
+  <%= f.text_field :email %><p/>
 
-      <%= f.label :school %>
-      <%= f.text_field :school %><p/>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %><p/>
 
-      <%= f.label :department %>
-      <%= f.text_field :department %><p/>
+  <%= f.label :school %>
+  <%= f.text_field :school %><p/>
 
-      <%= f.submit %>
-      <% end %>
-    </div>
+  <%= f.label :department %>
+  <%= f.text_field :department %><p/>
 
-    <div class="row">
-      <%= link_to "Delete this faculty member", faculty_path(@faculty.id), method: 'delete' %>
-    </div>
-  </div>
+  <%= f.submit %>
+  <% end %>
+
+  <%= link_to "Delete this faculty member", faculty_path(@faculty.id), method: 'delete' %>
+
+</div>

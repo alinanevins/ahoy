@@ -1,14 +1,13 @@
 <div class="container">
 <h1>Faculty <%= @faculty.id %></h1>
 
-<div class="row">
-  <p>Faculty ID: <%= @faculty.id %>
-  <p>Name: <%= @faculty.name %>
-  <p>Phone: <%= @faculty.phone %>
-  <p>Email: <%= @faculty.email %>
-  <p>School: <%= @faculty.school %>
-  <p>Department: <%= @faculty.department %>
-  <p>Notes: <%= @faculty.notes %>
-</div>
-  <p><%= link_to "Edit", "/faculties/#{@faculty.id}/edit", method: 'post' %>
+  <p>Faculty ID: <%= @faculty.id %></p>
+  <p>Name: <%= @faculty.first_name.to_s + " " + @faculty.last_name.to_s %></p>
+  <p>Phone: <%= @faculty.phone %></p>
+  <p>Email: <%= @faculty.email %></p>
+  <p>School: <%= @faculty.school %></p>
+  <p>Department: <%= @faculty.department %></p>
+  <p>Notes: <%= @faculty.notes %></p>
+
+  <p><%= link_to "Edit", "/faculties/#{@faculty.id}/edit", method: 'post' %></p>
   </div>

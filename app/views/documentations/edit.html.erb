@@ -1,26 +1,23 @@
 <div class="container">
   <h1>Edit your Documentation</h1>
 
-    <div class="row">
-      <%= form_for(@documentation) do |f| %>
+  <%= form_for(@documentation) do |f| %>
 
-      <%= f.label :user_id %>
-      <%= f.text_field :user_id %><p/>
+  <%= f.label :user_id %>
+  <%= f.text_field :user_id %><p/>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %><p/>
+  <%= f.label :name %>
+  <%= f.text_field :name %><p/>
 
-      <%= f.label :audience %>
-      <%= f.text_field :audience %><p/>
+  <%= f.label :audience %>
+  <%= f.text_field :audience %><p/>
 
-      <%= f.label :link_to_documentation %>
-      <%= f.text_field :link_to_documentation %><p/>
+  <%= f.label :link_to_documentation %>
+  <%= f.text_field :link_to_documentation %><p/>
 
-      <%= f.submit %>
-      <% end %>
-    </div>
+  <%= f.submit %>
+  <% end %>
 
-    <div class="row">
-      <%= link_to "Delete this documentation", documentation_path(@documentation.id), method: 'delete' %>
-    </div>
-  </div>
+  <%= link_to "Delete this documentation", documentation_path(@documentation.id), method: 'delete' %>
+
+</div>

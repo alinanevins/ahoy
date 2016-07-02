@@ -23,6 +23,14 @@ class ConsultationsController < ApplicationController
   def show
     id = params[:id]
     @consultation = Consultation.find(id)
+
+    @userid = @consultation.user_id
+    a = User.find(@userid)
+    @consultant_name = a.first_name.to_s + " " + a.last_name.to_s
+
+    @faculty_id = @consultation.faculty_id
+    b = Faculty.find(@faculty_id)
+    @faculty_name = b.first_name.to_s + " " + b.last_name.to_s
   end
 
   def edit

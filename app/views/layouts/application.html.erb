@@ -6,30 +6,37 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body class=<%= controller.controller_name %>>
-  
   <div class="container" id="navBar">
-    <div class="two columns">
-      <h1>AA</h1>
+    <div class="three columns">
+      <h3>All Aboard Canvas</h3>
     </div>
-    <div id="nav" class="ten columns">
+    <div id="nav" class="seven columns">
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/consultations">Consultations</a></li>
-        <li><a href="/documentations">Documentation</a></li>
-        <li><a href="/faculties">Faculty</a></li>
-        <li><a href="/observations">Observations</a></li>
-        <li><a href="/presentations">Presentations</a></li>
-        <li><a href="/transitions">Transitions</a></li>
-        <li><a href="/users">Users</a></li>
-      </ul>
-    </div>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/consultations">Consultations</a></li>
+              <li><a href="/documentations">Documentation</a></li>
+              <li><a href="/faculties">Faculty</a></li>
+              <li><a href="/observations">Observations</a></li>
+              <li><a href="/presentations">Presentations</a></li>
+              <li><a href="/transitions">Transitions</a></li>
+            </ul>
+          </li>
+          <li><a href="/users">Users</a></li>
+        </ul>
+      </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
   </div>
 
-  <%= yield %>
+    <%= yield %>
 
 </body>
 </html>

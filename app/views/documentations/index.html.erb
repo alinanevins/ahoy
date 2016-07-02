@@ -2,14 +2,14 @@
   <h1>All Documentation</h1>
 
   <table>
-    <tr>
+    <thead>
       <th>Documentation ID</th>
       <th>Team Member (ID)</th>
       <th>Name</th>
       <th>Audience</th>
       <th>Link to Documentation</th>
       <th>Date Added</th>
-    </tr>
+    </thead>
     <% @documentation.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/documentations/#{a.id}", method: 'get' %></td>

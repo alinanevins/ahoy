@@ -5,15 +5,16 @@ class ConsultationsController < ApplicationController
 
   def create
     consultation_hash = params.delete('consultation')
-    a = Consultation.new
-    a.faculty_id = consultation_hash['faculty_id']
-    a.user_id = consultation_hash['user_id']
-    a.date = consultation_hash['date']
-    a.focus = consultation_hash['focus']
-    a.link_to_notes = consultation_hash['link_to_notes']
-    if a.save
-      redirect_to consultation_path(a.id)
+    @consultation = Consultation.new
+    @consultation.faculty_id = consultation_hash['faculty_id']
+    @consultation.user = current_user
+    @consultation.date = consultation_hash['date']
+    @consultation.focus = consultation_hash['focus']
+    @consultation.link_to_notes = consultation_hash['link_to_notes']
+    if @consultation.save
+      redirect_to consultation_path(@consultation.id)
     end
+
   end
 
   def new

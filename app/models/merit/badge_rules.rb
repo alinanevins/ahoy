@@ -22,30 +22,59 @@ module Merit
 
     def initialize
       #Presentation Badges
-      grant_on 'presentations#create', badge_id: 1, badge: "1 Presentation", level: 1, model_name: 'User', to: :user do |presentation|
+      @low = 3
+      @medium = 5
+      @high = 8
+      grant_on 'presentations#create', badge_id: 1, badge: "1 Presentation", level: 1,  to: :user do |presentation|
         presentation.user.presentations.count == 1
       end
-      grant_on 'presentations#create', badge_id: 2, badge: "3 Presentations", level: 2, model_name: 'User', to: :user do |presentation|
-        presentation.user.presentations.count == 3
+      grant_on 'presentations#create', badge_id: 2, badge: "3 Presentations", level: 2,  to: :user do |presentation|
+        presentation.user.presentations.count == @low
       end
-      grant_on 'presentations#create', badge_id: 3, badge: "5 Presentations", level: 3, model_name: 'User', to: :user do |presentation|
-        presentation.user.presentations.count == 5
+      grant_on 'presentations#create', badge_id: 3, badge: "5 Presentations", level: 3,  to: :user do |presentation|
+        presentation.user.presentations.count == @medium
       end
-      grant_on 'presentations#create', badge_id: 4, badge: "Presenter Ninja", level: 4, model_name: 'User', to: :user do |presentation|
-        presentation.user.presentations.count == 8
+      grant_on 'presentations#create', badge_id: 4, badge: "Presenter Ninja", level: 4,  to: :user do |presentation|
+        presentation.user.presentations.count == @high
       end
       #Observation Badges
-      grant_on 'observations#create', badge_id: 1, badge: "1 Observation", level: 1, model_name: 'User', to: :user do |observation|
+      grant_on 'observations#create', badge_id: 5, badge: "1 Observation", level: 1,  to: :user do |observation|
         observation.user.observations.count == 1
       end
-      grant_on 'observations#create', badge_id: 2, badge: "3 Observations", level: 2, model_name: 'User', to: :user do |observation|
-        observation.user.observations.count == 3
+      grant_on 'observations#create', badge_id: 6, badge: "3 Observations", level: 2,  to: :user do |observation|
+        observation.user.observations.count == @low
       end
-      grant_on 'observations#create', badge_id: 3, badge: "5 Observations", level: 3, model_name: 'User', to: :user do |observation|
-        observation.user.observations.count == 5
+      grant_on 'observations#create', badge_id: 7, badge: "5 Observations", level: 3,  to: :user do |observation|
+        observation.user.observations.count == @medium
       end
-      grant_on 'observations#create', badge_id: 4, badge: "Observation Ninja", level: 4, model_name: 'User', to: :user do |observation|
-        observation.user.observations.count == 8
+      grant_on 'observations#create', badge_id: 8, badge: "Observation Ninja", level: 4,  to: :user do |observation|
+        observation.user.observations.count == @high
+      end
+      #Documentation Badges
+      grant_on 'documentations#create', badge_id: 9, badge: "1 Document", level: 1,  to: :user do |documentation|
+        documentation.user.documentations.count == 1
+      end
+      grant_on 'documentations#create', badge_id: 10, badge: "3 Documents", level: 2,  to: :user do |documentation|
+        documentation.user.documentations.count == @low
+      end
+      grant_on 'documentations#create', badge_id: 11, badge: "5 Documents", level: 3,  to: :user do |documentation|
+        documentation.user.documentations.count == @medium
+      end
+      grant_on 'documentations#create', badge_id: 12, badge: "Document Ninja", level: 4,  to: :user do |documentation|
+        documentation.user.documentations.count == @high
+      end
+      #Consultation Badges
+      grant_on 'consultations#create', badge_id: 13, badge: "1 Consult", level: 1, to: :user do |consultation|
+        consultation.user.consultations.count == 1
+      end
+      grant_on 'consultations#create', badge_id: 14, badge: "3 Consults", level: 2,  to: :user do |consultation|
+        consultation.user.consultations.count == @low
+      end
+      grant_on 'consultations#create', badge_id: 15, badge: "5 Consults", level: 3,  to: :user do |consultation|
+        consultation.user.consultations.count == @medium
+      end
+      grant_on 'consultations#create', badge_id: 16, badge: "Consult Ninja", level: 4,  to: :user do |consultation|
+        consultation.user.consultations.count == @high
       end
 
       # samples
@@ -54,7 +83,7 @@ module Merit
       # grant_on 'users#show', badge_id: 4, badge: "create-presentations", model_name: 'User' do |user|
       #   user.presentations.count == 9
       # end
-      # grant_on 'presentations#create', badge_id: 5, badge: "create-11-presentations", level: 2, model_name: 'User', to: :user do |presentation|
+      # grant_on 'presentations#create', badge_id: 5, badge: "create-11-presentations", level: 2,  to: :user do |presentation|
       #   binding.pry
       #   presentation.user.presentations.count == 23
       # end
@@ -74,7 +103,7 @@ module Merit
       # grant_on 'comments#vote', badge: 'relevant-commenter',
       #   to: :user do |comment|
       #
-      #   comment.votes.count == 5
+      #   comment.votes.count == @medium
       # end
 
       # Changes his name by one wider than 4 chars (arbitrary ruby code case)

@@ -11,13 +11,14 @@ class DocumentationsController < ApplicationController
     @documentation.audience = documentation_hash['audience']
     @documentation.summary = documentation_hash['summary']
     @documentation.link_to_documentation = documentation_hash['link_to_documentation']
-    binding.pry
+
     if documentation_hash['audience_other'] != nil
       @documentation.audience << documentation_hash['audience_other']
     end
     if @documentation.save
       redirect_to documentation_path(@documentation.id)
     end
+        binding.pry #if current_user.documentations.count == 5
   end
 
   def new

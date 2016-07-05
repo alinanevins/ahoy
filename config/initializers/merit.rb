@@ -35,25 +35,75 @@ Merit::Badge.create!(
 id: 5,
 name: "1 Observation",
 level: 1,
-description: "Gave 1 Canvas @ Yale Observation"
+description: "Observed 1 Canvas @ Yale Presentation"
 )
 Merit::Badge.create!(
 id: 6,
 name: "3 Observations",
 level: 2,
-description: "Gave 3 Canvas @ Yale Observations"
+description: "Observed 3 Canvas @ Yale Presentations"
 )
 Merit::Badge.create!(
 id: 7,
 name: "5 Observations",
 level: 3,
-description: "Gave 5 Canvas @ Yale Observations"
+description: "Observed 5 Canvas @ Yale Presentations"
 )
 Merit::Badge.create!(
 id: 8,
 name: "Observation Ninja",
 level: 4,
-description: "Gave 8+ Canvas @ Yale Observations"
+description: "Observed 8+ Canvas @ Yale Presentations"
+)
+#Documentation Badges
+Merit::Badge.create!(
+id: 9,
+name: "1 Document",
+level: 1,
+description: "Created 1 Canvas @ Yale Help Document"
+)
+Merit::Badge.create!(
+id: 10,
+name: "3 Documents",
+level: 2,
+description: "Created 3 Canvas @ Yale Help Documents"
+)
+Merit::Badge.create!(
+id: 11,
+name: "5 Documents",
+level: 3,
+description: "Created 5 Canvas @ Yale Help Documents"
+)
+Merit::Badge.create!(
+id: 12,
+name: "Document Ninja",
+level: 4,
+description: "Created 8+ Canvas @ Yale Help Documents"
+)
+#Consultation Badges
+Merit::Badge.create!(
+id: 13,
+name: "1 Consult",
+level: 1,
+description: "Performed 1 Canvas @ Yale Help Consult"
+)
+Merit::Badge.create!(
+id: 14,
+name: "3 Consults",
+level: 2,
+description: "Performed 3 Canvas @ Yale Help Consults"
+)
+Merit::Badge.create!(
+id: 15,
+name: "5 Consults",
+level: 3,
+description: "Performed 5 Canvas @ Yale Help Consults"
+)
+Merit::Badge.create!(
+id: 16,
+name: "Consult Ninja",
+level: 4,
+description: "Performed 8+ Canvas @ Yale Help Consults"
 )
 
   # samples

@@ -5,11 +5,11 @@ class ObservationsController < ApplicationController
 
   def create
     observation_hash = params.delete('observation')
-    a = Observation.new
-    a.presentation_id = observation_hash['presentation_id']
-    a.user_id = current_user.id
-    if a.save
-      redirect_to observation_path(a.id)
+    @observation = Observation.new
+    @observation.presentation_id = observation_hash['presentation_id']
+    @observation.user_id = current_user.id
+    if @observation.save
+      redirect_to observation_path(@observation.id)
     end
   end
 

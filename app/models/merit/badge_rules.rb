@@ -21,10 +21,11 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
+      #Presentation Badges
       grant_on 'presentations#create', badge_id: 1, badge: "1 Presentation", level: 1, model_name: 'User', to: :user do |presentation|
         presentation.user.presentations.count == 1
       end
-      grant_on 'presentations#create', badge_id: 2, badge: "3 Presentatios", level: 2, model_name: 'User', to: :user do |presentation|
+      grant_on 'presentations#create', badge_id: 2, badge: "3 Presentations", level: 2, model_name: 'User', to: :user do |presentation|
         presentation.user.presentations.count == 3
       end
       grant_on 'presentations#create', badge_id: 3, badge: "5 Presentations", level: 3, model_name: 'User', to: :user do |presentation|
@@ -32,6 +33,19 @@ module Merit
       end
       grant_on 'presentations#create', badge_id: 4, badge: "Presenter Ninja", level: 4, model_name: 'User', to: :user do |presentation|
         presentation.user.presentations.count == 8
+      end
+      #Observation Badges
+      grant_on 'observations#create', badge_id: 1, badge: "1 Observation", level: 1, model_name: 'User', to: :user do |observation|
+        observation.user.observations.count == 1
+      end
+      grant_on 'observations#create', badge_id: 2, badge: "3 Observations", level: 2, model_name: 'User', to: :user do |observation|
+        observation.user.observations.count == 3
+      end
+      grant_on 'observations#create', badge_id: 3, badge: "5 Observations", level: 3, model_name: 'User', to: :user do |observation|
+        observation.user.observations.count == 5
+      end
+      grant_on 'observations#create', badge_id: 4, badge: "Observation Ninja", level: 4, model_name: 'User', to: :user do |observation|
+        observation.user.observations.count == 8
       end
 
       # samples

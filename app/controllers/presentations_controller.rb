@@ -5,14 +5,15 @@ class PresentationsController < ApplicationController
   end
 
   def create
+    @user = User.find(current_user.id)
     presentation_hash = params.delete('presentation')
-    a = Presentation.new
-    a.date = presentation_hash['date']
-    a.school = presentation_hash['school']
-    a.department = presentation_hash['department']
-    a.user_id = current_user.id
-    if a.save
-      redirect_to presentation_path(a.id)
+    @presentation = Presentation.new
+    @presentation.date = presentation_hash['date']
+    @presentation.school = presentation_hash['school']
+    @presentation.department = presentation_hash['department']
+    @presentation.user_id = current_user.id
+    if @presentation.save
+      redirect_to presentation_path(@presentation.id)
     end
   end
 

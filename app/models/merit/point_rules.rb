@@ -16,6 +16,13 @@ module Merit
       # score 10, :on => 'users#create' do |user|
       #   user.bio.present?
       # end
+      score 1, :on => 'presentations#create' do |presentation|
+        presentation.user.presentations.count == 1
+      end
+
+      score 2, :on => 'presentations#create' do |presentation|
+        presentation.user.presentations.count == 2
+      end
       #
       # score 15, :on => 'reviews#create', :to => [:reviewer, :reviewed]
       #

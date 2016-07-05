@@ -1,11 +1,10 @@
 <div class="container">
-  <h1>Consultation <%= @consultation.id %></h1>
-
-  <p>Faculty Member: <%= link_to @faculty_name, "/faculties/#{@consultation.faculty_id}" %></p>
+  <h1>Consultation with Faculty Member <%= link_to @faculty_name, "/faculties/#{@consultation.faculty_id}" %></h1>
+  <p>Consultation ID: <%= @consultation.id %></p>
   <p>CTL Consultant: <%= link_to @consultant_name, "/users/#{@consultation.user_id}" %></p>
   <p>Consultation Date: <%= @consultation.date.to_s(:pretty_dt) %></p>
   <p>Consultation Focus: <%= @consultation.focus %></p>
   <p>Link to Consultation Notes: <%= @consultation.link_to_notes %></p>
 
-  <p><%= link_to "Edit", "/consultations/#{@consultation.id}/edit", method: 'post' %></p>
+  <p><%= button_to "Edit", "/consultations/#{@consultation.id}/edit", method: 'post', class: "button-primary" %></p>
 </div>

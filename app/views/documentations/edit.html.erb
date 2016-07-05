@@ -2,22 +2,37 @@
   <h1>Edit your Documentation</h1>
 
   <%= form_for(@documentation) do |f| %>
-
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %><p/>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %><p/>
-
-  <%= f.label :audience %>
-  <%= f.text_field :audience %><p/>
-
-  <%= f.label :link_to_documentation %>
-  <%= f.text_field :link_to_documentation %><p/>
-
-  <%= f.submit %>
-  <% end %>
-
-  <%= link_to "Delete this documentation", documentation_path(@documentation.id), method: 'delete' %>
-
+  <div class="row">
+    <%= f.label :name, "Title" %>
+    <%= f.text_field :name, class: "u-full-width" %><p/>
+  </div>
+  <div class="row">
+    <%= f.label :summary, "Summary/Notes (if not obvious from title)" %>
+    <%= f.text_field :summary, class: "u-full-width" %><p/>
+  </div>
+  <div class="row">
+    <%= f.label :user_id, "Author ID" %>
+    <%= f.text_field :user_id, class: "u-full-width" %><p/>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :audience %></br>
+      <%= f.select :audience, options_for_select(['Faculty', 'Teaching Assistants', 'Department Admins', 'Canvas Admins', 'Help Desk', 'Students'], :selected => @selected), {}, {:multiple => true, :class => "u-full-width", :style => "height:100px;" } %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :audience_other, "Other Audiences" %>
+      <%= f.text_field :audience_other, value: @audience_other_entered, class: "u-full-width" %><p/>
+      <%= f.label :link_to_documentation, "Link to Documentation" %>
+      <%= f.text_field :link_to_documentation, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.submit class: "button-primary" %>
+    </div>
+    <div class="six columns">
+      <%= link_to "Delete this documentation", documentation_path(@documentation.id), method: 'delete' %>
+    </div>
+  </div>
 </div>
+<% end %>

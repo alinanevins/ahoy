@@ -3,9 +3,16 @@
 
   <%= form_for(@observation) do |f| %>
 
-  <%= f.label :presentation_id %>
-  <%= f.text_field :presentation_id %><p/>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :presentation_id, "Presentation ID" %>
+      <%= f.text_field :presentation_id, class: "u-full-width" %><p/>
+    </div>
 
-  <%= f.submit %>
-  <% end %>
+    
+  </div>
+  <div class="row">
+      <%= f.submit class: "button-primary" %>
+      <% end %>
+  </div>
 </div>

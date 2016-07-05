@@ -1,4 +1,6 @@
 class ConsultationsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @consultation = Consultation.all
   end
@@ -7,7 +9,7 @@ class ConsultationsController < ApplicationController
     consultation_hash = params.delete('consultation')
     @consultation = Consultation.new
     @consultation.faculty_id = consultation_hash['faculty_id']
-    @consultation.user = current_user
+    @consultation.user_id = current_user.id
     @consultation.date = consultation_hash['date']
     @consultation.focus = consultation_hash['focus']
     @consultation.link_to_notes = consultation_hash['link_to_notes']
@@ -56,7 +58,7 @@ class ConsultationsController < ApplicationController
   def destroy
     id = params[:id]
     Consultation.delete(id)
-    flash[:notice] = "Consultation #{name} was successfully deleted"
+    flash[:notice] = "Consultation #{id} was successfully deleted"
     redirect_to "/"
   end
 end

@@ -8,11 +8,11 @@ class DocumentationsController < ApplicationController
     @documentation = Documentation.new
     @documentation.user_id = current_user.id
     @documentation.name = documentation_hash['name']
-    @documentation.audience = documentation_hash['audience']
+    @documentation.audience = documentation_hash['audience'].pop(1)
     @documentation.summary = documentation_hash['summary']
     @documentation.link_to_documentation = documentation_hash['link_to_documentation']
 
-    if documentation_hash['audience_other'] != nil
+    if documentation_hash['audience_other'] != ""
       @documentation.audience << documentation_hash['audience_other']
     end
     if @documentation.save
@@ -37,6 +37,8 @@ class DocumentationsController < ApplicationController
   def edit
     id = params[:id]
     @documentation = Documentation.find(id)
+    @selected = @documentation.audience
+    @audience_other_entered = @documentation.audience_other
   end
 
   def update
@@ -45,8 +47,12 @@ class DocumentationsController < ApplicationController
     @documentation = Documentation.find(id)
     @documentation.user_id = documentation_hash['user_id']
     @documentation.name = documentation_hash['name']
-    @documentation.audience = documentation_hash['audience']
-    @documentation.link = documentation_hash['link']
+    @documentation.audience = documentation_hash['audience'].pop(1)
+    @documentation.summary = documentation_hash['summary']
+    @documentation.link_to_documentation = documentation_hash['link_to_documentation']
+    if documentation_hash['audience_other'] != ""
+      @documentation.audience << documentation_hash['audience_other']
+    end
     if @documentation.save
       redirect_to documentation_path(@documentation.id)
     end

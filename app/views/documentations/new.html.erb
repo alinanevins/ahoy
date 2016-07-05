@@ -13,10 +13,10 @@
   <div class="row">
     <div class="six columns">
       <%= f.label :audience %></br>
-      <%= f.select :audience, options_for_select(['Faculty', 'Canvas Admins', 'Help Desk', 'Students', 'Other']), {}, {:multiple => true, :class => "u-full-width", :style => "height:100px;" } %><p/>
+      <%= f.select :audience, options_for_select(['Faculty', 'Canvas Admins', 'Help Desk', 'Students', 'Teaching Assistants', 'Department Admins']), {}, {:multiple => true, :class => "u-full-width", :style => "height:100px;" } %><p/>
     </div>
     <div class="six columns">
-      <%= f.label :audience_other, "Other Audience" %>
+      <%= f.label :audience_other, "Other Audiences" %>
       <%= f.text_field :audience_other, class: "u-full-width" %><p/>
       <%= f.label :link_to_documentation, "Link to Documentation" %>
       <%= f.text_field :link_to_documentation, class: "u-full-width" %><p/>

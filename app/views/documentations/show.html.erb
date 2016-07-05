@@ -1,11 +1,11 @@
 <div class="container">
-  <h1>Documentation <%= @documentation.id %></h1>
-
-  <p>Name: <%= @documentation.name %></p>
+  <h1>Documentation: <%= @documentation.name %></h1>
+  <p>ID: <%= @documentation.id %></p>
   <p>Author: <%= link_to @consultant_name, "/users/#{@documentation.user_id}" %></p>
+  <p>Summary: <%= @documentation.summary %></p>
   <p>Audience: <%= @documentation.audience %></p>
   <p>Link to Documentation: <%= @documentation.link_to_documentation %></p>
   <p>Date Added: <%= @documentation.created_at.to_s(:pretty_dt) %></p>
 
-  <p><%= link_to "Edit", "/documentations/#{@documentation.id}/edit", method: 'post' %></p>
-</div>
+  <p>
+    <%= button_to "Edit", "/documentations/#{@documentation.id}/edit", method: 'post', class: "button-primary" %></p>

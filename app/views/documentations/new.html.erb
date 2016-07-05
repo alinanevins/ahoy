@@ -2,19 +2,28 @@
   <h1>Add New Documentation</h1>
 
   <%= form_for(@documentation) do |f| %>
-
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %><p/>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %><p/>
-
-  <%= f.label :audience %>
-  <%= f.text_field :audience %><p/>
-
-  <%= f.label :link_to_documentation %>
-  <%= f.text_field :link_to_documentation %><p/>
-
-  <%= f.submit %>
-  <% end %>
+  <div class="row">
+    <%= f.label :name, "Title" %>
+    <%= f.text_field :name, class: "u-full-width" %><p/>
+  </div>
+  <div class="row">
+    <%= f.label :summary, "Summary/Notes (if not obvious from title)" %>
+    <%= f.text_field :summary, class: "u-full-width" %><p/>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :audience %></br>
+      <%= f.select :audience, options_for_select(['Faculty', 'Canvas Admins', 'Help Desk', 'Students', 'Other']), {}, {:multiple => true, :class => "u-full-width", :style => "height:100px;" } %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :audience_other, "Other Audience" %>
+      <%= f.text_field :audience_other, class: "u-full-width" %><p/>
+      <%= f.label :link_to_documentation, "Link to Documentation" %>
+      <%= f.text_field :link_to_documentation, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <%= f.submit class: "button-primary" %>
+    <% end %>
+  </div>
 </div>

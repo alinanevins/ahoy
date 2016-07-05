@@ -5,13 +5,18 @@ class DocumentationsController < ApplicationController
 
   def create
     documentation_hash = params.delete('documentation')
-    a = Documentation.new
-    a.user_id = documentation_hash['user_id']
-    a.name = documentation_hash['name']
-    a.audience = documentation_hash['audience']
-    a.link_to_documentation = documentation_hash['link_to_documentation']
-    if a.save
-      redirect_to documentation_path(a.id)
+    @documentation = Documentation.new
+    @documentation.user_id = current_user.id
+    @documentation.name = documentation_hash['name']
+    @documentation.audience = documentation_hash['audience']
+    @documentation.summary = documentation_hash['summary']
+    @documentation.link_to_documentation = documentation_hash['link_to_documentation']
+    binding.pry
+    if documentation_hash['audience_other'] != nil
+      @documentation.audience << documentation_hash['audience_other']
+    end
+    if @documentation.save
+      redirect_to documentation_path(@documentation.id)
     end
   end
 

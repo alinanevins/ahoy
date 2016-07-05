@@ -7,7 +7,7 @@ class ObservationsController < ApplicationController
     observation_hash = params.delete('observation')
     a = Observation.new
     a.presentation_id = observation_hash['presentation_id']
-    a.user_id = current_user
+    a.user_id = current_user.id
     if a.save
       redirect_to observation_path(a.id)
     end

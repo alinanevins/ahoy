@@ -20,7 +20,7 @@
 
   <!-- Home -->
   <section id="templatemo_home">
-    <div class="container home_page">
+    <div class="container">
       <div class="templatemo_home_inner_wapper">
         <h1 class="text-center"><i class="fa fa-anchor"></i> AHOY!</h1>
       </div>
@@ -128,7 +128,6 @@
           </div>
         </div>
       </form>
-
     </div>
 
     <div class="col-xs-12">
@@ -148,24 +147,27 @@
         </p>
       </div>
     </div>
-    <form role="form" action="/users" method="post" id="user">
+    <form role="form" action="/users" method="post" id="new_user">
       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon"><i class="fa fa-user"></i></div>
-          <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+          <input autofocus="autofocus" value="" name="user[email]" id="user_email" type="email" class="form-control" placeholder="Email">
+          <!-- <input type="text" name="email" class="form-control" id="email" placeholder="Email"> -->
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon"><i class="fa fa-unlock-alt"></i></div>
-          <input type="Password" name="password" class="form-control" id="password" placeholder="Password">
+          <input autocomplete="off" name="user[password]" id="user_password" type="password" class="form-control" placeholder="Password"></input>
+          <!-- <input type="Password" name="password" class="form-control" id="password" placeholder="Password" ></input> -->
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon"><i class="fa fa-unlock-alt"></i></div>
-          <input type="Password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password">
+          <input autocomplete="off" name="user[password_confirmation]" id="user_password_confirmation" type="password" class="form-control" placeholder="Confirm Password">
+          <!-- <input type="Password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password"> -->
         </div>
       </div>
 

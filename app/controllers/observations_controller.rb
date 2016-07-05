@@ -7,7 +7,7 @@ class ObservationsController < ApplicationController
     observation_hash = params.delete('observation')
     a = Observation.new
     a.presentation_id = observation_hash['presentation_id']
-    a.user_id = observation_hash['user_id']
+    a.user_id = current_user
     if a.save
       redirect_to observation_path(a.id)
     end
@@ -25,17 +25,17 @@ class ObservationsController < ApplicationController
 
     a = Presentation.find(presentation_id)
 
-    @date = a.date.to_s(:pretty_dt)
+    @date = a.date
     @school = a.school
     @department = a.department
-
-    @presenter_id = a.user_id
-    c = User.find(@presenter_id)
-    @presenter_name = c.first_name.to_s + " " + c.last_name.to_s
 
     observer_id = @observation.user_id
     b = User.find(observer_id)
     @observer_name = b.first_name.to_s + " " + b.last_name.to_s
+
+    @presenter_id = a.user_id
+    c = User.find(@presenter_id)
+    @presenter_name = c.first_name.to_s + " " + c.last_name.to_s
   end
 
   def edit

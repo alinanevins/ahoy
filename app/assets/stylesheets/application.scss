@@ -44,3 +44,67 @@ th, td {
 #nav a:hover {
 	color: gray;
 }
+
+.backgroundstyle {
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+body.consultations {
+  background-image: url("/images/hot-air-balloon.jpg");
+  @extend .backgroundstyle;
+}
+
+body.documentations {
+  background-image: url("/images/books.jpg");
+  @extend .backgroundstyle;
+}
+
+body.transitions {
+  background-image: url("/images/shenzhen-skyline.jpg");
+  @extend .backgroundstyle;
+}
+
+body.workshops {
+  background-image: url("/images/workshop.jpg");
+  @extend .backgroundstyle;
+}
+
+body.presentations {
+  background-image: url("/images/cliff.jpg");
+  @extend .backgroundstyle;
+}
+
+body.observations {
+  background-image: url("/images/girl-dog.jpg");
+  @extend .backgroundstyle;
+}
+
+body.faculties {
+  background-image: url("/images/buildings-sky.jpg");
+  @extend .backgroundstyle
+}
+
+body.users {
+  background-image: url("/images/pug1.jpg");
+  @extend .backgroundstyle
+}
+
+.container {
+  background-color: rgba(255,255,255,0.6);
+  padding: 0 10px 20px 10px;
+}
+
+.home_page {
+  background-color: rgba(255,255,255,0.0) !important;
+}
+
+.text-area {
+
+}

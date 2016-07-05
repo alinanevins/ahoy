@@ -10,7 +10,7 @@ class PresentationsController < ApplicationController
     a.date = presentation_hash['date']
     a.school = presentation_hash['school']
     a.department = presentation_hash['department']
-    a.user_id = presentation_hash['user_id']
+    a.user_id = current_user.id
     if a.save
       redirect_to presentation_path(a.id)
     end
@@ -29,9 +29,13 @@ class PresentationsController < ApplicationController
     @presenter_name = a.first_name.to_s + " " + a.last_name.to_s
 
     observation = Observation.find_by presentation_id: id
-    @observer_id = observation.user_id
-    b = User.find(@observer_id)
-    @observer_name = b.first_name.to_s + " " + b.last_name.to_s
+      if observation != nil
+        @observer_id = observation.user_id
+        b = User.find(@observer_id)
+        @observer_name = b.first_name.to_s + " " + b.last_name.to_s
+      else
+        @observer_name = "n/a"
+      end
 
 
   end

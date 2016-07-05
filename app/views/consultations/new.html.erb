@@ -3,18 +3,26 @@
 
   <%= form_for(@consultation) do |f| %>
 
-  <%= f.label :faculty_id %>
-  <%= f.text_field :faculty_id %><p/>
-
-  <%= f.label :date %>
-  <%= f.text_field :date %><p/>
-
-  <%= f.label :focus %>
-  <%= f.text_field :focus %><p/>
-  
-  <%= f.label :link_to_notes %>
-  <%= f.text_field :link_to_notes %><p/>
-
-  <%= f.submit %>
-  <% end %>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :date %>
+      <%= f.text_field :date, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :faculty_id, "Faculty ID" %>
+      <%= f.text_field :faculty_id, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <%= f.label :focus %>
+    <%= f.text_field :focus, class: "u-full-width" %><p/>
+  </div>
+  <div class="row">
+    <%= f.label :link_to_notes %>
+    <%= f.text_field :link_to_notes, class: "u-full-width" %><p/>
+  </div>
+  <div class="row">
+    <%= f.submit class: "button-primary"%>
+    <% end %>
+  </div>
 </div>

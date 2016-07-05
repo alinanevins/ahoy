@@ -14,6 +14,7 @@
       <li><a href="/presentations">Presentations</a></li>
       <li><a href="/transitions">Transitions</a></li>
       <li><a href="#templatemo_download" class="scroll_effect">Sign In</a></li>
+      <li><a href="/users/sign_out" data-method="delete">Sign Out</a></li>
       <li><a href="#templatemo_contact" class="scroll_effect">About</a></li>
     </ul>
   </nav>
@@ -124,7 +125,7 @@
 
         <div class="form-group row">
           <div class="col-xs-6 col-xs-offset-6">
-            <button type="submit" class="form-control">Sign Up</button>
+            <button type="submit" class="form-control">Log In</button>
           </div>
         </div>
       </form>
@@ -152,22 +153,31 @@
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon"><i class="fa fa-user"></i></div>
+          <input autofocus="autofocus" value="" name="user[first_name]" id="user_first_name" type="text" class="form-control" placeholder="First Name">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon"><i class="fa fa-user"></i></div>
+          <input autofocus="autofocus" value="" name="user[last_name]" id="user_last_name" type="text" class="form-control" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon"><i class="fa fa-user"></i></div>
           <input autofocus="autofocus" value="" name="user[email]" id="user_email" type="email" class="form-control" placeholder="Email">
-          <!-- <input type="text" name="email" class="form-control" id="email" placeholder="Email"> -->
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon"><i class="fa fa-unlock-alt"></i></div>
           <input autocomplete="off" name="user[password]" id="user_password" type="password" class="form-control" placeholder="Password"></input>
-          <!-- <input type="Password" name="password" class="form-control" id="password" placeholder="Password" ></input> -->
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon"><i class="fa fa-unlock-alt"></i></div>
           <input autocomplete="off" name="user[password_confirmation]" id="user_password_confirmation" type="password" class="form-control" placeholder="Confirm Password">
-          <!-- <input type="Password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password"> -->
         </div>
       </div>
 

@@ -5,6 +5,7 @@ Merit.setup do |config|
   config.current_user_method = 'current_user'
   config.add_observer 'ReputationChangeObserver'
 end
+#Presentation Badges
 Merit::Badge.create!(
 id: 1,
 name: "1 Presentation",
@@ -28,6 +29,31 @@ id: 4,
 name: "Presenter Ninja",
 level: 4,
 description: "Gave 8+ Canvas @ Yale Presentation"
+)
+#Observation Badges
+Merit::Badge.create!(
+id: 5,
+name: "1 Observation",
+level: 1,
+description: "Gave 1 Canvas @ Yale Observation"
+)
+Merit::Badge.create!(
+id: 6,
+name: "3 Observations",
+level: 2,
+description: "Gave 3 Canvas @ Yale Observations"
+)
+Merit::Badge.create!(
+id: 7,
+name: "5 Observations",
+level: 3,
+description: "Gave 5 Canvas @ Yale Observations"
+)
+Merit::Badge.create!(
+id: 8,
+name: "Observation Ninja",
+level: 4,
+description: "Gave 8+ Canvas @ Yale Observations"
 )
 
   # samples

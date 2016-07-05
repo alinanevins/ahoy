@@ -3,23 +3,33 @@
 
   <%= form_for(@transition) do |f| %>
 
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %><p/>
-
-  <%= f.label :faculty_id %>
-  <%= f.text_field :faculty_id %><p/>
-
-  <%= f.label :course %>
-  <%= f.text_field :course %><p/>
-
-  <%= f.label :link %>
-  <%= f.text_field :link %><p/>
-
-  <%= f.label :created_at %>
-  <%= f.text_field :created_at %><p/>
-
-  <%= f.submit %>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :faculty_id, "Faculty ID" %>
+      <%= f.text_field :faculty_id, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :user_id, "Team Member ID" %>
+      <%= f.text_field :user_id, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :course %>
+      <%= f.text_field :course, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :link %>
+      <%= f.text_field :link, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.submit class: "button-primary"%>
+    </div>
+    <div class="six columns">
+      <%= link_to "Delete this transition", transition_path(@transition.id), method: 'delete' %>
+    </div>
+  </div>
   <% end %>
-
-  <%= link_to "Delete this transition", transition_path(@transition.id), method: 'delete' %>
 </div>

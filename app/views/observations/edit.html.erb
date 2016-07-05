@@ -3,16 +3,22 @@
 
   <%= form_for(@observation) do |f| %>
 
-  <%= f.label :presentation_id %>
-  <%= f.text_field :presentation_id %><p/>
-
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %><p/>
-
-  <%= f.submit %>
-  <% end %>
-
-  <%= link_to "Delete this observation", observation_path(@observation.id), method: 'delete' %>
-
-
-</div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :presentation_id, "Presentation ID" %>
+      <%= f.text_field :presentation_id, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :user_id, "Observer ID" %>
+      <%= f.text_field :user_id, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.submit class: "button-primary" %>
+      <% end %>
+    </div>
+    <div class="six columns">
+      <%= link_to "Delete this observation", observation_path(@observation.id), method: 'delete' %>
+    </div>
+  </div>

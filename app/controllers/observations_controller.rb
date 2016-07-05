@@ -24,8 +24,9 @@ class ObservationsController < ApplicationController
     presentation_id = @observation.presentation_id
 
     a = Presentation.find(presentation_id)
-
-    @date = a.date
+    if a.date != nil
+      @date = a.date.to_s(:pretty_dt)
+    end
     @school = a.school
     @department = a.department
 

@@ -5,10 +5,9 @@
   <p>Date: <%= @date %></p>
   <p>School: <%= @school %></p>
   <p>Department: <%= @department %></p>
-
   <p>Observer Name: <%= link_to @observer_name, "/users/#{@observation.user_id}" %></p>
   <p>Presenter Name: <%= link_to @presenter_name, "/users/#{@presenter_id}" %></p>
 
-  <p><%= link_to "Edit", "/observations/#{@observation.id}/edit", method: 'post' %></p>
+  <p><%= button_to "Edit", "/observations/#{@observation.id}/edit", method: 'post', class: "button-primary" %></p>
 
 </div>

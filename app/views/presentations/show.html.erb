@@ -6,7 +6,8 @@
   <p>Department: <%= @presentation.department %></p>
   <p>Presenter: <%= link_to @presenter_name, "/users/#{@presentation.user_id}" %></p>
   <p>Observer: <%= link_to @observer_name, "/users/#{@observer_id}" %></p>
+  <p>Presenter Notes: <%= @presentation.notes %></p>
   <p>Date Added: <%= @presentation.created_at.to_s(:pretty_dt) %></p>
 
-  <p><%= link_to "Edit", "/presentations/#{@presentation.id}/edit", method: 'post' %></p>
+  <p><%= button_to "Edit", "/presentations/#{@presentation.id}/edit", method: 'post', class: "button-primary" %></p>
 </div>

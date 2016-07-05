@@ -11,6 +11,7 @@ class PresentationsController < ApplicationController
     @presentation.date = presentation_hash['date']
     @presentation.school = presentation_hash['school']
     @presentation.department = presentation_hash['department']
+    @presentation.notes = presentation_hash['notes']
     @presentation.user_id = current_user.id
     if @presentation.save
       redirect_to presentation_path(@presentation.id)
@@ -53,6 +54,7 @@ class PresentationsController < ApplicationController
     @presentation.date = presentation_hash['date']
     @presentation.school = presentation_hash['school']
     @presentation.department = presentation_hash['department']
+    @presentation.notes = presentation_hash['notes']
     @presentation.user_id = presentation_hash['user_id']
     if @presentation.save
       redirect_to presentation_path(@presentation.id)

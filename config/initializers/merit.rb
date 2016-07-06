@@ -105,6 +105,31 @@ name: "Consult Ninja",
 level: 4,
 description: "Performed 8+ Canvas @ Yale Help Consults"
 )
+#Transition Badges
+Merit::Badge.create!(
+id: 17,
+name: "1 Transition",
+level: 1,
+description: "Migrated 1 Canvas @ Yale Course"
+)
+Merit::Badge.create!(
+id: 18,
+name: "3 Transitions",
+level: 2,
+description: "Migrated 3 Canvas @ Yale Courses"
+)
+Merit::Badge.create!(
+id: 19,
+name: "5 Transitions",
+level: 3,
+description: "Migrated 5 Canvas @ Yale Courses"
+)
+Merit::Badge.create!(
+id: 20,
+name: "Transition Ninja",
+level: 4,
+description: "Migrated 8+ Canvas @ Yale Courses"
+)
 
   # samples
   # Merit::Badge.create!(

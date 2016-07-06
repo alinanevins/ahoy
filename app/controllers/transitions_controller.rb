@@ -5,14 +5,14 @@ class TransitionsController < ApplicationController
 
   def create
     transition_hash = params.delete('transition')
-    a = Transition.new
-    a.user_id = transition_hash['user_id']
-    a.faculty_id = transition_hash['faculty_id']
-    a.course = transition_hash['course']
-    a.link = transition_hash['link']
+    @transition = Transition.new
+    @transition.user_id = transition_hash['user_id']
+    @transition.faculty_id = transition_hash['faculty_id']
+    @transition.course = transition_hash['course']
+    @transition.link = transition_hash['link']
     # date?
-    if a.save
-      redirect_to transition_path(a.id)
+    if @transition.save
+      redirect_to transition_path(@transition.id)
     end
   end
 

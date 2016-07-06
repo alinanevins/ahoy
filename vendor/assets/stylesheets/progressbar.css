@@ -1,0 +1,69 @@
+.progressbar {
+    width: 100%;
+    margin: 1em 0;
+    border: 0px #000 double;
+    clear: both;
+    height: 20px;
+	position: relative;
+	background: #555;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+	padding: 10px;
+	box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+.progress {
+    background: #A1C969; /*-- Color of the bar --*/
+    height: 20px;
+    width: 0%;
+    max-width: 100%;
+    float: left;
+    -webkit-animation: progress 2s 1 forwards;
+    -moz-animation: progress 2s 1 forwards;
+    -ms-animation: progress 2s 1 forwards;
+    animation: progress 2s 1 forwards;
+    border-top-right-radius: 8px;
+  	border-bottom-right-radius: 8px;
+  	border-top-left-radius: 20px;
+  	border-bottom-left-radius: 20px;
+}
+
+#pbaranim {
+    background: url('http://www.cssdeck.com/uploads/media/items/7/7uo1osj.gif') repeat-x;
+    -moz-opacity: 0.25;
+    -khtml-opacity: 0.25;
+    opacity: 0.1;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=15);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=15);
+    filter: alpha(opacity=15);
+  display: block;
+  height: 100%;
+  background-color: green;
+  background-image: linear-gradient(
+    center bottom,
+    rgb(43,194,83) 37%,
+    rgb(84,240,84) 69%
+  );
+  box-shadow:
+    inset 0 2px 9px  rgba(255,255,255,0.3),
+    inset 0 -2px 6px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+@-webkit-keyframes progress {
+    from { width: 0% }
+}
+
+@-moz-keyframes progress {
+    from { width: 0% }
+}
+
+@-ms-keyframes progress {
+    from { width: 0% }
+}
+
+@keyframes progress {
+    from { width: 0% }
+}

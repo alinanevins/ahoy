@@ -7,5 +7,5 @@
   <p>Link: <%= @transition.link %></p>
   <p>Date Added: <%= @transition.created_at.to_s(:pretty_dt) %></p>
 
-  <p><%= link_to "Edit", "/transitions/#{@transition.id}/edit", method: 'post' %></p>
+  <p><%= button_to "Edit", "/transitions/#{@transition.id}/edit", method: 'post', class: "button-primary" %></p>
 </div>

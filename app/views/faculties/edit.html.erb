@@ -1,29 +1,47 @@
 <div class="container">
   <h1>Edit Faculty Member</h1>
-
   <%= form_for(@faculty) do |f| %>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %><p/>
-
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %><p/>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %><p/>
-
-  <%= f.label :phone %>
-  <%= f.text_field :phone %><p/>
-
-  <%= f.label :school %>
-  <%= f.text_field :school %><p/>
-
-  <%= f.label :department %>
-  <%= f.text_field :department %><p/>
-
-  <%= f.submit %>
-  <% end %>
-
-  <%= link_to "Delete this faculty member", faculty_path(@faculty.id), method: 'delete' %>
-
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: "u-full-width" %><p/>
+    
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :school %>
+      <%= f.text_field :school, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :department %>
+      <%= f.text_field :department, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <%= f.label :notes %>
+    <%= f.text_field :notes, class: "u-full-width" %><p/>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.submit class: "button-primary" %>
+      <% end %>
+    </div>
+    <div class="six columns">
+      <%= link_to "Delete this faculty member", faculty_path(@faculty.id), method: 'delete' %>
+    </div>
+  </div>
 </div>

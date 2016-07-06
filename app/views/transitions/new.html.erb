@@ -3,18 +3,23 @@
 
   <%= form_for(@transition) do |f| %>
 
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %><p/>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :faculty_id, "Faculty ID" %>
+      <%= f.text_field :faculty_id, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :course %>
+      <%= f.text_field :course, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
 
-  <%= f.label :faculty_id %>
-  <%= f.text_field :faculty_id %><p/>
-
-  <%= f.label :course %>
-  <%= f.text_field :course %><p/>
-
-  <%= f.label :link %>
-  <%= f.text_field :link %><p/>
-
-  <%= f.submit %>
+    <%= f.label :link %>
+    <%= f.text_field :link, class: "u-full-width" %><p/>
+  </div>
+  <div class="row">
+    <%= f.submit class: "button-primary"%>
+  </div>
   <% end %>
 </div>

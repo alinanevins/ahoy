@@ -1,0 +1,33 @@
+// Place all the styles related to the Badges controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.badges_all {
+  width: 230px;
+  height: inherit;
+  position: relative;
+}
+div.badge_requirement {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+}
+.badges_all:hover div.badge_requirement {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.columns {
+  margin-left: 3%;
+}
+
+.column:first-child {
+  margin-left: 3% !important;
+}

@@ -12,7 +12,7 @@ class DocumentationsController < ApplicationController
     @documentation.summary = documentation_hash['summary']
     @documentation.link_to_documentation = documentation_hash['link_to_documentation']
 
-    if documentation_hash['audience_other'] != nil
+    if documentation_hash['audience_other'] != ""
       @documentation.audience << documentation_hash['audience_other']
     end
     if @documentation.save
@@ -32,11 +32,16 @@ class DocumentationsController < ApplicationController
     @userid = @documentation.user_id
     a = User.find(@userid)
     @consultant_name = a.first_name.to_s + " " + a.last_name.to_s
+
   end
 
   def edit
     id = params[:id]
     @documentation = Documentation.find(id)
+    @selected = @documentation.audience
+
+    @audience_options = ['Faculty', 'Teaching Assistants', 'Department Admins', 'Canvas Admins', 'Help Desk', 'Students']
+    @audience_other_entered = @selected.select{ |x| !@audience_options.include?(x) }
   end
 
   def update
@@ -46,7 +51,11 @@ class DocumentationsController < ApplicationController
     @documentation.user_id = documentation_hash['user_id']
     @documentation.name = documentation_hash['name']
     @documentation.audience = documentation_hash['audience']
-    @documentation.link = documentation_hash['link']
+    @documentation.summary = documentation_hash['summary']
+    @documentation.link_to_documentation = documentation_hash['link_to_documentation']
+    if documentation_hash['audience_other'] != ""
+      @documentation.audience << documentation_hash['audience_other']
+    end
     if @documentation.save
       redirect_to documentation_path(@documentation.id)
     end

@@ -6,7 +6,7 @@ class TransitionsController < ApplicationController
   def create
     transition_hash = params.delete('transition')
     @transition = Transition.new
-    @transition.user_id = transition_hash['user_id']
+    @transition.user_id = current_user.id
     @transition.faculty_id = transition_hash['faculty_id']
     @transition.course = transition_hash['course']
     @transition.link = transition_hash['link']

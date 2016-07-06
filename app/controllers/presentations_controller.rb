@@ -2,6 +2,10 @@ class PresentationsController < ApplicationController
 
   def index
     @presentation = Presentation.all
+    #prep data for progress bar
+    @arbitrary_maximum = 50.0
+    @progress = current_user.presentations.count / @arbitrary_maximum * 100
+    @progress = @progress.to_i
   end
 
   def create

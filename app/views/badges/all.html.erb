@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>All Badges</h1>
+  <div class="row">
+    <% x = 1 %>
+    <% while x < 17 %>
+    <div class="three columns">
+      <img src="<%= Merit::Badge.find(x).custom_fields[:image] %>", title="<%= Merit::Badge.find(x).custom_fields[:requirement] %>", class="badges_all"></img></p>
+      <h3><%= Merit::Badge.find(x).name %></h3>
+      <p>Requirement: <%= Merit::Badge.find(x).custom_fields[:requirement] %></p>
+      <div class="badge_requirement"><%= Merit::Badge.find(x).custom_fields[:requirement] %></div>
+      <% x += 1 %>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'badges/all'
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
 

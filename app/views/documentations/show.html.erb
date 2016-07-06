@@ -3,9 +3,11 @@
   <p>ID: <%= @documentation.id %></p>
   <p>Author: <%= link_to @consultant_name, "/users/#{@documentation.user_id}" %></p>
   <p>Summary: <%= @documentation.summary %></p>
-  <p>Audience: <%= @documentation.audience %></p>
+  <p>Audience:
+    <% @documentation['audience'].each do |x| %>
+    <%= x %></br>
+    <% end %>
   <p>Link to Documentation: <%= @documentation.link_to_documentation %></p>
   <p>Date Added: <%= @documentation.created_at.to_s(:pretty_dt) %></p>
-
   <p>
     <%= button_to "Edit", "/documentations/#{@documentation.id}/edit", method: 'post', class: "button-primary" %></p>

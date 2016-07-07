@@ -4,10 +4,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = build_resource
-    if a.save
-      redirect_to user_path(a.id)
-    end
   end
 
   def new
@@ -25,7 +21,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = resource
+    @user = User.find(params['id'])
+    @user.first_name = params['user']['first_name']
+    @user.last_name = params['user']['last_name']
+    @user.email = params['user']['email']
     if @user.save
       redirect_to user_path(@user.id)
     end

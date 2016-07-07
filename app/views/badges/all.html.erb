@@ -4,12 +4,46 @@
     <% x = 1 %>
     <% while x < 17 %>
     <div class="three columns">
-      <img src="<%= Merit::Badge.find(x).custom_fields[:image] %>", title="<%= Merit::Badge.find(x).custom_fields[:requirement] %>", class="badges_all"></img></p>
-      <h3><%= Merit::Badge.find(x).name %></h3>
-      <p>Requirement: <%= Merit::Badge.find(x).custom_fields[:requirement] %></p>
-      <div class="badge_requirement"><%= Merit::Badge.find(x).custom_fields[:requirement] %></div>
-      <% x += 1 %>
-    </div>
-    <% end %>
-  </div>
-</div>
+      <div class="card-container">
+        <div class="card">
+          <div class="front">
+
+            <img src="<%= Merit::Badge.find(x).custom_fields[:image] %>",
+            title="<%= Merit::Badge.find(x).custom_fields[:requirement] %>",
+            class="badges_all"></img>
+
+
+          </div> <!-- end front panel -->
+          <div class="back">
+
+            <div class="content">
+              <div class="main">
+                <h4 class="text-center">Requirements</h4>
+                <p class="text-center"><%= Merit::Badge.find(x).custom_fields[:requirement] %></p>
+
+                <div>
+                  <div>
+                    <hr>
+                    <h4 class="text-center">Your Progress</h4>
+                    <p class="text-center">
+                      <div class="progressbar" title="4 of 10">
+                        <div class="progress", style="width:40%;">
+                          <div class="pbaranim">
+                          </div></div></div>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- end back panel -->
+            </div> <!-- end card -->
+          </div> <!-- end card-container -->
+        </div> <!-- end columns -->
+        <% x += 1 %>
+        <% end %>
+      </div> <!-- end row -->
+
+
+      <!-- name: <%= Merit::Badge.find(x).name %> -->
+      <!-- go through each badge: Merit::Badge.all.each do |x|
+      class for grayscale: missing_badge -->

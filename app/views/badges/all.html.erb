@@ -7,10 +7,16 @@
       <div class="card-container">
         <div class="card">
           <div class="front">
+            <% if @badge_status.include?(x)%>
 
             <img src="<%= Merit::Badge.find(x).custom_fields[:image] %>",
             title="<%= Merit::Badge.find(x).custom_fields[:requirement] %>",
             class="badges_all"></img>
+            <% elsif @badge_status.exclude?(x) %>
+            <img src="<%= Merit::Badge.find(x).custom_fields[:image] %>",
+            title="<%= Merit::Badge.find(x).custom_fields[:requirement] %>",
+            class="missing_badge"></img>
+            <% end %>
 
 
           </div> <!-- end front panel -->

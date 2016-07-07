@@ -33,6 +33,7 @@ div.badge_requirement {
 }
 
 .missing_badge {
+  @extend .badges_all;
   -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     opacity: .75;

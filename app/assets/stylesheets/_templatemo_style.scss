@@ -207,7 +207,7 @@ form .checkbox input[type=checkbox] { margin-top: 12px;}
 /***** Features *****/
 #templatemo_features {
     background: #455a64 url(/images/pattern_bg.png) fixed;
-    padding-bottom: 130px;
+    padding-bottom: 100px;
 }
 #templatemo_features p {
     padding-bottom: 30px;
@@ -242,7 +242,7 @@ form .checkbox input[type=checkbox] { margin-top: 12px;}
 }
 #templatemo_features .feature-box p {
     max-width: 250px;
-    min-height: 260px;
+    min-height: 180px;
     line-height: 32px;
     padding-top: 30px;
     font-size: 18px;
@@ -260,7 +260,8 @@ form .checkbox input[type=checkbox] { margin-top: 12px;}
     background: url(/images/table-laptop.jpg) fixed;
     background-size: cover;
     min-height: 100vh;
-    padding-bottom: 130px;
+    padding-bottom: 80px;
+    padding-top: 80px;
     color: #fff;
 }
 #templatemo_download h2 {

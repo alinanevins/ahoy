@@ -2,7 +2,7 @@
   <h1>Hi, <%= @user.first_name %> <%= @user.last_name %>!</h1>
 
   <p>User ID: <%= @user.id %></p>
-  <p>Email: <%= @user.password %></p>
+  <p>Email: <%= @user.email %></p>
   <p>Registered on: <%= @user.created_at.to_s(:pretty_dt) %></p>
   <p>Badges:
     <ul>
@@ -11,5 +11,5 @@
       <% end %>
     </ul></p>
 
-    <p><%= link_to "Edit", "/users/#{@user.id}/edit", method: 'post' %></p>
+    <p><%= link_to "Edit", "/users/#{@user.id}/edit", method: 'get' %></p>
   </div>

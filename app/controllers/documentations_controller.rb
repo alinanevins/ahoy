@@ -25,8 +25,6 @@ class DocumentationsController < ApplicationController
     if @documentation.save
       redirect_to documentation_path(@documentation.id)
     end
-
-        #if current_user.documentations.count == 5
   end
 
   def new

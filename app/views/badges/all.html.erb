@@ -2,7 +2,9 @@
   <h1>All Badges</h1>
   <div class="row">
     <% x = 1 %>
-    <% while x < 17 %>
+    <% while x < 21 %>
+    <% percent = ProgressService.calc(@user,x) %>
+    <% percent,den,num = percent[0],percent[1],percent[2] %>
     <div class="three columns">
       <div class="card-container">
         <div class="card">
@@ -32,8 +34,8 @@
                     <hr>
                     <h4 class="text-center">Your Progress</h4>
                     <p class="text-center">
-                      <div class="progressbar" title="4 of 10">
-                        <div class="progress", style="width:40%;">
+                      <div class="progressbar" title="<%= num%> of <%=den%>">
+                        <div class="progress", style="width:<%= percent%>%;">
                           <div class="pbaranim">
                           </div></div></div>
                         </p>
@@ -48,8 +50,3 @@
         <% x += 1 %>
         <% end %>
       </div> <!-- end row -->
-
-
-      <!-- name: <%= Merit::Badge.find(x).name %> -->
-      <!-- go through each badge: Merit::Badge.all.each do |x|
-      class for grayscale: missing_badge -->

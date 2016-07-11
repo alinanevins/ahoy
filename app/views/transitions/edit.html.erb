@@ -9,18 +9,27 @@
       <%= f.text_field :faculty_id, class: "u-full-width" %><p/>
     </div>
     <div class="six columns">
-      <%= f.label :user_id, "Team Member ID" %>
-      <%= f.text_field :user_id, class: "u-full-width" %><p/>
+      <%= f.label :course %>
+      <%= f.text_field :course, class: "u-full-width" %><p/>
     </div>
   </div>
   <div class="row">
     <div class="six columns">
-      <%= f.label :course %>
-      <%= f.text_field :course, class: "u-full-width" %><p/>
+      <%= f.label :date %>
+      <%= f.datetime_local_field :date, class: "u-full-width" %><p/>
     </div>
     <div class="six columns">
       <%= f.label :link %>
-      <%= f.text_field :link, class: "u-full-width" %><p/>
+      <%= f.url_field :link, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :user_id, "Team Member ID" %>
+      <%= f.text_field :user_id, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+
     </div>
   </div>
   <div class="row">

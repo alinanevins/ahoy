@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+img.user_badge {
+  height: 215px;
+  float: left;
+}
 .badges_all {
   width: 205px;
   height: inherit;
@@ -28,15 +33,21 @@ div.badge_requirement {
   margin-left: 3%;
 }
 
-.column:first-child {
-  margin-left: 3% !important;
+.columns:first-child {
+  margin-left: 0%;
+}
+
+.badges {
+  .columns:first-child {
+    margin-left: 3%;
+  }
 }
 
 .missing_badge {
   @extend .badges_all;
   -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    opacity: .75;
+    opacity: .6;
 }
 
 .btn:hover,
@@ -105,7 +116,7 @@ div.badge_requirement {
 }
 
 /*        Style       */
-.card{
+.card {
     background: none repeat scroll 0 0 #FFFFFF;
     border-radius: 4px;
     color: #444444;

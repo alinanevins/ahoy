@@ -4,9 +4,11 @@
   <p>Author: <%= link_to @consultant_name, "/users/#{@documentation.user_id}" %></p>
   <p>Summary: <%= @documentation.summary %></p>
   <p>Audience:
+    <ul>
     <% @documentation['audience'].each do |x| %>
-    <%= x %></br>
+    <li><%= x %></li>
     <% end %>
+  </ul>
   <p>Link to Documentation: <%= @documentation.link_to_documentation %></p>
   <p>Date Added: <%= @documentation.created_at.to_s(:pretty_dt) %></p>
   <p>

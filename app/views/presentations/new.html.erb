@@ -5,7 +5,7 @@
 
   <div class="row">
       <%= f.label :date %>
-      <%= f.text_field :date, class: "u-full-width" %><p/>
+      <%= f.datetime_local_field :date, class: "u-full-width" %><p/>
   </div>
   <div class="row">
     <div class="six columns">
@@ -19,7 +19,7 @@
   </div>
   <div class="row">
     <%= f.label :notes %>
-    <%= f.text_field :notes, class: "u-full-width" %><p/>
+    <%= f.text_area :notes, class: "u-full-width" %><p/>
   </div>
   <div class="row">
       <%= f.submit class: "button-primary"%>

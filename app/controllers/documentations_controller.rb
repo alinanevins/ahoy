@@ -1,4 +1,6 @@
 class DocumentationsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @documentation = Documentation.all
   end
@@ -15,10 +17,16 @@ class DocumentationsController < ApplicationController
     if documentation_hash['audience_other'] != ""
       @documentation.audience << documentation_hash['audience_other']
     end
+
+    if @documentation.audience.first == ""
+      @documentation.audience = @documentation.audience.delete_at(0)
+    end
+
     if @documentation.save
       redirect_to documentation_path(@documentation.id)
     end
-        binding.pry #if current_user.documentations.count == 5
+
+        #if current_user.documentations.count == 5
   end
 
   def new

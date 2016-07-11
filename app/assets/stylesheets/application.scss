@@ -104,6 +104,13 @@ body.badges {
 .container {
   background-color: rgba(255,255,255,0.6);
   padding: 0 45px 20px 20px;
+  height: 100vh;
+  overflow: auto;
+}
+
+#navBar {
+  height: auto;
+  overflow: visible !important;
 }
 
 .home_page {
@@ -112,4 +119,15 @@ body.badges {
 
 .text-area {
 
+}
+.alert {
+    padding: 20px;
+    // background-color: #f44336; /* Red */
+    color: blue;
+    margin-bottom: 15px;
+}
+
+.float_left {
+    float: left;
+    margin: 10px 20px 10px 0;
 }

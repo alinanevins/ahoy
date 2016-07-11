@@ -16,11 +16,11 @@
   <div class="row">
     <div class="six columns">
       <%= f.label :email %>
-      <%= f.text_field :email, class: "u-full-width" %><p/>
+      <%= f.email_field :email, class: "u-full-width" %><p/>
     </div>
     <div class="six columns">
       <%= f.label :phone %>
-      <%= f.text_field :phone, class: "u-full-width" %><p/>
+      <%= f.telephone_field :phone, class: "u-full-width" %><p/>
     </div>
   </div>
   <div class="row">
@@ -35,7 +35,7 @@
   </div>
   <div class="row">
     <%= f.label :notes %>
-    <%= f.text_field :notes, class: "u-full-width" %><p/>
+    <%= f.text_area :notes, class: "u-full-width" %><p/>
   </div>
   <div class="row">
     <%= f.submit class: "button-primary" %>

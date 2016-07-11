@@ -1,27 +1,9 @@
 <body class="index">
-  <!-- Top menu -->
-  <div class="show-menu">
-    <a href="#" class="shadow-top-down">+</a>
-  </div>
-  <nav class="main-menu shadow-top-down">
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#templatemo_home" class="scroll_effect">Home</a></li>
-      <li><a href="/users">Users</a></li>
-      <li><a href="/consultations">Consultations</a></li>
-      <li><a href="/documentations">Documentation</a></li>
-      <li><a href="/faculties">Faculty</a></li>
-      <li><a href="/observations">Observations</a></li>
-      <li><a href="/presentations">Presentations</a></li>
-      <li><a href="/transitions">Transitions</a></li>
-      <li><a href="#templatemo_download" class="scroll_effect">Sign In</a></li>
-      <li><a href="/users/sign_out" data-method="delete">Sign Out</a></li>
-      <li><a href="#templatemo_contact" class="scroll_effect">About</a></li>
-    </ul>
-  </nav>
+
 
   <!-- Home -->
   <section id="templatemo_home">
-    <div class="container home_page">
+    <div class="container home_page home">
       <div class="templatemo_home_inner_wapper">
         <h1 class="text-center"><i class="fa fa-anchor"></i> AHOY!</h1>
       </div>
@@ -32,14 +14,19 @@
         </p>
       </div>
       <div class="templatemo_home_inner_wapper btn_wapper">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <a href="#templatemo_features" class="btn col-xs-12 scroll_effect shadow-top-down">
-            <i class="fa fa-align-justify"></i> Features
+            <i class="fa fa-ship"></i> Features
           </a>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <a href="#templatemo_download" class="btn col-xs-12 scroll_effect shadow-top-down" action= users_registration_path>
-            <i class="fa fa-download"></i> Log In
+            <i class="fa fa-user"></i> Log In
+          </a>
+        </div>
+        <div class="col-sm-4">
+          <a href="/badges/all" class="btn col-xs-12 shadow-top-down" >
+            <i class="fa fa-trophy"></i> All Badges
           </a>
         </div>
       </div>
@@ -99,7 +86,7 @@
   <!-- Log in -->
   <section id="templatemo_download">
     <div class="container">
-      <div class="templatemo_download_text_wapper">
+      <div class="templatemo_download_text_wapper home">
         <div class="row">
           <div class="col-sm-12">
             <header class="template_header">
@@ -120,7 +107,7 @@
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon"><i class="fa fa-unlock-alt"></i></div>
-            <input autocomplete="off" name="user[password]" id="user_password" type="password" class="form-control user-login" placeholder="Password"></input>
+            <input autocomplete="false" name="user[password]" id="user_password" type="password" class="form-control" placeholder="Password"></input>
           </div>
         </div>
 
@@ -139,7 +126,7 @@
   </section>
   <!-- Sign up -->
   <section id="templatemo_contact">
-    <div class="container">
+    <div class="container home">
       <div class="row">
         <div class="col-sm-12">
           <header class="template_header">
@@ -178,7 +165,11 @@
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon"><i class="fa fa-unlock-alt"></i></div>
+<<<<<<< ca7b42d83294735208417f9eac757e53d646b17a
           <input autocomplete="off" name="user[password_confirmation]" id="user_password_confirmation" type="password" class="form-control user-login" placeholder="Confirm Password">
+=======
+          <input autocomplete="false" name="user[password_confirmation]" id="user_password_confirmation" type="password" class="form-control" placeholder="Confirm Password">
+>>>>>>> lots of work over the weekend
         </div>
       </div>
 

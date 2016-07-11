@@ -5,13 +5,34 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+  <script>
+  <% if controller.controller_name == 'consultations' || controller.controller_name == 'transitions' %>
+
+  $(function() {
+    var availableFaculty = [
+      <% @availableFaculty.each do |faculty| %>
+      "<%= faculty %>",
+      <% end %>
+    ];
+    $( "#faculty" ).autocomplete({
+      source: availableFaculty
+    });
+  });
+  <% end %>
+  </script>
 </head>
 
 <body class=<%= controller.controller_name %>>
   <div class="container" id="navBar">
+
     <div class="three columns">
       <h3>All Aboard Canvas</h3>
     </div>
+
     <div id="nav" class="seven columns">
       <ul>
         <li><a href="/">Home</a></li>
@@ -19,25 +40,43 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/consultations">Consultations</a></li>
-              <li><a href="/documentations">Documentation</a></li>
-              <li><a href="/faculties">Faculty</a></li>
-              <li><a href="/observations">Observations</a></li>
-              <li><a href="/presentations">Presentations</a></li>
-              <li><a href="/transitions">Transitions</a></li>
+              <li><a href="/consultations">All Consultations</a></li>
+              <li><a href="/documentations">All Documentation</a></li>
+              <li><a href="/faculties">All Faculty</a></li>
+              <li><a href="/observations">All Observations</a></li>
+              <li><a href="/presentations">All Presentations</a></li>
+              <li><a href="/transitions">All Transitions</a></li>
             </ul>
           </li>
-          <li><a href="/users">Users</a></li>
-          <li><a href="/badges/all">Badges</a></li>
+          <li><%= link_to "Your Profile", user_path(current_user) %></li>
+          <li><a href="/badges/all">All Badges</a></li>
+          <li><a href="/#templatemo_download">Sign In</a></li>
+          <li><a href="/users/sign_out" data-method="delete">Sign Out</a></li>
         </ul>
       </div>
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
     </div>
-  </div>
+    <!-- 'Add' menu -->
+    <div class="show-menu">
+      <a href="#" class="shadow-top-down">+</a>
+    </div>
+    <nav class="main-menu shadow-top-down">
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="/consultations/new">Consultations</a></li>
+        <li><a href="/documentations/new">Documentation</a></li>
+        <li><a href="/observations/new">Observation</a></li>
+        <li><a href="/presentations/new">Presentation</a></li>
+        <li><a href="/transitions/new">Transition</a></li>
+        <li><a href="/faculties/new">Faculty Member</a></li>
+      </ul>
+    </nav>
 
-    <%= yield %>
+      <span class="notice"><%= notice %></span>
+      <span class="alert"><%= alert %></span>
+
+  </div>
+</div>
+
+<%= yield %>
 
 </body>
 </html>

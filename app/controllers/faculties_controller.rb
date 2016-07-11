@@ -1,20 +1,24 @@
 class FacultiesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @faculty = Faculty.all
   end
 
   def create
     faculty_hash = params.delete('faculty')
-    a = Faculty.new
-    a.first_name = faculty_hash['first_name']
-    a.last_name = faculty_hash['last_name']
-    a.email = faculty_hash['email']
-    a.phone = faculty_hash['phone']
-    a.school = faculty_hash['school']
-    a.department = faculty_hash['department']
-    a.notes = faculty_hash['notes']
-    if a.save
-      redirect_to faculty_path(a.id)
+    @faculty = Faculty.new
+    @faculty.first_name = faculty_hash['first_name']
+    @faculty.last_name = faculty_hash['last_name']
+    @faculty.full_name = @faculty.first_name + " " + @faculty.last_name
+    @faculty.email = faculty_hash['email']
+    @faculty.phone = faculty_hash['phone']
+    @faculty.school = faculty_hash['school']
+    @faculty.department = faculty_hash['department']
+    @faculty.notes = faculty_hash['notes']
+
+    if @faculty.save
+      redirect_to faculty_path(@faculty.id)
     end
   end
 

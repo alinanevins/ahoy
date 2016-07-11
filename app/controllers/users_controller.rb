@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @user = User.all
   end
@@ -16,8 +18,30 @@ class UsersController < ApplicationController
   end
 
   def show
-  id = params[:id]
-  @user = User.find(id)
+    id = params[:id]
+    @user = User.find(id)
+
+    # @users_consultations = []
+    # Consultation.all.each do |x|
+    #   if x.user_id == @user.id
+    #     @users_consultations << x.date.to_s(:pretty_dt)
+    #   end
+    # end
+    #
+    # @users_documentations = []
+    # Documentation.all.each do |x|
+    #   if x.user_id == @user.id
+    #     @users_documentations << x.name
+    #   end
+    # end
+    #
+    # @users_presentations = []
+    # Presentation.all.each do |x|
+    #   if x.user_id == @user.id
+    #     @users_presentations << x.id
+    #   end
+    # end
+
   end
 
   def update

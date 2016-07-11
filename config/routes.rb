@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   post '/presentations/:id/edit' => 'presentations#edit'
   post '/transitions/:id/edit' => 'transitions#edit'
 
-
   resources :users
   resources :consultations
   resources :faculties

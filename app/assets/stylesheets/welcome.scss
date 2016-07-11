@@ -8,4 +8,12 @@
 
 .user-login {
   color: black !important;
+
+.home {
+  overflow: visible !important;
+}
+
+body.welcome form {
+  margin-bottom: 60px;
+}
 }

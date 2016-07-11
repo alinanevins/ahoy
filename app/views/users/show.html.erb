@@ -4,12 +4,20 @@
   <p>User ID: <%= @user.id %></p>
   <p>Email: <%= @user.email %></p>
   <p>Registered on: <%= @user.created_at.to_s(:pretty_dt) %></p>
-  <p>Badges:
-    <ul>
-      <% @user.badges.each do |badge| %>
-      <li><%= badge.name %></li>
-      <% end %>
-    </ul></p>
 
-    <p><%= link_to "Edit", "/users/#{@user.id}/edit", method: 'get' %></p>
-  </div>
+  <!-- <p>Your Consultations: <%= @users_consultations %>
+  <p>Your Documentation: <%= @users_documentations %>
+  <p>Your Presentations: <%= @users_presentations %>
+  <p>Your Observations: <%= @users_observations %>
+  <p>Your Transitions: <%= @users_transitions %> -->
+
+  <p>Badges:</p>
+        <% @user.badges.each do |badge| %>
+        <img class="user_badge" src="<%= badge.custom_fields[:image] %>", title="<%= badge.description %>" />
+        <% end %>
+
+      <%= button_to "View all badges", "/badges/all", method: 'get', class: "button-primary float_left" %>
+
+      <%= button_to "Edit profile", "/users/#{@user.id}/edit", method: 'get', class: "button-primary float_left" %>
+
+</div>

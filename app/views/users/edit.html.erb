@@ -3,17 +3,28 @@
 
   <%= form_for(@user) do |f| %>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %><p/>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: "u-full-width" %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "u-full-width" %><p/>
+  </div>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %><p/>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %><p/>
-
-  <%= f.submit %>
+  <div class="row">
+    <div class="six columns">
+      <%= f.submit class: "button-primary" %>
+    </div>
+    <div class="six columns">
+      <%= link_to "Delete your account", user_path(@user.id), method: 'delete' %>
+    </div>
+  </div>
   <% end %>
-
-  <%= link_to "Delete your account", user_path(@user.id), method: 'delete' %>
 </div>

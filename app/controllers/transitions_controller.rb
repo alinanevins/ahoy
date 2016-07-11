@@ -1,4 +1,6 @@
 class TransitionsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @transition = Transition.all
   end
@@ -18,6 +20,13 @@ class TransitionsController < ApplicationController
 
   def new
     @transition = Transition.new
+
+    @availableFaculty = []
+
+    Faculty.all.each do |faculty|
+      @facultyname = faculty.first_name + " " + faculty.last_name
+      @availableFaculty << @facultyname
+    end
   end
 
   def show

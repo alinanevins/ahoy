@@ -1,5 +1,6 @@
 class PresentationsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     @presentation = Presentation.all
     #prep data for progress bar

@@ -1,4 +1,6 @@
 class ObservationsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @observation = Observation.all
   end

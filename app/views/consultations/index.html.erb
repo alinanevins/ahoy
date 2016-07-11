@@ -4,7 +4,8 @@
   <table>
     <thead>
       <th>Consultation ID</th>
-      <th>Faculty Member ID</th>
+      <th>Faculty Member</th>
+      <th>Faculty ID</th>
       <th>Consultant ID</th>
       <th>Date</th>
       <th>Focus</th>
@@ -14,6 +15,7 @@
     <% @consultation.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/consultations/#{a.id}", method: 'get' %></td>
+      <td><%= a.facultyname  %></td>
       <td><%= a.faculty_id  %></td>
       <td><%= a.user_id  %></td>
       <td><%= a.date.to_s(:pretty_dt) %></td>

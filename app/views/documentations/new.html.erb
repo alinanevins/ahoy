@@ -2,13 +2,14 @@
   <h1>Add New Documentation</h1>
 
   <%= form_for(@documentation) do |f| %>
+
   <div class="row">
     <%= f.label :name, "Title" %>
     <%= f.text_field :name, class: "u-full-width" %><p/>
   </div>
   <div class="row">
     <%= f.label :summary, "Summary/Notes (if not obvious from title)" %>
-    <%= f.text_field :summary, class: "u-full-width" %><p/>
+    <%= f.text_area :summary, class: "u-full-width" %><p/>
   </div>
   <div class="row">
     <div class="six columns">
@@ -19,7 +20,7 @@
       <%= f.label :audience_other, "Other Audiences" %>
       <%= f.text_field :audience_other, class: "u-full-width" %><p/>
       <%= f.label :link_to_documentation, "Link to Documentation" %>
-      <%= f.text_field :link_to_documentation, class: "u-full-width" %><p/>
+      <%= f.url_field :link_to_documentation, class: "u-full-width" %><p/>
     </div>
   </div>
   <div class="row">

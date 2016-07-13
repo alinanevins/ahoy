@@ -69,8 +69,12 @@
       </ul>
     </nav>
 
-      <span class="notice"><%= notice %></span>
-      <span class="alert"><%= alert %></span>
+    <% unless notice.nil? %>
+       <p class="notice"><%= notice %></p>
+    <% end %>
+    <% unless alert.nil? %>
+       <p class="alert"><%= alert %></p>
+    <% end %>
 
   </div>
 </div>

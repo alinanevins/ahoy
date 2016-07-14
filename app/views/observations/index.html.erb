@@ -1,26 +1,18 @@
 <div class="container">
-  <h1>Your Observations</h1>
+  <h1>All Observations</h1>
 
   <table>
     <thead>
       <th>Observation ID</th>
       <th>Presentation ID</th>
-      <th>Observer</th>
+      <th>Observer (ID)</th>
     </thead>
-
     <% @observation.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/observations/#{a.id}", method: 'get' %></td>
       <td><%= a.presentation_id %></td>
-      <td><% @userid = a.user_id %>
-      <% b = User.find(@userid) %>
-      <%= b.first_name.to_s + " " + b.last_name.to_s %></td>
+      <td><%= a.user_id %></td>
     </tr>
     <% end %>
-
-    <% if @observation == [] %>
-    <h3>You haven't added any observations yet. <a href="/observations/new">Add one now.</a></h3>
-    <% end %>
-
   </table>
 </div>

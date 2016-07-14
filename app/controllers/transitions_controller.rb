@@ -2,7 +2,7 @@ class TransitionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @transition = Transition.where(user_id: current_user.id)
+    @transition = Transition.all
 
     # faculty name autocomplete
     @availableFaculty = []

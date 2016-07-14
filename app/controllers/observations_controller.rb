@@ -2,7 +2,7 @@ class ObservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @observation = Observation.where(user_id: current_user.id)
+    @observation = Observation.all
   end
 
   def create

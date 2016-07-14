@@ -14,16 +14,6 @@ jQuery(document).ready(function(){
             return true;
         });
     };
-    jQuery.fn.templateMoMenuHideAdd = function(){
-        return this.each(function(){
-            $(this)
-                .removeClass("shadow-top-down-add")
-                .animate({opacity: 0,top: 120}, 240,"easeOutSine",function(){
-                    $(this).hide();
-                });
-            return true;
-        });
-    };
     // Template Mo menu show
     jQuery.fn.templateMoMenuShow = function(){
         return this.each(function(){
@@ -35,18 +25,7 @@ jQuery(document).ready(function(){
             return true;
         });
     };
-    // Template Mo menu show
-    jQuery.fn.templateMoMenuShowAdd = function(){
-        return this.each(function(){
-            $(this)
-                .addClass("shadow-top-down-add")
-                .show()
-                .css({opacity: 0,top: 120})
-                .animate({opacity: 1,top: 130}, 40,"easeInSine");
-            return true;
-        });
-    };
-    // Menu click on menu btn
+    // Menu click on plus btn
     $('.show-menu').on('click', function(e){
         // When nav is visible make nav hide
         if($('nav').is(":visible")){
@@ -57,21 +36,9 @@ jQuery(document).ready(function(){
         }
         return false;
     });
-    // Menu click on plus btn
-    $('.show-menu-add').on('click', function(e){
-        // When nav is visible make nav hide
-        if($('nav-add').is(":visible")){
-            $('nav-add:visible').templateMoMenuHideAdd();
-        // When nav is not visible make nav show
-        }else{
-            $('nav-add').templateMoMenuShowAdd();
-        }
-        return false;
-    });
     // Menu hide when click on any area of document
     $(document).on('click', function(e){
         $('nav:visible').templateMoMenuHide();
-        $('nav-add:visible').templateMoMenuHideAdd();
         return true;
     });
     // Menu scroll to.
@@ -89,25 +56,24 @@ jQuery(document).ready(function(){
         }
         // If menu is visible hide the nav.
         $('nav:visible').templateMoMenuHide();
-        $('nav:visible').templateMoMenuHideAdd();
         return false;
     });
     // Javascript parallax effect config for different browser.
     // Chrome broswer setting
-    if($.templatemo_is_chrome){
-        $("html").attr("style","overflow:auto;");
-        $("body").attr("style","overflow:auto;height:auto;");
-        $('#templatemo_home').parallax("50%", 0.1);
-        $('#templatemo_download').parallax("50%", 0.1);
-    // Non IE broswer setting
-    }else if(!$.templatemo_is_ie){
-        $("html").attr("style","overflow: auto;");
-        $("body").attr("style","background: #455a64;overflow: auto;height: auto;");
-        $('#templatemo_home').parallax("50%", 0.1);
-        $('#templatemo_download').parallax("50%", 0.1);
-    // IE broswer setting
-    }else{
-        $('#templatemo_home').parallax("50%", 0.5);
-        $('#templatemo_download').parallax("50%", 0.5);
-    }
+    // if($.templatemo_is_chrome){
+    //     $("html").attr("style","overflow:auto;");
+    //     $("body").attr("style","overflow:auto;height:auto;");
+    //     $('#templatemo_home').parallax("50%", 0.1);
+    //     $('#templatemo_download').parallax("50%", 0.1);
+    // // Non IE broswer setting
+    // }else if(!$.templatemo_is_ie){
+    //     $("html").attr("style","overflow: auto;");
+    //     $("body").attr("style","background: #455a64;overflow: auto;height: auto;");
+    //     $('#templatemo_home').parallax("50%", 0.1);
+    //     $('#templatemo_download').parallax("50%", 0.1);
+    // // IE broswer setting
+    // }else{
+    //     $('#templatemo_home').parallax("50%", 0.5);
+    //     $('#templatemo_download').parallax("50%", 0.5);
+    // }
 });

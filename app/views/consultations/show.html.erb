@@ -4,9 +4,13 @@
   </h1>
   <p>Consultation ID: <%= @consultation.id %></p>
   <p>CTL Consultant: <%= link_to @consultant_name, "/users/#{@consultation.user_id}" %></p>
-  <p>Consultation Date: <%= @consultation.date.to_s(:pretty_dt) %></p>
+  <p>Consultation Date: <% if @consultation.date == nil %>
+    <%=  @consultation.date %>
+  <% else %>
+    <%= @consultation.date.to_s(:pretty_dt) %>
+  <% end %></p>
   <p>Consultation Focus: <%= @consultation.focus %></p>
-  <p>Link to Consultation Notes: <%= @consultation.link_to_notes %></p>
+  <p>Link to Consultation Notes: <a href="<%= a.link_to_notes %>"><%= a.link_to_notes %></a></p>
 
   <p><%= button_to "Edit", "/consultations/#{@consultation.id}/edit", method: 'post', class: "button-primary" %></p>
 </div>

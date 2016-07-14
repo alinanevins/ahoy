@@ -9,7 +9,8 @@
     <li><%= x %></li>
     <% end %>
   </ul>
-  <p>Link to Documentation: <%= @documentation.link_to_documentation %></p>
+  <p>Link to Documentation: <a href="<%= @documentation.link_to_documentation %>"><%= @documentation.link_to_documentation %></a></p>
+
   <p>Date Added: <%= @documentation.created_at.to_s(:pretty_dt) %></p>
   <p>
     <%= button_to "Edit", "/documentations/#{@documentation.id}/edit", method: 'post', class: "button-primary" %></p>

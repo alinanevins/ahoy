@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>All Documentation</h1>
+  <h1>Your Documentation</h1>
 
   <table>
     <thead>
@@ -13,12 +13,19 @@
     <% @documentation.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/documentations/#{a.id}", method: 'get' %></td>
-      <td><%= a.user_id  %></td>
+      <td><% @userid = a.user_id %>
+      <% b = User.find(@userid) %>
+      <%= b.first_name.to_s + " " + b.last_name.to_s %></td>
       <td><%= a.name  %></td>
-      <td><%= a.audience  %></td>
-      <td><%= a.link_to_documentation %></td>
+      <td><%= a.audience %></td>
+      <td><a href="<%= a.link_to_documentation %>"><%= a.link_to_documentation %></a></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>
     <% end %>
+
+    <% if @documentation == [] %>
+    <h3>You haven't added any documentation yet. <a href="/documentation/new">Add some now.</a></h3>
+    <% end %>
+
   </table>
 </div>

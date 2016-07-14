@@ -25,7 +25,7 @@
       <% end %></td>
       <td><%= link_to a.facultyname, "/faculties/#{a.faculty_id}" %></td>
       <td><%= a.course %></td>
-      <td><%= a.link %></td>
+      <td><a href="<%= a.link %>"><%= a.link %></a></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>
     <% end %>

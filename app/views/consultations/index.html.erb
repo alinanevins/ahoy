@@ -26,7 +26,7 @@
       <% end %></td>
       <td><%= a.focus  %></td>
       <td>
-          <%= a.link_to_notes %></a>
+          <a href="<%= a.link_to_notes %>"><%= a.link_to_notes %></a>
       </td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>

@@ -9,7 +9,7 @@
   <% else %>
     <%= @transition.date.to_s(:pretty_dt) %>
   <% end %></p>
-  <p>Link: <%= @transition.link %></p>
+  <p>Link: <a href="<%= a.link %>"><%= a.link %></a></p>
   <p>Date Added: <%= @transition.created_at.to_s(:pretty_dt) %></p>
 
   <p><%= button_to "Edit", "/transitions/#{@transition.id}/edit", method: 'post', class: "button-primary" %></p>

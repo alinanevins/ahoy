@@ -131,3 +131,20 @@ body.badges {
     float: left;
     margin: 10px 20px 10px 0;
 }
+
+.main-nav {
+  color: #FFF !important;
+  text-decoration: none;
+  margin: -5px 0 10px -15px;
+  padding: 0 10px 10px 10px;
+}
+
+.main-nav:hover {
+  @extend .main-nav;
+  text-decoration: none;
+}
+
+.menu-logo {
+color: #33C3F0;
+text-decoration: none !important;
+}

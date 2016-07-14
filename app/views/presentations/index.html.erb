@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Your Presentations</h1>
+  <h1>All Presentations</h1>
 
   <table>
     <thead>
@@ -24,11 +24,6 @@
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>
     <% end %>
-
-    <% if @presentation == [] %>
-    <h3>You haven't added any presentations yet. <a href="/presentations/new">Add one now.</a></h3>
-    <% end %>
-
   </table>
 
 </div>

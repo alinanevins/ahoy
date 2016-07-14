@@ -2,7 +2,7 @@ class ConsultationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @consultation = Consultation.where(user_id: current_user.id)
+    @consultation = Consultation.all
 
     # faculty name autocomplete
     @availableFaculty = []

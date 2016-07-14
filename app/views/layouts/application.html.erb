@@ -103,29 +103,37 @@
 <body class=<%= controller.controller_name %> data-no-turbolink="true">
   <div class="container" id="navBar">
 
+    <div class="three columns">
+      <h3>All Aboard Canvas</h3>
+    </div>
 
-
-    <!-- Main menu -->
+    <div id="nav" class="seven columns">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/consultations">All Consultations</a></li>
+              <li><a href="/documentations">All Documentation</a></li>
+              <li><a href="/faculties">All Faculty</a></li>
+              <li><a href="/observations">All Observations</a></li>
+              <li><a href="/presentations">All Presentations</a></li>
+              <li><a href="/transitions">All Transitions</a></li>
+            </ul>
+          </li>
+          <li><a href="/badges/all">All Badges</a></li>
+          <li><a href="/#templatemo_download">Sign In</a></li>
+          <li><a href="/users/sign_out" data-method="delete">Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- 'Add' menu -->
     <div class="show-menu">
-      <a class="shadow-top-down">=</a>
+      <a class="shadow-top-down">+</a>
     </div>
     <nav class="main-menu shadow-top-down">
-      <ul class="nav nav-pills nav-stacked nav-menu">
-        <li><a href="/consultations">My Consultations</a></li>
-        <li><a href="/documentations">My Documentation</a></li>
-        <li><a href="/observations">My Observations</a></li>
-        <li><a href="/presentations">My Presentations</a></li>
-        <li><a href="/transitions">My Transitions</a></li>
-        <li><a href="/faculties/all">All Faculty Members</a></li>
-      </ul>
-    </nav>
-
-    <!-- 'Add' menu -->
-    <div class="show-menu-add">
-      <a class="shadow-top-down-add">+</a>
-    </div>
-    <nav class="add-menu shadow-top-down-add">
-      <ul class="nav nav-pills nav-stacked nav-add">
+      <ul class="nav nav-pills nav-stacked">
         <li><a href="/consultations/new">Consultations</a></li>
         <li><a href="/documentations/new">Documentation</a></li>
         <li><a href="/observations/new">Observation</a></li>

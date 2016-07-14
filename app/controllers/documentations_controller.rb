@@ -2,7 +2,7 @@ class DocumentationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @documentation = Documentation.all
+    @documentation = Documentation.where(user_id: current_user.id)
   end
 
   def create

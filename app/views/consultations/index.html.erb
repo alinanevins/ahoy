@@ -1,12 +1,11 @@
 <div class="container">
-  <h1>All Consultations</h1>
+  <h1>Your Consultations</h1>
 
   <table>
     <thead>
       <th>Consultation ID</th>
       <th>Faculty Member</th>
-      <th>Faculty ID</th>
-      <th>Consultant ID</th>
+      <th>Consultant Name</th>
       <th>Date</th>
       <th>Focus</th>
       <th>Link to Notes</th>
@@ -15,14 +14,27 @@
     <% @consultation.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/consultations/#{a.id}", method: 'get' %></td>
-      <td><%= a.facultyname  %></td>
-      <td><%= a.faculty_id  %></td>
-      <td><%= a.user_id  %></td>
-      <td><%= a.date.to_s(:pretty_dt) %></td>
+      <td><%= link_to a.facultyname, "/faculties/#{a.faculty_id}" %></td>
+      <td><% @userid = a.user_id %>
+      <% b = User.find(@userid) %>
+      <%= b.first_name.to_s + " " + b.last_name.to_s %></td>
+
+      <td><% if a.date == nil %>
+        <%=  a.date %>
+      <% else %>
+        <%= a.date.to_s(:pretty_dt) %>
+      <% end %></td>
       <td><%= a.focus  %></td>
-      <td><%= a.link_to_notes %></td>
+      <td>
+          <%= a.link_to_notes %></a>
+      </td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>
     <% end %>
+
+    <% if @consultation == [] %>
+    <h3>You haven't added any consultations yet. <a href="/consultations/new">Add one now.</a></h3>
+    <% end %>
+
   </table>
 </div>

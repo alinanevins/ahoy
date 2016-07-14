@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>All Classes*v2 to Canvas Transitions</h1>
+  <h1>Your Classes*v2 to Canvas Transitions</h1>
 
   <table>
     <thead>
       <th>Transition ID</th>
-      <th>Team Member ID</th>
-      <th>Faculty ID</th>
+      <th>Team Member</th>
+      <th>Date</th>
+      <th>Faculty Name</th>
       <th>Course</th>
       <th>Link</th>
       <th>Date Added</th>
@@ -13,12 +14,25 @@
     <% @transition.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/transitions/#{a.id}", method: 'get' %></td>
-      <td><%= a.user_id %></td>
-      <td><%= a.faculty_id %></td>
+      <td><% @userid = a.user_id %>
+      <% b = User.find(@userid) %>
+      <%= b.first_name.to_s + " " + b.last_name.to_s %>
+    </td>
+      <td><% if a.date==nil %>
+        <%=  a.date %>
+      <% else %>
+        <%= a.date.to_s(:pretty_dt) %>
+      <% end %></td>
+      <td><%= link_to a.facultyname, "/faculties/#{a.faculty_id}" %></td>
       <td><%= a.course %></td>
       <td><%= a.link %></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>
     <% end %>
+
+    <% if @transition == [] %>
+    <h3>You haven't added any transitions yet. <a href="/transitions/new">Add one now.</a></h3>
+    <% end %>
+
   </table>
 </div>

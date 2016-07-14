@@ -5,8 +5,7 @@
     <thead>
       <th>Consultation ID</th>
       <th>Faculty Member</th>
-      <th>Faculty ID</th>
-      <th>Consultant ID</th>
+      <th>Consultant Name</th>
       <th>Date</th>
       <th>Focus</th>
       <th>Link to Notes</th>
@@ -14,11 +13,17 @@
     </thead>
     <% @consultation.each do |a| %>
     <tr>
+
       <td><%= link_to a.id, "/consultations/#{a.id}", method: 'get' %></td>
       <td><%= a.facultyname  %></td>
-      <td><%= a.faculty_id  %></td>
-      <td><%= a.user_id  %></td>
-      <td><%= a.date.to_s(:pretty_dt) %></td>
+      <td><% @userid = @consultation.user_id %>
+      <% a = User.find(@userid) %>
+      <%= a.first_name.to_s + " " + a.last_name.to_s %></td>
+      <td><% if a.date==nil %>
+        <%=  a.date %>
+      <% else %>
+        <%= a.date.to_s(:pretty_dt) %>
+      <% end %></td>
       <td><%= a.focus  %></td>
       <td><%= a.link_to_notes %></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>

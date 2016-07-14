@@ -5,8 +5,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
   <script>
@@ -23,7 +23,81 @@
     });
   });
   <% end %>
+
+  $(function() {
+    var all_schools = [
+    "Divinity School",
+    "Law School",
+    "School of Architecture",
+    "School of Art",
+    "School of Drama",
+    "School of Engineering and Applied Science",
+    "School of Forestry & Environmental Studies",
+    "School of Management",
+    "School of Medicine",
+    "School of Music",
+    "School of Nursing",
+    "School of Public Health",
+    "Yale College"
+    ];
+    $( "#all_schools" ).autocomplete({
+      source: all_schools
+    });
+  });
+
+  $(function() {
+    var all_depts = [
+      "African American Studies",
+      "American Studies",
+      "Anthropology",
+      "Applied Physics",
+      "Astronomy",
+      "Biomedical Engineering",
+      "Chemical and Environmental Engineering",
+      "Chemistry",
+      "Classics",
+      "Comparative Literature",
+      "Computer Science",
+      "East Asian Languages and Literatures",
+      "Ecology and Evolutionary Biology",
+      "Economics",
+      "Electrical Engineering",
+      "English",
+      "Film and Media Studies Program",
+      "French",
+      "Geology and Geophysics",
+      "Germanic Languages and Literatures",
+      "History",
+      "History of Art",
+      "Humanities Program",
+      "Italian",
+      "Judaic Studies Program",
+      "Linguistics",
+      "Mathematics",
+      "Mechanical Engineering and Materials Science",
+      "Molecular Biophysics and Biochemistry",
+      "Molecular, Cellular and Developmental Biology",
+      "Music",
+      "Near Eastern Languages and Civilizations",
+      "Philosophy",
+      "Physics",
+      "Political Science",
+      "Psychology",
+      "Religious Studies",
+      "Slavic Languages and Literatures",
+      "Sociology",
+      "Spanish and Portuguese",
+      "Statistics",
+      "Theater Studies Program",
+      "Women’s, Gender, and Sexuality Studies",
+    ];
+    $( "#all_depts" ).autocomplete({
+      source: all_depts
+    });
+  });
+
   </script>
+
 </head>
 
 <body class=<%= controller.controller_name %> data-no-turbolink="true">

@@ -5,7 +5,8 @@
     <thead>
       <th>Transition ID</th>
       <th>Team Member ID</th>
-      <th>Faculty ID</th>
+      <th>Date</th>
+      <th>Faculty Name</th>
       <th>Course</th>
       <th>Link</th>
       <th>Date Added</th>
@@ -14,7 +15,12 @@
     <tr>
       <td><%= link_to a.id, "/transitions/#{a.id}", method: 'get' %></td>
       <td><%= a.user_id %></td>
-      <td><%= a.faculty_id %></td>
+      <td><% if a.date==nil %>
+        <%=  a.date %>
+      <% else %>
+        <%= a.date.to_s(:pretty_dt) %>
+      <% end %></td>
+      <td><%= a.facultyname  %></td>
       <td><%= a.course %></td>
       <td><%= a.link %></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>

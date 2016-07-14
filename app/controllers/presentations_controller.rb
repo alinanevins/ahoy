@@ -1,8 +1,8 @@
 class PresentationsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
-    @presentation = Presentation.all
+    @presentation = Presentation.where(user_id: current_user.id)
     #prep data for progress bar
     @arbitrary_maximum = 50.0
     @progress = current_user.presentations.count / @arbitrary_maximum * 100

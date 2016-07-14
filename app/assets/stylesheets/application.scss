@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- // *= require normalize
- // *= require skeleton
+ *= require normalize
+ *= require skeleton
  *= require_tree .
  *= require_self
  */
@@ -106,16 +106,7 @@ body.badges {
   padding: 0 45px 20px 20px;
   height: 100vh;
   overflow: auto;
-  }
-
-.container .footer {
-    height: 200px !important;
-  }
-
-.container .sign_up {
-    height: 150vh !important;
-  }
-
+}
 
 #navBar {
   height: auto;

@@ -3,7 +3,6 @@ jQuery(document).ready(function(){
     $.templatemo_is_chrome = /chrom(e|ium)/.test(navigator.userAgent.toLowerCase());
     $.templatemo_is_ie = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
     // Template Mo menu hide
-
     jQuery.fn.templateMoMenuHide = function(){
         return this.each(function(){
             $(this)
@@ -26,7 +25,7 @@ jQuery(document).ready(function(){
         });
     };
     // Menu click on plus btn
-    $('.show-menu').on('click', function(e){
+    $('.show-menu a').on('click', function(e){
         // When nav is visible make nav hide
         if($('nav').is(":visible")){
             $('nav:visible').templateMoMenuHide();
@@ -58,22 +57,22 @@ jQuery(document).ready(function(){
         $('nav:visible').templateMoMenuHide();
         return false;
     });
-    // Javascript parallax effect config for different browser.
+    // Javascropt parallax effect config for different browser.
     // Chrome broswer setting
-    // if($.templatemo_is_chrome){
-    //     $("html").attr("style","overflow:auto;");
-    //     $("body").attr("style","overflow:auto;height:auto;");
-    //     $('#templatemo_home').parallax("50%", 0.1);
-    //     $('#templatemo_download').parallax("50%", 0.1);
-    // // Non IE broswer setting
-    // }else if(!$.templatemo_is_ie){
-    //     $("html").attr("style","overflow: auto;");
-    //     $("body").attr("style","background: #455a64;overflow: auto;height: auto;");
-    //     $('#templatemo_home').parallax("50%", 0.1);
-    //     $('#templatemo_download').parallax("50%", 0.1);
-    // // IE broswer setting
-    // }else{
-    //     $('#templatemo_home').parallax("50%", 0.5);
-    //     $('#templatemo_download').parallax("50%", 0.5);
-    // }
+    if($.templatemo_is_chrome){
+        $("html").attr("style","overflow:auto;");
+        $("body").attr("style","overflow:auto;height:auto;");
+        $('#templatemo_home').parallax("50%", 0.1);
+        $('#templatemo_download').parallax("50%", 0.1);
+    // Non IE broswer setting
+    }else if(!$.templatemo_is_ie){
+        $("html").attr("style","overflow: auto;");
+        $("body").attr("style","background: #455a64;overflow: auto;height: auto;");
+        $('#templatemo_home').parallax("50%", 0.1);
+        $('#templatemo_download').parallax("50%", 0.1);
+    // IE broswer setting
+    }else{
+        $('#templatemo_home').parallax("50%", 0.5);
+        $('#templatemo_download').parallax("50%", 0.5);
+    }
 });

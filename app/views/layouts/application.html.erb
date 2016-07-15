@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>All Aboard Canvas</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -18,39 +18,48 @@
       "<%= faculty %>",
       <% end %>
     ];
-    $( "#faculty" ).autocomplete({
+    $( ".faculty" ).autocomplete({
       source: availableFaculty
     });
   });
   <% end %>
-  </script>
+</script>
+
 </head>
 
-<body class=<%= controller.controller_name %> data-no-turbolink="true">
+<body class=<%= controller.controller_name %>>
+
   <div class="container" id="navBar">
 
-    <div class="three columns">
-      <h3>All Aboard Canvas</h3>
+    <div class="four columns">
+      <h3><a href="/", class="menu-logo"><i class="fa fa-ship"></i> All Aboard Canvas</a></h3>
     </div>
 
     <div id="nav" class="seven columns">
       <ul>
-        <li><a href="/">Home</a></li>
+
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
+          <a class="dropdown-toggle button button-primary main-nav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Work
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/consultations">All Consultations</a></li>
-              <li><a href="/documentations">All Documentation</a></li>
-              <li><a href="/faculties">All Faculty</a></li>
-              <li><a href="/observations">All Observations</a></li>
-              <li><a href="/presentations">All Presentations</a></li>
-              <li><a href="/transitions">All Transitions</a></li>
+              <li><a href="/consultations">Your Consultations</a></li>
+              <li><a href="/documentations">Your Documentation</a></li>
+              <li><a href="/observations">Your Observations</a></li>
+              <li><a href="/presentations">Your Presentations</a></li>
+              <li><a href="/transitions">Your Transitions</a></li>
             </ul>
           </li>
-          <li><a href="/badges/all">All Badges</a></li>
-          <li><a href="/#templatemo_download">Sign In</a></li>
-          <li><a href="/users/sign_out" data-method="delete">Sign Out</a></li>
+          <li><a href="/faculties", class="button button-primary main-nav"> Faculty</a></li>
+          <li><a href="/badges/all", class="button button-primary main-nav"> Badges</a></li>
+
+          <% if current_user != nil %>
+            <li><a href="/users/<%= current_user.id %>", class="button button-primary main-nav">Profile</a></li>
+            <li><a href="/users/sign_out" data-method="delete", class="button button-primary main-nav">Sign Out</a></li>
+          <% else %>
+            <li><a href="/#templatemo_download", class="button button-primary main-nav">Sign In</a></li>
+            <li><a href="/users/#{current_user.id}", class="button button-primary main-nav">Sign Up</a></li>
+          <% end %>
+
         </ul>
       </div>
     </div>
@@ -70,10 +79,10 @@
     </nav>
 
     <% unless notice.nil? %>
-       <p class="notice"><%= notice %></p>
+       <p class="notice"><%= notice %> <a class="close">x</a></p>
     <% end %>
     <% unless alert.nil? %>
-       <p class="alert"><%= alert %></p>
+       <p class="alert"><%= alert %> <a class="close">x</a></p>
     <% end %>
 
   </div>

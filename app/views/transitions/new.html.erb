@@ -5,8 +5,8 @@
 
   <div class="row">
     <div class="six columns">
-      <label for="facultyNames">Faculty Name: </label>
-      <%= f.text_field :faculty_id, class: "u-full-width", id: "faculty"%><p/>
+      <%= f.label :facultyname, "Faculty Name", id: "faculty" %>
+      <%= f.text_field :facultyname, class: "u-full-width faculty"%><p/>
     </div>
     <div class="six columns">
       <%= f.label :course %>
@@ -15,7 +15,7 @@
   </div>
   <div class="row">
     <div class="six columns">
-      <%= f.label :date %>
+      <%= f.label :date, required: true %>
       <%= f.datetime_local_field :date, class: "u-full-width" %><p/>
     </div>
     <div class="six columns">

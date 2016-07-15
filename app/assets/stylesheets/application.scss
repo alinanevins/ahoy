@@ -1,20 +1,20 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require normalize
- *= require skeleton
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require normalize
+*= require skeleton
+*= require_tree .
+*= require_self
+*/
 
 body.welcome {
   @import "bootstrap";
@@ -27,22 +27,22 @@ th, td {
 }
 
 #nav {
-	margin: 25px 0px 0 20px;
+  margin: 25px 0px 0 20px;
 }
 
 #nav ul li {
-	display: inline;
-	margin: 0 20px 0 0;
-	margin-bottom: 20px;
+  display: inline;
+  margin: 0 20px 0 0;
+  margin-bottom: 20px;
 }
 
 #nav a {
-	text-decoration: none;
+  text-decoration: none;
   color: blue;
 }
 
 #nav a:hover {
-	color: gray;
+  color: gray;
 }
 
 .backgroundstyle {
@@ -101,10 +101,14 @@ body.badges {
   @extend .backgroundstyle
 }
 
+body.registrations {
+  background-image: url("/images/dock.jpg");
+  @extend .backgroundstyle
+}
+
 .container {
   background-color: rgba(255,255,255,0.6);
   padding: 0 45px 20px 20px;
-  height: 100vh;
   overflow: auto;
 }
 
@@ -117,17 +121,62 @@ body.badges {
   background-color: rgba(255,255,255,0.0) !important;
 }
 
-.text-area {
-
-}
-.alert {
-    padding: 20px;
-    // background-color: #f44336; /* Red */
-    color: blue;
-    margin-bottom: 15px;
-}
-
 .float_left {
-    float: left;
-    margin: 10px 20px 10px 0;
+  float: left;
+  margin: 10px 20px 10px 0;
+}
+
+.main-nav {
+  color: #FFF !important;
+  text-decoration: none;
+  margin: -5px 0 10px -15px;
+  padding: 0 10px 10px 10px;
+}
+
+.main-nav:hover {
+  @extend .main-nav;
+  text-decoration: none;
+}
+
+.menu-logo {
+  color: #33C3F0;
+  text-decoration: none !important;
+}
+
+#alert {
+  background-color: #f44336; /* Red */
+  color: white;
+  @extend .pop
+}
+
+#notice {
+  background-color: blue;
+  color: white;
+  @extend .pop
+}
+
+.pop {
+  position: absolute;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 2.5;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 5px black;
+  -moz-box-shadow:    0 0 5px black;
+  box-shadow:         0 0 5px black;
+}
+
+@-webkit-keyframes slideDown {
+  0%, 100% { -webkit-transform: translateY(-50px); }
+  10%, 90% { -webkit-transform: translateY(0px); }
+}
+@-moz-keyframes slideDown {
+  0%, 100% { -moz-transform: translateY(-50px); }
+  10%, 90% { -moz-transform: translateY(0px); }
+}
+.cssanimations.csstransforms #close {
+  display: none;
 }

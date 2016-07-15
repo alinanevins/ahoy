@@ -1,33 +1,34 @@
 <div class="container">
-  <h1>All Presentations</h1>
+  <h1>Your Presentations</h1>
 
   <table>
     <thead>
       <th>Presentation ID</th>
-      <th>Date</th>
+      <th>Date of Presentation</th>
       <th>School</th>
       <th>Department</th>
-      <th>Presenter ID</th>
+      <th>Presenter</th>
       <th>Date Added</th>
     </thead>
     <% @presentation.each do |a| %>
     <tr>
       <td><%= link_to a.id, "/presentations/#{a.id}", method: 'get' %></td>
-      <td><%= a.date %></td>
+      <td><% if a.date==nil %>
+        <%=  a.date %>
+      <% else %>
+        <%= a.date.to_s(:pretty_dt) %>
+      <% end %></td>
       <td><%= a.school %></td>
       <td><%= a.department %></td>
-      <td><%= a.user_id %></td>
+      <td><%= a.user.first_name + " " + a.user.last_name %></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>
     <% end %>
+
+    <% if @presentation == [] %>
+    <h3>You haven't added any presentations yet. <a href="/presentations/new">Add one now.</a></h3>
+    <% end %>
+
   </table>
-  <div class="row">
-    Current Progress:
-    <div class="progressbar">
-      <div class="progress", style="width: <%= @progress %>%" >
-        <div class="pbaranim">
-        </div>
-      </div>
-    </div>
-  </div>
+
 </div>

@@ -1,8 +1,12 @@
 <div class="container">
-  <div class="row"
+  <div class="row">
     <h1>Presentation <%= @presentation.id %></h1>
 
-  <p>Date: <%= @presentation.date.to_s(:pretty_dt) %></p>
+  <p>Date: <% if @presentation.date==nil %>
+    <%=  @presentation.date %>
+  <% else %>
+    <%= @presentation.date.to_s(:pretty_dt) %>
+  <% end %></p>
   <p>School: <%= @presentation.school %></p>
   <p>Department: <%= @presentation.department %></p>
   <p>Presenter: <%= link_to @presenter_name, "/users/#{@presentation.user_id}" %></p>

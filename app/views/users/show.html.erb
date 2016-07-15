@@ -10,14 +10,18 @@
   <p>Your Presentations: <%= @users_presentations %>
   <p>Your Observations: <%= @users_observations %>
   <p>Your Transitions: <%= @users_transitions %> -->
-
-  <p>Badges:</p>
+  <div class="row">
+  <p>Badges Earned:</p>
         <% @user.badges.each do |badge| %>
         <img class="user_badge" src="<%= badge.custom_fields[:image] %>", title="<%= badge.description %>" />
         <% end %>
+      </div>
+    <div class="row">
 
       <%= button_to "View all badges", "/badges/all", method: 'get', class: "button-primary float_left" %>
 
       <%= button_to "Edit profile", "/users/#{@user.id}/edit", method: 'get', class: "button-primary float_left" %>
+
+    </div>
 
 </div>

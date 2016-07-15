@@ -17,7 +17,20 @@
     <%= f.label :email %>
     <%= f.email_field :email, class: "u-full-width" %><p/>
   </div>
-
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :password, "New Password" %> <i></br>(leave blank to keep your old password)</i>
+      <%= f.password_field :password, autocomplete: "off", class: "u-full-width" %>
+    </div>
+    <div class="six columns">
+      <%= f.label :password_confirmation, "New Password Confirmation" %><i></br>(leave blank to keep your old password)</i>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "u-full-width" %>
+    </div>
+  </div>
+  <div class="row">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off", class: "u-full-width" %>
+  </div><p>
   <div class="row">
     <div class="six columns">
       <%= f.submit class: "button-primary" %>

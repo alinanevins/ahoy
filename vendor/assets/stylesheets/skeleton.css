@@ -230,6 +230,7 @@ input[type="text"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
+input[type="datetime-local"],
 textarea,
 select {
   height: 38px;

@@ -19,12 +19,13 @@ class DocumentationsController < ApplicationController
     end
 
     if @documentation.audience.first == ""
-      @documentation.audience = @documentation.audience.delete_at(0)
+      @documentation.audience.delete_at(0)
     end
 
     if @documentation.save
       redirect_to documentation_path(@documentation.id)
     end
+
   end
 
   def new
@@ -48,6 +49,11 @@ class DocumentationsController < ApplicationController
 
     @audience_options = ['Faculty', 'Teaching Assistants', 'Department Admins', 'Canvas Admins', 'Help Desk', 'Students']
     @audience_other_entered = @selected.select{ |x| !@audience_options.include?(x) }
+
+    if @documentation.audience.first == ""
+      @documentation.audience.delete_at(0)
+    end
+
   end
 
   def update

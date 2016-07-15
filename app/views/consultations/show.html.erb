@@ -10,7 +10,7 @@
     <%= @consultation.date.to_s(:pretty_dt) %>
   <% end %></p>
   <p>Consultation Focus: <%= @consultation.focus %></p>
-  <p>Link to Consultation Notes: <a href="<%= a.link_to_notes %>"><%= a.link_to_notes %></a></p>
+  <p>Link to Consultation Notes: <a href="<%= @consultation.link_to_notes %>"><%= @consultation.link_to_notes %></a></p>
 
   <p><%= button_to "Edit", "/consultations/#{@consultation.id}/edit", method: 'post', class: "button-primary" %></p>
 </div>

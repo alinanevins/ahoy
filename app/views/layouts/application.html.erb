@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>All Aboard Canvas</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -18,15 +18,16 @@
       "<%= faculty %>",
       <% end %>
     ];
-    $( "#faculty" ).autocomplete({
+    $( ".faculty" ).autocomplete({
       source: availableFaculty
     });
   });
   <% end %>
-  </script>
+</script>
+
 </head>
 
-<body class=<%= controller.controller_name %> data-no-turbolink="true">
+<body class=<%= controller.controller_name %>>
 
   <div class="container" id="navBar">
 
@@ -34,11 +35,11 @@
       <h3><a href="/", class="menu-logo"><i class="fa fa-ship"></i> All Aboard Canvas</a></h3>
     </div>
 
-    <div id="nav" class="eight columns">
+    <div id="nav" class="seven columns">
       <ul>
 
         <li class="dropdown">
-          <a class="dropdown-toggle button button-primary main-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Your Work
+          <a class="dropdown-toggle button button-primary main-nav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Work
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/consultations">Your Consultations</a></li>
@@ -78,10 +79,10 @@
     </nav>
 
     <% unless notice.nil? %>
-       <p class="notice"><%= notice %></p>
+       <p class="notice"><%= notice %> <a class="close">x</a></p>
     <% end %>
     <% unless alert.nil? %>
-       <p class="alert"><%= alert %></p>
+       <p class="alert"><%= alert %> <a class="close">x</a></p>
     <% end %>
 
   </div>

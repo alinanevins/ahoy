@@ -3,6 +3,7 @@ jQuery(document).ready(function(){
     $.templatemo_is_chrome = /chrom(e|ium)/.test(navigator.userAgent.toLowerCase());
     $.templatemo_is_ie = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
     // Template Mo menu hide
+
     jQuery.fn.templateMoMenuHide = function(){
         return this.each(function(){
             $(this)
@@ -62,17 +63,17 @@ jQuery(document).ready(function(){
     if($.templatemo_is_chrome){
         $("html").attr("style","overflow:auto;");
         $("body").attr("style","overflow:auto;height:auto;");
-        $('#templatemo_home').parallax("50%", 0.1);
-        $('#templatemo_download').parallax("50%", 0.1);
+        // $('#templatemo_home').parallax("50%", 0.1);
+        // $('#templatemo_download').parallax("50%", 0.1);
     // Non IE broswer setting
     }else if(!$.templatemo_is_ie){
         $("html").attr("style","overflow: auto;");
         $("body").attr("style","background: #455a64;overflow: auto;height: auto;");
-        $('#templatemo_home').parallax("50%", 0.1);
-        $('#templatemo_download').parallax("50%", 0.1);
+        // $('#templatemo_home').parallax("50%", 0.1);
+        // $('#templatemo_download').parallax("50%", 0.1);
     // IE broswer setting
     }else{
-        $('#templatemo_home').parallax("50%", 0.5);
-        $('#templatemo_download').parallax("50%", 0.5);
+        // $('#templatemo_home').parallax("50%", 0.5);
+        // $('#templatemo_download').parallax("50%", 0.5);
     }
 });

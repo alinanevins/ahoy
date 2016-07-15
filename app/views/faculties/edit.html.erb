@@ -42,7 +42,7 @@
       <% end %>
     </div>
     <div class="six columns">
-      <%= link_to "Delete this faculty member", faculty_path(@faculty.id), method: 'delete' %>
+      <%= link_to "Delete this faculty member", faculty_path(@faculty.id), method: 'delete', data: { confirm: "Are you sure?" } %>
     </div>
   </div>
 </div>

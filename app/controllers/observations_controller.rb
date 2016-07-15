@@ -3,6 +3,7 @@ class ObservationsController < ApplicationController
 
   def index
     @observation = Observation.where(user_id: current_user.id)
+
   end
 
   def create

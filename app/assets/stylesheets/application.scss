@@ -36,6 +36,12 @@ th, td {
   margin-bottom: 20px;
 }
 
+#nav ul li .dropdown {
+  display: inline;
+  margin: 0 0 0 0;
+  margin-bottom: 20px;
+}
+
 #nav a {
   text-decoration: none;
   color: blue;
@@ -101,7 +107,7 @@ body.badges {
   @extend .backgroundstyle
 }
 
-body.registrations {
+body.registrations, body.sessions, body.passwords, body.unlocks, body.confirmations {
   background-image: url("/images/dock.jpg");
   @extend .backgroundstyle
 }
@@ -143,16 +149,16 @@ body.registrations {
   text-decoration: none !important;
 }
 
-#alert {
+.notice {
+  @extend .alert;
+  background-color: blue !important;
+  color: white;
+  @extend .pop;
+}
+.alert {
   background-color: #f44336; /* Red */
   color: white;
-  @extend .pop
-}
-
-#notice {
-  background-color: blue;
-  color: white;
-  @extend .pop
+  @extend .pop;
 }
 
 .pop {
@@ -161,7 +167,6 @@ body.registrations {
   top: 0;
   left: 0;
   right: 0;
-  text-align: center;
   line-height: 2.5;
   overflow: hidden;
   -webkit-box-shadow: 0 0 5px black;
@@ -179,4 +184,8 @@ body.registrations {
 }
 .cssanimations.csstransforms #close {
   display: none;
+}
+
+.users .row {
+  margin-left: 20px;
 }

@@ -10,8 +10,9 @@
   <p>Your Presentations: <%= @users_presentations %>
   <p>Your Observations: <%= @users_observations %>
   <p>Your Transitions: <%= @users_transitions %> -->
-  <div class="row">
+
   <p>Badges Earned:</p>
+  <div class="row">
         <% @user.badges.each do |badge| %>
         <img class="user_badge" src="<%= badge.custom_fields[:image] %>", title="<%= badge.description %>" />
         <% end %>

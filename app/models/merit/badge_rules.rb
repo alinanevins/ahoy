@@ -116,7 +116,7 @@ module Merit
       #   user.presentations.count >= 9
       # end
       # grant_on 'presentations#create', badge_id: 5, badge: "create-11-presentations", level: 2,  to: :user, temporary: true do |presentation|
-      #   binding.pry
+      #   
       #   presentation.user.presentations.count >= 23
       # end
       #

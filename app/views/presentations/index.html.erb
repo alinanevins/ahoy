@@ -4,23 +4,34 @@
   <table>
     <thead>
       <th>Presentation ID</th>
+      <th>Observation ID</th>
       <th>Date of Presentation</th>
+      <th>Presenter</th>
+      <th>Observer</th>
       <th>School</th>
       <th>Department</th>
-      <th>Presenter</th>
       <th>Date Added</th>
     </thead>
     <% @presentation.each do |a| %>
+    <% @observation = Observation.find_by presentation_id: a.id %>
     <tr>
       <td><%= link_to a.id, "/presentations/#{a.id}", method: 'get' %></td>
+      <%=  %>
+      <td><% if @observation != nil %>
+      <%= link_to @observation.id, "/observations/#{@observation.id}" %>
+      <% end %></td>
       <td><% if a.date==nil %>
         <%=  a.date %>
       <% else %>
         <%= a.date.to_s(:pretty_dt) %>
       <% end %></td>
+      <td><%= a.user.first_name + " " + a.user.last_name %></td>
+      <td><% if @observation != nil %>
+      <% b = User.find(@observation.user_id) %>
+      <%= b.first_name.to_s + " " + b.last_name.to_s %>
+      <% end %></td>
       <td><%= a.school %></td>
       <td><%= a.department %></td>
-      <td><%= a.user.first_name + " " + a.user.last_name %></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>
     <% end %>

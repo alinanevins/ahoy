@@ -49,6 +49,7 @@ class UsersController < ApplicationController
     @user.first_name = params['user']['first_name']
     @user.last_name = params['user']['last_name']
     @user.email = params['user']['email']
+
     if @user.save
       redirect_to user_path(@user.id)
     end

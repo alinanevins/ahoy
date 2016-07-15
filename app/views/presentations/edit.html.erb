@@ -32,7 +32,7 @@
       <%= f.submit class: "button-primary"%>
     </div>
     <div class="six columns">
-      <%= link_to "Delete this presentation", presentation_path(@presentation.id), method: 'delete' %>
+      <%= link_to "Delete this presentation", presentation_path(@presentation.id), method: 'delete', data: { confirm: "Are you sure?" } %>
     </div>
   </div>
   <% end %>

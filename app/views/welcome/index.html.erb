@@ -20,9 +20,13 @@
           </a>
         </div>
         <div class="col-sm-4">
-          <a href="#templatemo_download" class="btn col-xs-12 scroll_effect shadow-top-down" action= users_registration_path>
-            <i class="fa fa-user"></i> Log In
-          </a>
+          <% if current_user == nil %>
+            <a href="#templatemo_download" class="btn col-xs-12 scroll_effect shadow-top-down" action= users_registration_path>
+              <i class="fa fa-user"></i> Log In</a>
+          <% else %>
+            <a href="/users/<%= current_user.id %>" class="btn col-xs-12 shadow-top-down scroll_effect"><i class="fa fa-user"></i> My Profile</a>
+            <%  %>
+          <% end %>
         </div>
         <div class="col-sm-4">
           <a href="/badges/all" class="btn col-xs-12 shadow-top-down" >

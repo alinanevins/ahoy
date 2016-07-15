@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'dashboard' => 'dashboard#index'
+  get 'dashboard/Consultation' => 'dashboard#consultation'
+
   get 'badges/all'
 
   devise_for :users, controllers: { registrations: 'users/registrations' }

@@ -12,9 +12,11 @@
 *
 *= require normalize
 *= require skeleton
+*= require jquery-ui-timepicker-addon
 *= require_tree .
 *= require_self
 */
+
 
 body.welcome {
   @import "bootstrap";

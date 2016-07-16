@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'jquery-timepicker-addon-rails'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+
 gem 'merit'
 
 gem 'pry'

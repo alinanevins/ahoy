@@ -1,4 +1,4 @@
-var ConsultationItem = React.createClass({
+var TransitionItem = React.createClass({
   propTypes: {
     data: React.PropTypes.array
   },
@@ -28,12 +28,12 @@ var ConsultationItem = React.createClass({
     <table class="u-full-width">
       <thead>
         <tr>
-          <th>Consultation ID</th>
-          <th>Faculty Member</th>
-          <th>CTL Consultant</th>
-          <th>Consultation Date</th>
-          <th>Consultation Focus</th>
-          <th>Link to Consultation Notes</th>
+          <th>Transition ID</th>
+          <th>Team Member</th>
+          <th>Date</th>
+          <th>Faculty Name</th>
+          <th>Course</th>
+          <th>Link</th>
           <th>Date Added</th>
         </tr>
       </thead>

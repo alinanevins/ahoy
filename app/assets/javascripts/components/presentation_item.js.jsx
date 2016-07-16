@@ -1,4 +1,4 @@
-var ConsultationItem = React.createClass({
+var PresentationItem = React.createClass({
   propTypes: {
     data: React.PropTypes.array
   },
@@ -16,6 +16,7 @@ var ConsultationItem = React.createClass({
           <td>{entry[4]}</td>
           <td>{entry[5]}</td>
           <td>{entry[6]}</td>
+          <td>{entry[7]}</td>
         </tr>
       );
       rowItem.push(item);
@@ -28,12 +29,13 @@ var ConsultationItem = React.createClass({
     <table class="u-full-width">
       <thead>
         <tr>
-          <th>Consultation ID</th>
-          <th>Faculty Member</th>
-          <th>CTL Consultant</th>
-          <th>Consultation Date</th>
-          <th>Consultation Focus</th>
-          <th>Link to Consultation Notes</th>
+          <th>Presentation ID</th>
+          <th>Observation ID</th>
+          <th>Date of Presentation</th>
+          <th>Presenter</th>
+          <th>Observer</th>
+          <th>School</th>
+          <th>Department</th>
           <th>Date Added</th>
         </tr>
       </thead>

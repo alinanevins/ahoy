@@ -70,7 +70,6 @@ class DashboardController < ApplicationController
       user_first = i.user.first_name || ""
       user_last = i.user.last_name || ""
       user = user_first + " " + user_last
-      binding.pry
       data.push([
       i.id,
       user,

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'jquery-timepicker-addon-rails'
+
+gem 'jquery-ui-rails'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 

@@ -16,8 +16,8 @@
       <td><% @userid = a.user_id %>
       <% b = User.find(@userid) %>
       <%= b.first_name.to_s + " " + b.last_name.to_s %></td>
-      <td><%= a.name  %></td>
-      <td><%= a.audience %></td>
+      <td><%= a.name %></td>
+      <td><%= a['audience'].map { |x| x}.join(", ") %></td>
       <td><a href="<%= a.link_to_documentation %>"><%= a.link_to_documentation %></a></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>

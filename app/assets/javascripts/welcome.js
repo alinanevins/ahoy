@@ -1,12 +1,6 @@
 /*global $ */
 $(function () {
 
-  $('.datetimepicker').datetimepicker({
-  	controlType: 'select',
-  	oneLine: true,
-  	timeFormat: 'hh:mm tt'
-  });
-
   $('.welcome .container#navBar').hide();
 
   $(".close").on("click", function() {

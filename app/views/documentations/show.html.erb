@@ -3,12 +3,7 @@
   <p>ID: <%= @documentation.id %></p>
   <p>Author: <%= link_to @consultant_name, "/users/#{@documentation.user_id}" %></p>
   <p>Summary: <%= @documentation.summary %></p>
-  <p>Audience:
-    <ul>
-    <% @documentation['audience'].each do |x| %>
-    <li><%= x %></li>
-    <% end %>
-  </ul>
+  <p>Audience: <%= @documentation['audience'].map { |x| x}.join(", ") %>
   <p>Link to Documentation: <a href="<%= @documentation.link_to_documentation %>"><%= @documentation.link_to_documentation %></a></p>
 
   <p>Date Added: <%= @documentation.created_at.to_s(:pretty_dt) %></p>

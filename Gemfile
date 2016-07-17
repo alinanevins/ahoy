@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+
+gem 'jquery-ui-rails'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+
 gem 'merit'
 
 gem 'pry'

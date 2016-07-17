@@ -68,7 +68,7 @@ jQuery(document).ready(function(){
     // Non IE broswer setting
     }else if(!$.templatemo_is_ie){
         $("html").attr("style","overflow: auto;");
-        $("body").attr("style","background: #455a64;overflow: auto;height: auto;");
+        $("body").attr("style","overflow: auto;height: auto;");
         // $('#templatemo_home').parallax("50%", 0.1);
         // $('#templatemo_download').parallax("50%", 0.1);
     // IE broswer setting

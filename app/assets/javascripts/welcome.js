@@ -1,5 +1,6 @@
 /*global $ */
 $(function () {
+
   $('.welcome .container#navBar').hide();
 
   $(".close").on("click", function() {

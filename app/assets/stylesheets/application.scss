@@ -12,9 +12,11 @@
 *
 *= require normalize
 *= require skeleton
+*= require jquery-ui
 *= require_tree .
 *= require_self
 */
+
 
 body.welcome {
   @import "bootstrap";
@@ -145,8 +147,11 @@ body.registrations, body.sessions, body.passwords, body.unlocks, body.confirmati
 }
 
 .menu-logo {
-  color: #33C3F0;
+  color: #00326E;
   text-decoration: none !important;
+}
+.menu-logo:hover {
+  color: #33C3F0;
 }
 
 .notice {

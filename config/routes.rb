@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'dashboard/Consultation' => 'dashboard#consultation'
   get 'dashboard/Documentation' => 'dashboard#documentation'
   get 'dashboard/Presentation' => 'dashboard#presentation'
+  get 'dashboard/Transition' => 'dashboard#transition'
   get 'dashboard/Badge' => 'dashboard#badge'
 
   get 'badges/all'

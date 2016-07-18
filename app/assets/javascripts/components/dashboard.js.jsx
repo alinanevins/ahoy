@@ -56,7 +56,8 @@ var Dashboard = React.createClass({
   },
 
   makeTable: function(){
-    // if this.state.data
+    if(this.state.data.length) {
+      debugger;
       switch (this.state.table) {
     case 'Consultation':
       return <ConsultationItem data={this.state.data}/>;
@@ -72,7 +73,7 @@ var Dashboard = React.createClass({
     default:
       break;
       }
-
+    }
   },
 
   onSuccess: function(response){

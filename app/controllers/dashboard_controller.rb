@@ -11,10 +11,10 @@ class DashboardController < ApplicationController
       i.id,
       i.facultyname,
       name,
-      i.date,
+      i.date.to_s(:pretty_dt),
       i.focus,
       i.link_to_notes,
-      i.created_at
+      i.created_at.to_s(:pretty_dt)
       ])
     end
     render json: data
@@ -31,7 +31,7 @@ class DashboardController < ApplicationController
       i.name,
       i.audience,
       i.link_to_documentation,
-      i.created_at
+      i.created_at.to_s(:pretty_dt)
       ])
     end
     render json: data
@@ -48,16 +48,15 @@ class DashboardController < ApplicationController
       presenter_first = i.presentation.user.first_name || ""
       presenter_last = i.presentation.user.last_name || ""
       presenter = presenter_first + " " + presenter_last
-
       data.push([
       i.presentation_id,
       i.id,
-      i.presentation.date,
+      i.presentation.date.to_s(:pretty_dt),
       presenter,
       observer,
       i.presentation.school,
       i.presentation.department,
-      i.presentation.created_at
+      i.presentation.created_at.to_s(:pretty_dt)
       ])
     end
     render json: data
@@ -73,11 +72,11 @@ class DashboardController < ApplicationController
       data.push([
       i.id,
       user,
-      i.date,
+      i.date.to_s(:pretty_dt),
       i.faculty.full_name,
       i.course,
       i.link,
-      i.created_at
+      i.created_at.to_s(:pretty_dt)
       ])
     end
     render json: data

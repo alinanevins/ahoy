@@ -23,7 +23,7 @@
       <% else %>
         <%= a.date.to_s(:pretty_dt) %>
       <% end %></td>
-      <td><%= link_to a.facultyname, "/faculties/#{a.faculty_id}" %></td>
+      <td><%= link_to a.faculty.full_name, "/faculties/#{a.faculty_id}" %></td>
       <td><%= a.course %></td>
       <td><a href="<%= a.link %>"><%= a.link %></a></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>

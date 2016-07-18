@@ -16,11 +16,11 @@
 *= require_tree .
 *= require_self
 */
+@import "skeleton";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 body.welcome {
-  @import "bootstrap";
   @import "font-awesome";
   @import "templatemo_style";
 }
@@ -67,6 +67,10 @@ th, td {
 
 body.consultations {
   background-image: url("/images/hot-air-balloon.jpg");
+  @extend .backgroundstyle;
+}
+body.dashboard {
+  background-image: url("/images/blueprint.jpg");
   @extend .backgroundstyle;
 }
 
@@ -193,19 +197,15 @@ body.registrations, body.sessions, body.passwords, body.unlocks, body.confirmati
 }
 
 .users .row {
-  margin-left: 20px;
-  align-self: center;
+  margin: auto;
+  width: 100%;
 }
-
+.dash-row{
+margin: auto;
+text-align:center;
+position:relative;
+}
 .dash-buttons {
-  padding: 0 19px;
-  margin: 0 10px 0 11px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-size: 11px;
-font-weight: 600;
-line-height: 38px;
-letter-spacing: .1rem;
-
-
+  margin: auto;
+  @extend .button;
 }

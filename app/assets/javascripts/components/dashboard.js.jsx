@@ -93,21 +93,11 @@ var Dashboard = React.createClass({
     return (
     <div className="container">
       <div className="row">
-        <div className="two columns">
-          <button className="button-primary dash-buttons" onClick={this.consultationClick}>Consultations</button>
-        </div>
-        <div className="two columns">
-          <button className="button-primary dash-buttons" onClick={this.documentationClick}>Documentations</button>
-        </div>
-        <div className="two columns">
-          <button className="button-primary dash-buttons" onClick={this.presentationClick}>Presentations</button>
-        </div>
-        <div className="two columns">
-          <button className="button-primary dash-buttons" onClick={this.transitionClick}>Transitions</button>
-        </div>
-        <div className="two columns">
-          <button className="button-primary dash-buttons" onClick={this.badgeClick}>Badges</button>
-        </div>
+          <button className="button-primary dash-buttons" onClick={this.consultationClick}>CONSULTATIONS</button>
+          <button className="button-primary dash-buttons" onClick={this.documentationClick}>DOCUMENTATIONS</button>
+          <button className="button-primary dash-buttons" onClick={this.presentationClick}>PRESENTATIONS</button>
+          <button className="button-primary dash-buttons" onClick={this.transitionClick}>TRANSITIONS</button>
+          <button className="button-primary dash-buttons" onClick={this.badgeClick}>BADGES</button>
       </div>
       <div className="row">
         {this.makeTable()}

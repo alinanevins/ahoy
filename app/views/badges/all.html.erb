@@ -1,9 +1,11 @@
 <div class="container">
   <h1>All Badges</h1>
 
-  <div class="row">
-    <% x = 1 %>
-    <% while x <= Merit::Badge.all.count %>
+<% x = 1 %>
+<% while x <= Merit::Badge.all.count %>
+  <% if x%4==1%>
+    <div class="row">
+  <% end %>
     <% percent = ProgressService.calc(@user,x) %>
     <% percent,den,num = percent[0],percent[1],percent[2] %>
     <div class="three columns">
@@ -48,6 +50,8 @@
             </div> <!-- end card -->
           </div> <!-- end card-container -->
         </div> <!-- end columns -->
+      <% if x%4==0%>
+      </div> <!-- end row -->
+      <% end %>
         <% x += 1 %>
         <% end %>
-      </div> <!-- end row -->

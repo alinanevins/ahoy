@@ -92,7 +92,7 @@ var Dashboard = React.createClass({
   render: function() {
     return (
     <div className="container">
-      <div className="row">
+      <div className="row dash-row">
           <button className="button-primary dash-buttons" onClick={this.consultationClick}>CONSULTATIONS</button>
           <button className="button-primary dash-buttons" onClick={this.documentationClick}>DOCUMENTATIONS</button>
           <button className="button-primary dash-buttons" onClick={this.presentationClick}>PRESENTATIONS</button>

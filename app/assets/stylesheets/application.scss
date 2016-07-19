@@ -16,7 +16,6 @@
 *= require_tree .
 *= require_self
 */
-@import "skeleton";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -198,7 +197,7 @@ body.registrations, body.sessions, body.passwords, body.unlocks, body.confirmati
 
 .users .row {
   margin-left: 20px;
- align-self: center;
+
 }
 .dash-row{
 margin: auto;
@@ -207,5 +206,9 @@ position:relative;
 }
 .dash-buttons {
   margin: auto;
+  @import "skeleton";
   @extend .button;
+  margin-left: 10px;
+  padding: 10px;
+
 }

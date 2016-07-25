@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post '/presentations/:id/edit' => 'presentations#edit'
   post '/transitions/:id/edit' => 'transitions#edit'
 
+  get '/presentations/all' => 'presentations#all'
+
   resources :users
   resources :consultations
   resources :faculties

@@ -1,5 +1,7 @@
 <div class="container">
   <h1>Edit your Observation</h1>
+<p>To find the Presentation ID, <a href="/presentations/all">click here.</a></p>
+<p>To edit the presentation information or notes, please go to <%= link_to "the associated presentation's edit page.", @presentation_edit %></p>
 
   <%= form_for(@observation) do |f| %>
 
@@ -12,6 +14,10 @@
       <%= f.label :user_id, "Observer ID" %>
       <%= f.text_field :user_id, class: "u-full-width" %><p/>
     </div>
+  </div>
+  <div class="row">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, class: "u-full-width" %><p/>
   </div>
   <div class="row">
     <div class="six columns">

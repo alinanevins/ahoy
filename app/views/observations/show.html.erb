@@ -1,13 +1,19 @@
 <div class="container">
   <h1>Observation <%= @observation.id %></h1>
-  <p>Presentation ID: <%= @observation.presentation_id %></p>
 
   <p>Date: <%= @date %></p>
   <p>School: <%= @school %></p>
   <p>Department: <%= @department %></p>
-  <p>Observer Name: <%= link_to @observer_name, "/users/#{@observation.user_id}" %></p>
-  <p>Presenter Name: <%= link_to @presenter_name, "/users/#{@presenter_id}" %></p>
 
+  <p>Observer: <%= link_to @observer_name, "/users/#{@observation.user_id}" %></p>
+  <p>Observer's Notes: <%= @observation.notes %></p>
+
+  <p>Presentation ID: <%= link_to @presentation_id, "/presentations/#{@presentation_id}" %></p>
+  <p>Presenter: <%= link_to @presenter_name, "/users/#{@presenter_id}" %></p>
+  <p>Presenter's Notes: <%= @presentation_notes %></p>
+  <p>Date Added: <%= @observation.created_at.to_s(:pretty_dt) %></p>
   <p><%= button_to "Edit", "/observations/#{@observation.id}/edit", method: 'post', class: "button-primary" %></p>
+
+
 
 </div>

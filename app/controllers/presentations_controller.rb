@@ -1,6 +1,10 @@
 class PresentationsController < ApplicationController
   before_action :authenticate_user!
 
+  def all
+    @presentation = Presentation.all
+  end
+
   def index
     @presentation = Presentation.where(user_id: current_user.id)
     #prep data for progress bar
@@ -36,20 +40,30 @@ class PresentationsController < ApplicationController
     @presenter_name = a.first_name.to_s + " " + a.last_name.to_s
 
     observation = Observation.find_by presentation_id: id
-      if observation != nil
-        @observer_id = observation.user_id
-        b = User.find(@observer_id)
-        @observer_name = b.first_name.to_s + " " + b.last_name.to_s
-      else
-        @observer_name = "n/a"
-      end
-
+    if observation != nil
+      @observer_id = observation.user_id
+      b = User.find(@observer_id)
+      @observer_name = b.first_name.to_s + " " + b.last_name.to_s
+      @observation_notes = observation.notes
+      @observation_id = observation.id
+    else
+      @observer_name = "n/a"
+      @observation_id = "n/a"
+    end
 
   end
 
   def edit
     id = params[:id]
     @presentation = Presentation.find(id)
+    observation = Observation.find_by presentation_id: id
+    if observation != nil
+      @observation_id = observation.id
+      @observation_edit = "/observations/" + observation.id.to_s + "/edit"
+    else
+      @observation_id = nil
+      @observation_edit = "/observations"
+    end
   end
 
   def update

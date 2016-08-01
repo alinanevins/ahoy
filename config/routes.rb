@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   post '/consultations/:id/edit' => 'consultations#edit'
   post '/documentations/:id/edit' => 'documentations#edit'
-  post '/faculties/:id/edit' => 'faculties#edit'
+  post '/clients/:id/edit' => 'clients#edit'
   post '/observations/:id/edit' => 'observations#edit'
   post '/presentations/:id/edit' => 'presentations#edit'
   post '/transitions/:id/edit' => 'transitions#edit'
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :consultations
-  resources :faculties
+  resources :clients
   resources :documentations
   resources :observations
   resources :presentations

@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Consultation with Faculty Member
-<%= link_to @consultation.facultyname, "/faculties/#{@consultation.faculty_id}" %>
+  <h1>Consultation with Client
+<%= link_to @consultation.clientname, "/clients/#{@consultation.client_id}" %>
   </h1>
   <p>Consultation ID: <%= @consultation.id %></p>
   <p>CTL Consultant: <%= link_to @consultant_name, "/users/#{@consultation.user_id}" %></p>

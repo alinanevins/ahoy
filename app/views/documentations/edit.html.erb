@@ -17,7 +17,7 @@
   <div class="row">
     <div class="six columns">
       <%= f.label :audience %></br>
-      <%= f.select :audience, options_for_select(['Faculty', 'Teaching Assistants', 'Department Admins', 'Canvas Admins', 'Help Desk', 'Students'], :selected => @selected), {}, {:multiple => true, :class => "u-full-width", :style => "height:100px;" } %><p/>
+      <%= f.select :audience, options_for_select(['Client', 'Teaching Assistants', 'Department Admins', 'Canvas Admins', 'Help Desk', 'Students'], :selected => @selected), {}, {:multiple => true, :class => "u-full-width", :style => "height:100px;" } %><p/>
     </div>
     <div class="six columns">
       <%= f.label :audience_other, "Other Audiences" %>

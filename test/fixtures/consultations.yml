@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  faculty_id: 1
+  client_id: 1
   user_id: 1
   date: 2016-06-28 21:31:33
   focus: MyText
   link: MyString
 
 two:
-  faculty_id: 1
+  client_id: 1
   user_id: 1
   date: 2016-06-28 21:31:33
   focus: MyText

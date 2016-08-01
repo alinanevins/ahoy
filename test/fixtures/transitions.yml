@@ -2,12 +2,12 @@
 
 one:
   user_id: 1
-  faculty_id: 1
+  client_id: 1
   course: MyString
   link: MyString
 
 two:
   user_id: 1
-  faculty_id: 1
+  client_id: 1
   course: MyString
   link: MyString

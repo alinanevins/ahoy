@@ -68,57 +68,61 @@ th, td {
   z-index: -1;
 }
 
+body {
+  height: 100%;
+}
+
 body.consultations {
-  background-image: url("/images/hot-air-balloon.jpg");
+  background: url("/images/hot-air-balloon.jpg");
   @extend .backgroundstyle;
 }
 body.dashboard {
-  background-image: url("/images/blueprint.jpg");
+  background: url("/images/blueprint.jpg");
   @extend .backgroundstyle;
 }
 
 body.documentations {
-  background-image: url("/images/books.jpg");
+  background: url("/images/books.jpg");
   @extend .backgroundstyle;
 }
 
 body.transitions {
-  background-image: url("/images/shenzhen-skyline.jpg");
+  background: url("/images/shenzhen-skyline.jpg");
   @extend .backgroundstyle;
 }
 
 body.workshops {
-  background-image: url("/images/workshop.jpg");
+  background: url("/images/workshop.jpg");
   @extend .backgroundstyle;
 }
 
 body.presentations {
-  background-image: url("/images/cliff.jpg");
+  background: url("/images/cliff.jpg");
   @extend .backgroundstyle;
 }
 
 body.observations {
-  background-image: url("/images/girl-dog.jpg");
+  background: url("/images/girl-dog.jpg");
   @extend .backgroundstyle;
 }
 
 body.faculties {
-  background-image: url("/images/buildings-sky.jpg");
+  background: url("/images/buildings-sky.jpg");
   @extend .backgroundstyle
 }
 
 body.users {
-  background-image: url("/images/pug1.jpg");
+  background: url("/images/pug1.jpg");
   @extend .backgroundstyle
 }
 
 body.badges {
-  background-image: url("/images/abstract1.png");
+  background: url("/images/abstract1.png");
   @extend .backgroundstyle
 }
 
 body.registrations, body.sessions, body.passwords, body.unlocks, body.confirmations {
-  background-image: url("/images/dock.jpg");
+  background: url("/images/dock.jpg");
   @extend .backgroundstyle
 }
 

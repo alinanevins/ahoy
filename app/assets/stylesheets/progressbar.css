@@ -33,10 +33,10 @@
   background: url('http://www.cssdeck.com/uploads/media/items/7/7uo1osj.gif') repeat-x;
   -moz-opacity: 0.25;
   -khtml-opacity: 0.25;
-  opacity: 0.1;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=15);
-  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=15);
-  filter: alpha(opacity=15);
+  opacity: 0.25;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=25);
+  filter: alpha(opacity=25);
   display: block;
   height: 100%;
   background-color: green;

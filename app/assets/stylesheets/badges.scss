@@ -4,13 +4,21 @@
 
 
 img.user_badge {
-  height: 215px;
-  float: left;
+  height: 100%;
+
 }
 .badges_all {
-  width: 203px;
-  height: inherit;
+  width: 100%;
+  height: auto;
   position: relative;
+  max-height: 203px;
+  max-width: 203px;
+  text-align: center;
+  display:block;
+  margin:auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 div.badge_requirement {
   position: absolute;

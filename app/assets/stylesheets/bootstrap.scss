@@ -9,6 +9,7 @@
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
+    height: 100vh;
   }
   body {
     margin: 0;
@@ -1087,7 +1088,7 @@
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: #fff;
+    background-color: transparent;
   }
   input,
   button,

@@ -50,7 +50,7 @@ body.observations {
   @extend .backgroundstyle;
 }
 
-body.faculties {
+body.clients {
   -webkit-background-image: url("/images/buildings-sky.jpg");
      -moz-background-image: url("/images/buildings-sky.jpg");
       -ms-background-image: url("/images/buildings-sky.jpg");

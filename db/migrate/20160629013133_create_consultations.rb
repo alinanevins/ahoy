@@ -1,7 +1,7 @@
 class CreateConsultations < ActiveRecord::Migration
   def change
     create_table :consultations do |t|
-      t.integer :faculty_id
+      t.integer :client_id
       t.integer :user_id
       t.datetime :date
       t.text :focus

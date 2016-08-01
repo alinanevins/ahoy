@@ -4,15 +4,15 @@ class ConsultationsController < ApplicationController
   def index
     @consultation = Consultation.where(user_id: current_user.id)
 
-    # faculty name autocomplete
-    @availableFaculty = []
+    # client name autocomplete
+    @availableClient = []
 
   end
 
   def create
     consultation_hash = params.delete('consultation')
     @consultation = Consultation.new
-    @consultation.facultyname = consultation_hash['facultyname']
+    @consultation.clientname = consultation_hash['clientname']
     @consultation.user_id = current_user.id
     @consultation.date = consultation_hash['date']
     @consultation.focus = consultation_hash['focus']
@@ -21,17 +21,17 @@ class ConsultationsController < ApplicationController
       redirect_to consultation_path(@consultation.id)
     end
 
-    # Faculty Name
-    if @consultation.facultyname != nil
-      @faculty_name_array = @consultation.facultyname.split(' ')
-      @faculty_first_name = @faculty_name_array.first
-      @faculty_last_name = @faculty_name_array.last
+    # Client Name
+    if @consultation.clientname != nil
+      @client_name_array = @consultation.clientname.split(' ')
+      @client_first_name = @client_name_array.first
+      @client_last_name = @client_name_array.last
 
-      temp_faculty = Faculty.where(full_name: @consultation.facultyname).first_or_create do |faculty|
-        faculty.first_name = @faculty_first_name
-        faculty.last_name = @faculty_last_name
+      temp_client = Client.where(full_name: @consultation.clientname).first_or_create do |client|
+        client.first_name = @client_first_name
+        client.last_name = @client_last_name
       end
-      @consultation.faculty_id = temp_faculty.id
+      @consultation.client_id = temp_client.id
       @consultation.save
     end
   end
@@ -39,11 +39,11 @@ class ConsultationsController < ApplicationController
   def new
     @consultation = Consultation.new
 
-    # faculty name autocomplete
-    @availableFaculty = []
-    Faculty.all.each do |faculty|
-      @facultyname = faculty.full_name
-      @availableFaculty << @facultyname
+    # client name autocomplete
+    @availableClient = []
+    Client.all.each do |client|
+      @clientname = client.full_name
+      @availableClient << @clientname
     end
 
   end
@@ -56,20 +56,20 @@ def show
   a = User.find(@userid)
   @consultant_name = a.first_name.to_s + " " + a.last_name.to_s
 
-  # faculty name autocomplete
-  @availableFaculty = []
+  # client name autocomplete
+  @availableClient = []
 end
 
 def edit
   id = params[:id]
   @consultation = Consultation.find(id)
 
-  # faculty name autocomplete
-  @availableFaculty = []
+  # client name autocomplete
+  @availableClient = []
 
-  Faculty.all.each do |faculty|
-    @facultyname = faculty.full_name
-    @availableFaculty << @facultyname
+  Client.all.each do |client|
+    @clientname = client.full_name
+    @availableClient << @clientname
   end
 end
 
@@ -77,7 +77,7 @@ def update
   id = params[:id]
   consultation_hash = params.delete('consultation')
   @consultation = Consultation.new
-  @consultation.facultyname = consultation_hash['facultyname']
+  @consultation.clientname = consultation_hash['clientname']
   @consultation.user_id = current_user.id
   @consultation.date = consultation_hash['date']
   @consultation.focus = consultation_hash['focus']
@@ -86,17 +86,17 @@ def update
     redirect_to consultation_path(@consultation.id)
   end
 
-  # Faculty Name
-  if @consultation.facultyname != nil
-    @faculty_name_array = @consultation.facultyname.split(' ')
-    @faculty_first_name = @faculty_name_array.first
-    @faculty_last_name = @faculty_name_array.last
+  # Client Name
+  if @consultation.clientname != nil
+    @client_name_array = @consultation.clientname.split(' ')
+    @client_first_name = @client_name_array.first
+    @client_last_name = @client_name_array.last
 
-    temp_faculty = Faculty.where(full_name: @consultation.facultyname).first_or_create do |faculty|
-      faculty.first_name = @faculty_first_name
-      faculty.last_name = @faculty_last_name
+    temp_client = Client.where(full_name: @consultation.clientname).first_or_create do |client|
+      client.first_name = @client_first_name
+      client.last_name = @client_last_name
     end
-    @consultation.faculty_id = temp_faculty.id
+    @consultation.client_id = temp_client.id
     @consultation.save
   end
 end

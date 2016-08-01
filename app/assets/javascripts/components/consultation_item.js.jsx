@@ -29,7 +29,7 @@ var ConsultationItem = React.createClass({
       <thead>
         <tr>
           <th>Consultation ID</th>
-          <th>Faculty Member</th>
+          <th>Client</th>
           <th>CTL Consultant</th>
           <th>Consultation Date</th>
           <th>Consultation Focus</th>

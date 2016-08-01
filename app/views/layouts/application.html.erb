@@ -13,13 +13,13 @@
   <% if controller.controller_name == 'consultations' || controller.controller_name == 'transitions' %>
 
   $(function() {
-    var availableFaculty = [
-      <% @availableFaculty.each do |faculty| %>
-      "<%= faculty %>",
+    var availableClient = [
+      <% @availableClient.each do |client| %>
+      "<%= client %>",
       <% end %>
     ];
-    $( ".faculty" ).autocomplete({
-      source: availableFaculty
+    $( ".client" ).autocomplete({
+      source: availableClient
     });
   });
   <% end %>
@@ -49,7 +49,7 @@
               <li class="dropdown"><a href="/transitions">Your Transitions</a></li>
             </ul>
           </li>
-          <li><a href="/faculties", class="button button-primary main-nav"> Faculty</a></li>
+          <li><a href="/clients", class="button button-primary main-nav"> Clients</a></li>
           <li><a href="/badges/all", class="button button-primary main-nav"> Badges</a></li>
 
           <% if current_user != nil %>
@@ -74,7 +74,7 @@
         <li><a href="/observations/new">Observation</a></li>
         <li><a href="/presentations/new">Presentation</a></li>
         <li><a href="/transitions/new">Transition</a></li>
-        <li><a href="/faculties/new">Faculty Member</a></li>
+        <li><a href="/clients/new">Client</a></li>
       </ul>
     </nav>
 

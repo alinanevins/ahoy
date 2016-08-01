@@ -2,7 +2,7 @@
   <h1>Classes*v2 to Canvas Transition <%= @transition.id %></h1>
 
   <p>CTL Transitioner: <%= link_to @transitioner_name, "/users/#{@transition.user_id}" %></p>
-  <p>Faculty Member: <%= link_to @transition.facultyname, "/faculties/#{@transition.faculty_id}" %></p>
+  <p>Client: <%= link_to @transition.clientname, "/clients/#{@transition.client_id}" %></p>
   <p>Course: <%= @transition.course %></p>
   <p>Date of Transition: <% if @transition.date==nil %>
     <%= @transition.date %>

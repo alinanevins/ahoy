@@ -1,7 +1,6 @@
 <div class="container">
-  <h1>Add a New Faculty Member</h1>
-
-  <%= form_for(@faculty) do |f| %>
+  <h1>Edit Client</h1>
+  <%= form_for(@client) do |f| %>
 
   <div class="row">
     <div class="six columns">
@@ -25,11 +24,13 @@
   </div>
   <div class="row">
     <div class="six columns">
-      <%= f.label :school %>
-      <%= f.text_field :school, class: "u-full-width all_schools" %><p/>
+      <%= f.label :role %>
+      <%= f.select :role, options_for_select(['Faculty', 'Canvas Admin', 'Teaching Assistant', 'Department Admin', 'Librarian', 'Other'], :selected => @selected), {}, {:multiple => true, :class => "u-full-width", :style => "height:100px;" } %><p/>
     </div>
     <div class="six columns">
-      <%= f.label :department %>
+      <%= f.label :school %>
+      <%= f.text_field :school, class: "u-full-width all_schools" %><p/>
+      <%= f.label :department, "Department (if applicable)" %>
       <%= f.text_field :department, class: "u-full-width all_depts"%><p/>
     </div>
   </div>
@@ -38,7 +39,12 @@
     <%= f.text_area :notes, class: "u-full-width" %><p/>
   </div>
   <div class="row">
-    <%= f.submit class: "button-primary" %>
-    <% end %>
+    <div class="six columns">
+      <%= f.submit class: "button-primary" %>
+      <% end %>
+    </div>
+    <div class="six columns">
+      <%= link_to "Delete this client", client_path(@client.id), method: 'delete', data: { confirm: "Are you sure?" } %>
+    </div>
   </div>
 </div>

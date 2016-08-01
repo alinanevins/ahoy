@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
       name = (i.user.first_name + " " +i.user.last_name) || ''
       data.push([
       i.id,
-      i.facultyname,
+      i.clientname,
       name,
       i.date.to_s(:pretty_dt),
       i.focus,
@@ -73,7 +73,7 @@ class DashboardController < ApplicationController
       i.id,
       user,
       i.date.to_s(:pretty_dt),
-      i.faculty.full_name,
+      i.client.full_name,
       i.course,
       i.link,
       i.created_at.to_s(:pretty_dt)

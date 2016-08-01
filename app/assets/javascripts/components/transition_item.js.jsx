@@ -31,7 +31,7 @@ var TransitionItem = React.createClass({
           <th>Transition ID</th>
           <th>Team Member</th>
           <th>Date</th>
-          <th>Faculty Name</th>
+          <th>Client Name</th>
           <th>Course</th>
           <th>Link</th>
           <th>Date Added</th>

@@ -46,8 +46,7 @@ class DocumentationsController < ApplicationController
     id = params[:id]
     @documentation = Documentation.find(id)
     @selected = @documentation.audience
-
-    @audience_options = ['Faculty', 'Teaching Assistants', 'Department Admins', 'Canvas Admins', 'Help Desk', 'Students']
+    @audience_options = ['Client', 'Teaching Assistants', 'Department Admins', 'Canvas Admins', 'Help Desk', 'Students']
     @audience_other_entered = @selected.select{ |x| !@audience_options.include?(x) }
 
     if @documentation.audience.first == ""
@@ -65,9 +64,14 @@ class DocumentationsController < ApplicationController
     @documentation.audience = documentation_hash['audience']
     @documentation.summary = documentation_hash['summary']
     @documentation.link_to_documentation = documentation_hash['link_to_documentation']
+
     if documentation_hash['audience_other'] != ""
       @documentation.audience << documentation_hash['audience_other']
     end
+    if @documentation.audience.first == ""
+      @documentation.audience.delete_at(0)
+    end
+    
     if @documentation.save
       redirect_to documentation_path(@documentation.id)
     end

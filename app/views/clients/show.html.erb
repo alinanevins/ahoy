@@ -1,0 +1,13 @@
+<div class="container">
+<h1>Client <%= @client.first_name.to_s + " " + @client.last_name.to_s %></h1>
+
+  <p>ID: <%= @client.id %></p>
+  <p>Phone: <%= @client.phone %></p>
+  <p>Email: <%= @client.email %></p>
+  <p>Role: <%= @client_role %></p>
+  <p>School: <%= @client.school %></p>
+  <p>Department: <%= @client.department %></p>
+  <p>Notes: <%= @client.notes %></p>
+
+  <p><%= button_to "Edit", "/clients/#{@client.id}/edit", method: 'post', class: "button-primary" %></p>
+  </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801201807) do
+ActiveRecord::Schema.define(version: 20160801233135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,14 +43,14 @@ ActiveRecord::Schema.define(version: 20160801201807) do
   end
 
   create_table "consultations", force: :cascade do |t|
-    t.integer  "faculty_id"
+    t.integer  "client_id"
     t.integer  "user_id"
     t.datetime "date"
     t.text     "focus"
     t.string   "link_to_notes"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "facultyname"
+    t.string   "clientname"
   end
 
   create_table "documentations", force: :cascade do |t|
@@ -122,13 +122,13 @@ ActiveRecord::Schema.define(version: 20160801201807) do
 
   create_table "transitions", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "faculty_id"
+    t.integer  "client_id"
     t.string   "course"
     t.string   "link"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "date"
-    t.string   "facultyname"
+    t.string   "clientname"
   end
 
   create_table "users", force: :cascade do |t|

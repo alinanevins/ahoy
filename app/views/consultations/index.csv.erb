@@ -1,0 +1,13 @@
+<%- headers = [' ID', 'Client', 'Consultant Name', 'Date', 'Focus', 'Link to Notes', 'Date Added'] -%>
+<%= CSV.generate_line headers %>
+<%- @all_consults.each do |consultation| -%>
+<% if consultation.date != nil %>
+  <% date = consultation.date.to_s(:pretty_dt) %>
+<% else %>
+  <% date = consultation.date %>
+<% end %>
+<% userid = consultation.user_id %>
+<% a = User.find(userid) %>
+<% consultant_name = a.first_name.to_s + " " + a.last_name.to_s %>
+<%= CSV.generate_line([consultation.id, consultation.clientname, consultant_name, date, consultation.focus.delete(','), consultation.link_to_notes, consultation.created_at.to_s(:pretty_dt)]).html_safe -%>
+<%- end -%>

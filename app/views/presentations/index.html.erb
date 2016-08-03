@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Your Presentations</h1>
 
-  <table>
+  <table class="hover-table">
     <thead>
       <th>Presentation ID</th>
       <th>Observation ID</th>
@@ -14,7 +14,7 @@
     </thead>
     <% @presentation.each do |a| %>
     <% @observation = Observation.find_by presentation_id: a.id %>
-    <tr>
+    <tr class='clickable-row' data-href= <%= "/presentations/#{a.id}" %>>
       <td><%= link_to a.id, "/presentations/#{a.id}", method: 'get' %></td>
       <%=  %>
       <td><% if @observation != nil %>

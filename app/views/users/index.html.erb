@@ -1,7 +1,7 @@
 <div class="container">
   <h1>All Users</h1>
 
-  <table>
+  <table class="hover-table">
     <thead>
       <th>User ID</th>
       <th>First Name</th>
@@ -10,7 +10,7 @@
       <th>Last Signed In</th>
     </thead>
     <% @user.each do |a| %>
-    <tr>
+    <tr  class='clickable-row' data-href= <%= "/users/#{a.id}" %>>
       <td><%= link_to a.id, "/users/#{a.id}", method: 'get' %></td>
       <td><%= a.first_name %></td>
       <td><%= a.last_name %></td>

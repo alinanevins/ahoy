@@ -3,13 +3,16 @@
 
   <p>CTL Transitioner: <%= link_to @transitioner_name, "/users/#{@transition.user_id}" %></p>
   <p>Client: <%= link_to @transition.clientname, "/clients/#{@transition.client_id}" %></p>
-  <p>Course: <%= @transition.course %></p>
+  <p>Client Role: <%= @transition.client_role %>
+  <p>Course: <%= @transition.subject %> <%= @transition.course_number %>: <%= @transition.course %> <%= @transition.term %></p>
+  <p>Tools Transferred: <%= @tools_transferred %>
   <p>Date of Transition: <% if @transition.date==nil %>
-    <%= @transition.date %>
-  <% else %>
-    <%= @transition.date.to_s(:pretty_dt) %>
-  <% end %></p>
-  <p>Link: <a href="<%= @transition.link %>"><%= @transition.link %></a></p>
+      <%= @transition.date %>
+    <% else %>
+      <%= @transition.date.to_s(:pretty_dt) %>
+    <% end %></p>
+  <p>Link to Previous Course: <a href="<%= @transition.link_to_prev_course %>"><%= @transition.link_to_prev_course %></a></p>
+  <p>Link to New Course: <a href="<%= @transition.link_to_new_course %>"><%= @transition.link_to_new_course %></a></p>
   <p>Date Added: <%= @transition.created_at.to_s(:pretty_dt) %></p>
 
   <p><%= button_to "Edit", "/transitions/#{@transition.id}/edit", method: 'post', class: "button-primary" %></p>

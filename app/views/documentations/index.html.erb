@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Your Documentation</h1>
 
-  <table>
+  <table class="hover-table">
     <thead>
       <th>Documentation ID</th>
       <th>Team Member (ID)</th>
@@ -11,7 +11,7 @@
       <th>Date Added</th>
     </thead>
     <% @documentation.each do |a| %>
-    <tr>
+    <tr class='clickable-row' data-href= <%= "/documentations/#{a.id}" %>>
       <td><%= link_to a.id, "/documentations/#{a.id}", method: 'get' %></td>
       <td><% @userid = a.user_id %>
       <% b = User.find(@userid) %>

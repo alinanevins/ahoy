@@ -1,31 +1,39 @@
 <div class="container">
   <h1>Your Classes*v2 to Canvas Transitions</h1>
 
-  <table>
+  <table class="hover-table">
     <thead>
-      <th>Transition ID</th>
-      <th>Team Member</th>
-      <th>Date</th>
+      <th>ID</th>
+      <!-- <th>Team Member</th> -->
+      <th>Date of Transition</th>
       <th>Client Name</th>
       <th>Course</th>
-      <th>Link</th>
+      <th>Tools Transferred</th>
+      <th>Link to New Course</th>
       <th>Date Added</th>
     </thead>
     <% @transition.each do |a| %>
-    <tr>
+
+    <tr class='clickable-row' data-href= <%= "/transitions/#{a.id}" %>>
       <td><%= link_to a.id, "/transitions/#{a.id}", method: 'get' %></td>
-      <td><% @userid = a.user_id %>
+      <!-- <td><% @userid = a.user_id %>
       <% b = User.find(@userid) %>
-      <%= b.first_name.to_s + " " + b.last_name.to_s %>
-    </td>
+      <%= b.first_name.to_s + " " + b.last_name.to_s %> -->
+      <!-- </td> -->
       <td><% if a.date==nil %>
         <%=  a.date %>
       <% else %>
         <%= a.date.to_s(:pretty_dt) %>
       <% end %></td>
       <td><%= link_to a.clientname, "/clients/#{a.client_id}" %></td>
-      <td><%= a.course %></td>
-      <td><a href="<%= a.link %>"><%= a.link %></a></td>
+      <td><%= a.subject %> <%= a.course_number %> <%= a.course %> <%= a.term %></td>
+      <td><% if a.tools != nil %>
+          <%= a['tools'].map { |x| x}.join(", ") %>
+          <% else %>
+          <%= "n/a" %>
+          <% end %>
+      </td>
+      <td><a href="<%= a.link_to_new_course %>"><%= a.link_to_new_course %></a></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
     </tr>
     <% end %>

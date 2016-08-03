@@ -15,8 +15,13 @@ class TransitionsController < ApplicationController
     @transition.clientname = transition_hash['clientname']
     @transition.course = transition_hash['course']
     @transition.date = transition_hash['date']
-    @transition.link = transition_hash['link']
-    # date?
+    @transition.link_to_new_course = transition_hash['link_to_new_course']
+    @transition.link_to_prev_course = transition_hash['link_to_prev_course']
+    @transition.tools = transition_hash['tools']
+    @transition.subject = transition_hash['subject']
+    @transition.course_number = transition_hash['course_number']
+    @transition.term = transition_hash['term']
+    @transition.client_role = transition_hash['client_role']
     if @transition.save
       redirect_to transition_path(@transition.id)
     end
@@ -62,6 +67,12 @@ class TransitionsController < ApplicationController
 
     # client name autocomplete
     @availableClient = []
+
+    if @transition.tools != nil
+      @tools_transferred = @transition['tools'].map { |x| x}.join(", ")
+    else
+      @tools_transferred = "n/a"
+    end
   end
 
   def edit
@@ -84,8 +95,13 @@ class TransitionsController < ApplicationController
     @transition.clientname = transition_hash['clientname']
     @transition.course = transition_hash['course']
     @transition.date = transition_hash['date']
-    @transition.link = transition_hash['link']
-    # date?
+    @transition.link_to_new_course = transition_hash['link_to_new_course']
+    @transition.link_to_prev_course = transition_hash['link_to_prev_course']
+    @transition.tools = transition_hash['tools']
+    @transition.subject = transition_hash['subject']
+    @transition.course_number = transition_hash['course_number']
+    @transition.term = transition_hash['term']
+    @transition.client_role = transition_hash['client_role']
     if @transition.save
       redirect_to transition_path(@transition.id)
     end

@@ -9,19 +9,58 @@
       <%= f.text_field :clientname, class: "u-full-width client"%><p/>
     </div>
     <div class="six columns">
-      <%= f.label :course %>
-      <%= f.text_field :course, class: "u-full-width" %><p/>
+      <%= f.label :client_role, "Client Role" %>
+      <%= f.select :client_role, options_for_select(['Teaching Faculty', 'Non-teaching Faculty','Teaching Assistant','Canvas Admin', 'Help Desk', 'Student', 'Department Admin', 'Librarian']), {}, {:class => "u-full-width" } %><p/>
     </div>
   </div>
   <div class="row">
     <div class="six columns">
-      <%= f.label :date, required: true %>
-      <%= f.text_field :date, class: "u-full-width", value: "mm/dd/2016, --:-- --"  %><p/>
+      <%= f.label :subject %>
+      <%= f.text_field :subject, class: "u-full-width" %><p/>
     </div>
     <div class="six columns">
-      <%= f.label :link, "Link to Canvas Course" %>
-      <%= f.url_field :link, class: "u-full-width", value: "https://yale.instructure.com/courses/" %><p/>
+      <%= f.label :course_number, "Course # and Section (if applicable)" %>
+      <%= f.text_field :course_number, class: "u-full-width" %><p/>
     </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :course, "Course Name" %>
+      <%= f.text_field :course, class: "u-full-width" %><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :term %>
+      <%= f.select :term, options_for_select(['F16', 'Su16','S16)']), {}, {:class => "u-full-width" } %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :tools, "Tools Transferred" %></br>
+      <%= f.check_box(:tools, { :multiple => true }, 'Resources', nil) %>
+      Resources</br>
+      <%= f.check_box(:tools, { :multiple => true }, 'Tests & Quizzes', nil) %>
+      Tests and Quizzes</br>
+      <%= f.check_box(:tools, { :multiple => true }, 'Assignments', nil) %>
+      Assignments</br>
+      <%= f.check_box(:tools, { :multiple => true }, 'Gradebook', nil) %>
+      Gradebook</br>
+      <%= f.check_box(:tools, { :multiple => true }, 'Syllabus', nil) %>
+      Syllabus</br>
+      <%= f.check_box(:tools, { :multiple => true }, 'Other', nil) %>
+      Other</br><p/>
+    </div>
+    <div class="six columns">
+      <%= f.label :date, "Date of Transition", required: true %>
+      <%= f.datetime_local_field :date, class: "u-full-width", required: true %><p/>
+    </div>
+  </div>
+  <div class="row">
+    <%= f.label :link_to_prev_course, "Link to Old Classes*v2 Course" %>
+    <%= f.url_field :link_to_prev_course, class: "u-full-width", value: "https://classesv2.yale.edu/portal/site/" %><p/>
+  </div>
+  <div class="row">
+    <%= f.label :link_to_new_course, "Link to New Canvas Course" %>
+    <%= f.url_field :link_to_new_course, class: "u-full-width", value: "https://yale.instructure.com/courses/" %><p/>
   </div>
   <div class="row">
     <%= f.submit class: "button-primary" %>

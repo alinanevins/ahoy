@@ -6,7 +6,7 @@
       <th>Presentation ID</th>
       <th>Observation ID</th>
       <th>Date of Presentation</th>
-      <th>Presenter</th>
+      <!-- <th>Presenter</th> -->
       <th>Observer</th>
       <th>School</th>
       <th>Department</th>
@@ -25,7 +25,7 @@
       <% else %>
         <%= a.date.to_s(:pretty_dt) %>
       <% end %></td>
-      <td><%= a.user.first_name + " " + a.user.last_name %></td>
+      <!-- <td><%= a.user.first_name + " " + a.user.last_name %></td> -->
       <td><% if @observation != nil %>
       <% b = User.find(@observation.user_id) %>
       <%= b.first_name.to_s + " " + b.last_name.to_s %>

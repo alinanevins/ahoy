@@ -1,11 +1,11 @@
 <div class="container">
-  <h1>Your Documentation</h1>
+  <h1>All Documentation</h1>
 
   <table class="hover-table">
     <thead>
       <th>Documentation ID</th>
-      <!-- <th>Team Member (ID)</th> -->
       <th>Title</th>
+      <th>Author</th>
       <th>Audience</th>
       <th>Link to Documentation</th>
       <th>Date Added</th>
@@ -14,11 +14,16 @@
     <% @documentation.each do |a| %>
     <tr class='clickable-row' data-href= <%= "/documentations/#{a.id}" %>>
       <td><%= link_to a.id, "/documentations/#{a.id}", method: 'get' %></td>
-      <!-- <td><% @userid = a.user_id %>
-      <% b = User.find(@userid) %>
-      <%= b.first_name.to_s + " " + b.last_name.to_s %></td> -->
       <td><%= a.name %></td>
-      <td><%= a['audience'].map { |x| x}.join(", ") %></td>
+      <td><% @userid = a.user_id %>
+      <% b = User.find(@userid) %>
+      <%= b.first_name.to_s + " " + b.last_name.to_s %></td>
+      <td><% if a.audience != nil %>
+          <%= a['audience'].map { |x| x}.join(", ") %>
+        <% else %>
+          <%= a.audience %>
+        <% end %>
+      </td>
       <td><a href="<%= a.link_to_documentation %>"><%= a.link_to_documentation %></a></td>
       <td><%= a.created_at.to_s(:pretty_dt) %></td>
       <td><%= a.updated_at.to_s(:pretty_dt) %></td>
@@ -30,4 +35,5 @@
     <% end %>
 
   </table>
+  <%= link_to 'Export to CSV', all_documentations_path(format: :csv) %>
 </div>

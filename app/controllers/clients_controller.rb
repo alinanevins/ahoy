@@ -1,5 +1,17 @@
 class ClientsController < ApplicationController
   before_action :authenticate_user!
+  require 'csv'
+
+  def all
+    @client = Client.all
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"all-clients.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
+  end
 
   def index
     @client = Client.all

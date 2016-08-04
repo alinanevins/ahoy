@@ -1,5 +1,22 @@
 class TransitionsController < ApplicationController
   before_action :authenticate_user!
+  require 'csv'
+
+  def all
+    @transition = Transition.all
+    
+    # client name autocomplete
+    @availableClient = []
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"all-transitions.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
+
+  end
 
   def index
     @transition = Transition.where(user_id: current_user.id)

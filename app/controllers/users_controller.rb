@@ -1,5 +1,17 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  require 'csv'
+
+  def all
+    @user = User.all
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"all-users.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
+  end
 
   def index
     @user = User.all

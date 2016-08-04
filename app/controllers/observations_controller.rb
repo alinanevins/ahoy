@@ -1,5 +1,10 @@
 class ObservationsController < ApplicationController
   before_action :authenticate_user!
+  require 'csv'
+
+  def all
+    @observation = Observation.all
+  end
 
   def index
     @observation = Observation.where(user_id: current_user.id)

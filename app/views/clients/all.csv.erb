@@ -1,0 +1,5 @@
+<%- headers = ['First Name', 'Last Name', 'Email', 'Phone', 'School', 'Department', 'Date Added', 'Role', 'Teaching Status', 'Notes'] -%>
+<%= CSV.generate_line headers %>
+<%- @client.each do |client| -%>
+<%= CSV.generate_line([client.first_name, client.last_name, client.email, client.phone, client.school, client.department, client.created_at, client.role, client.teaching, client.notes]).html_safe -%>
+<%- end -%>

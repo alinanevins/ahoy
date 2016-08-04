@@ -20,7 +20,15 @@ Rails.application.routes.draw do
   post '/presentations/:id/edit' => 'presentations#edit'
   post '/transitions/:id/edit' => 'transitions#edit'
 
-  get '/presentations/all' => 'presentations#all'
+  get '/clients/all' => 'clients#all', as: 'all_clients'
+  get '/users/all' => 'users#all', as: 'all_users'
+  get '/consultations/all' => 'consultations#all', as: 'all_consultations'
+  get '/documentations/all' => 'documentations#all', as: 'all_documentations'
+  get '/observations/all' => 'presentations#all'
+  get '/presentations/all' => 'presentations#all', as: 'all_presentations'
+  get '/transitions/all' => 'transitions#all', as: 'all_transitions'
+
+
 
   resources :users
   resources :consultations

@@ -1,6 +1,6 @@
 <%- headers = [' ID', 'Client', 'Consultant Name', 'Date', 'Focus', 'Link to Notes', 'Date Added'] -%>
 <%= CSV.generate_line headers %>
-<%- @all_consults.each do |consultation| -%>
+<%- @consultation.each do |consultation| -%>
 <% if consultation.date != nil %>
   <% date = consultation.date.to_s(:pretty_dt) %>
 <% else %>

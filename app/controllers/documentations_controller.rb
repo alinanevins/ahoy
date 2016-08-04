@@ -1,5 +1,18 @@
 class DocumentationsController < ApplicationController
   before_action :authenticate_user!
+  require 'csv'
+
+  def all
+    @documentation = Documentation.all
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"all-documentation.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
+  end
 
   def index
     @documentation = Documentation.where(user_id: current_user.id)
@@ -71,7 +84,7 @@ class DocumentationsController < ApplicationController
     if @documentation.audience.first == ""
       @documentation.audience.delete_at(0)
     end
-    
+
     if @documentation.save
       redirect_to documentation_path(@documentation.id)
     end

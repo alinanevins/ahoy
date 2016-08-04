@@ -1,0 +1,10 @@
+<%- headers = ['User ID', 'First Name', 'Last Name', 'Email', 'Account Created', 'Last Signed In'] -%>
+<%= CSV.generate_line headers %>
+<%- @user.each do |user| -%>
+<% if user.last_sign_in_at != nil %>
+  <% last_sign_in = user.last_sign_in_at.to_s(:pretty_dt) %>
+<% else %>
+  <% last_sign_in = user.last_sign_in_at %>
+<% end %>
+<%= CSV.generate_line([user.id, user.first_name, user.last_name, user.email, user.created_at.to_s(:pretty_dt), last_sign_in]).html_safe -%>
+<%- end -%>

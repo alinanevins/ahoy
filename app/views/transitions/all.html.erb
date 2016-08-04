@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>All Classes*v2 to Canvas Transitions</h1>
+
+  <table class="hover-table">
+    <thead>
+      <th>ID</th>
+      <th>Team Member</th>
+      <th>Date of Transition</th>
+      <th>Client Name</th>
+      <th>Course</th>
+      <th>Tools Transferred</th>
+      <th>Link to New Course</th>
+      <th>Date Added</th>
+    </thead>
+    <% @transition.each do |a| %>
+
+    <tr class='clickable-row' data-href= <%= "/transitions/#{a.id}" %>>
+      <td><%= link_to a.id, "/transitions/#{a.id}", method: 'get' %></td>
+      <td><% @userid = a.user_id %>
+      <% b = User.find(@userid) %>
+      <%= b.first_name.to_s + " " + b.last_name.to_s %>
+      </td>
+      <td><% if a.date==nil %>
+        <%=  a.date %>
+      <% else %>
+        <%= a.date.to_s(:pretty_dt) %>
+      <% end %></td>
+      <td><%= link_to a.clientname, "/clients/#{a.client_id}" %></td>
+      <td><%= a.subject %> <%= a.course_number %> <%= a.course %> <%= a.term %></td>
+      <td><% if a.tools != nil %>
+          <%= a['tools'].map { |x| x}.join(", ") %>
+          <% else %>
+          <%= "n/a" %>
+          <% end %>
+      </td>
+      <td><a href="<%= a.link_to_new_course %>"><%= a.link_to_new_course %></a></td>
+      <td><%= a.created_at.to_s(:pretty_dt) %></td>
+    </tr>
+    <% end %>
+
+    <% if @transition == [] %>
+    <h3>You haven't added any transitions yet. <a href="/transitions/new">Add one now.</a></h3>
+    <% end %>
+
+  </table>
+  <%= link_to 'Export to CSV', all_transitions_path(format: :csv) %>
+</div>

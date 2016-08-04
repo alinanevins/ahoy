@@ -1,8 +1,17 @@
 class PresentationsController < ApplicationController
   before_action :authenticate_user!
+  require 'csv'
 
   def all
     @presentation = Presentation.all
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"all-presentions.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   def index

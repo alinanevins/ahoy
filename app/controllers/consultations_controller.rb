@@ -2,13 +2,12 @@ class ConsultationsController < ApplicationController
   before_action :authenticate_user!
   require 'csv'
 
-  def index
-    @consultation = Consultation.where(user_id: current_user.id)
+  def all
+    @consultation = Consultation.all
 
     # client name autocomplete
     @availableClient = []
 
-    @all_consults = Consultation.all
     respond_to do |format|
       format.html
       format.csv do
@@ -17,6 +16,13 @@ class ConsultationsController < ApplicationController
       end
     end
 
+  end
+
+  def index
+    @consultation = Consultation.where(user_id: current_user.id)
+
+    # client name autocomplete
+    @availableClient = []
   end
 
   def create

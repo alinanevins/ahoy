@@ -1,0 +1,18 @@
+<%- headers = ['Transition ID', 'Client', 'Client\'s role in course', 'Team Member', 'Date of Transition', 'Course Subject', 'Course Number', 'Course Name', 'Course Term', 'Tools Transferred','Link to Previous Course', 'Link to New Course', 'Date Added'] -%>
+<%= CSV.generate_line headers %>
+<%- @transition.each do |transition| -%>
+<% if transition.date != nil %>
+  <% date = transition.date.to_s(:pretty_dt) %>
+<% else %>
+  <% date = transition.date %>
+<% end %>
+<% userid = transition.user_id %>
+<% a = User.find(userid) %>
+<% team_member = a.first_name.to_s + " " + a.last_name.to_s %>
+<% if transition.tools != nil %>
+    <% tools = transition['tools'].map { |x| x}.join(", ") %>
+  <% else %>
+    <% tools = transition.tools %>
+  <% end %>
+<%= CSV.generate_line([transition.id, transition.clientname, transition.client_role, team_member, date, transition.subject, transition.course_number, transition.course, transition.term, tools, transition.link_to_prev_course, transition.link_to_new_course, transition.created_at.to_s(:pretty_dt)]).html_safe -%>
+<%- end -%>

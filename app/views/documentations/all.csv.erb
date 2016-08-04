@@ -1,0 +1,13 @@
+<%- headers = [' ID', 'Title', 'Author', 'Audience', 'Summary', 'Link to Documentation', 'Date Added', 'Date Updated'] -%>
+<%= CSV.generate_line headers %>
+<%- @documentation.each do |documentation| -%>
+<% userid = documentation.user_id %>
+<% a = User.find(userid) %>
+<% author = a.first_name.to_s + " " + a.last_name.to_s %>
+<% if documentation.audience != nil %>
+    <% audience = documentation['audience'].map { |x| x}.join(", ") %>
+  <% else %>
+    <% audience = documentation.audience %>
+  <% end %>
+<%= CSV.generate_line([documentation.id, documentation.name, author, audience, documentation.summary, documentation.link_to_documentation, documentation.created_at.to_s(:pretty_dt), documentation.updated_at.to_s(:pretty_dt)]).html_safe -%>
+<%- end -%>

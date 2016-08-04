@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>All Clients</h1>
+
+  <table class="hover-table">
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Role</th>
+      <th>School</th>
+      <th>Department</th>
+      <th>Notes</th>
+    </thead>
+    <% @client.each do |a| %>
+    <tr class='clickable-row' data-href= <%= "/clients/#{a.id}" %>>
+      <td><%= link_to a.id, "/clients/#{a.id}", method: 'get' %></td>
+      <td><%= link_to a.first_name.to_s + " " + a.last_name.to_s, "/clients/#{a.id}", method: 'get' %></td>
+      <td><%= a.email %></td>
+      <td><%= a.phone %></td>
+      <td><% if a.role != nil %>
+          <%= a['role'].map { |x| x}.join(", ") %>
+          <% else %>
+          <%= "n/a" %>
+          <% end %>
+      </td>
+      <td><%= a.school %></td>
+      <td><%= a.department %></td>
+      <td><%= a.notes %></td>
+    </tr>
+    <% end %>
+  </table>
+  <%= link_to 'Export to CSV', all_clients_path(format: :csv) %>
+</div>

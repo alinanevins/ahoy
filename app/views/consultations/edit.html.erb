@@ -13,8 +13,8 @@
       <%= f.text_field :clientname, class: "u-full-width client"%><p/>
     </div>
     <div class="six columns">
-      <%= f.label :user_id, "CTL Consultant ID" %>
-      <%= f.text_field :user_id, class: "u-full-width" %><p/>
+        <%= f.label :user_id, "Consultant(s)" %><p/>
+        <%= f.collection_select :user_id, User.order('first_name ASC').all, :id, :full_name, { :selected => @selected }, { :multiple => true, :prompt => true, :class => "u-full-width" } %>
     </div>
   </div>
   <div class="row">

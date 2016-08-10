@@ -5,37 +5,38 @@
     <thead>
       <th>Consultation ID</th>
       <th>Client</th>
-      <!-- <th>Consultant Name</th> -->
+
       <th>Date</th>
       <th>Focus</th>
       <th>Link to Notes</th>
       <th>Date Added</th>
     </thead>
+
     <% @consultation.each do |a| %>
+    <% if a.user_id.include?(current_user.id) %>
     <tr class='clickable-row' data-href= <%= "/consultations/#{a.id}" %>>
       <td><%= link_to a.id, "/consultations/#{a.id}", method: 'get' %></td>
       <td><%= link_to a.clientname, "/clients/#{a.client_id}" %></td>
-      <!-- <td><% @userid = a.user_id %>
-      <% b = User.find(@userid) %>
-      <%= b.first_name.to_s + " " + b.last_name.to_s %></td> -->
+
 
       <td><% if a.date == nil %>
         <%=  a.date %>
-      <% else %>
+        <% else %>
         <%= a.date.to_s(:pretty_dt) %>
-      <% end %></td>
-      <td><%= a.focus  %></td>
-      <td>
+        <% end %></td>
+        <td><%= a.focus  %></td>
+        <td>
           <a href="<%= a.link_to_notes %>"><%= a.link_to_notes %></a>
-      </td>
-      <td><%= a.created_at.to_s(:pretty_dt) %></td>
-    </tr>
-    <% end %>
+        </td>
+        <td><%= a.created_at.to_s(:pretty_dt) %></td>
+      </tr>
+      <% end %>
+      <% end %>
 
-    <% if @consultation == [] %>
-    <h3>You haven't added any consultations yet. <a href="/consultations/new">Add one now.</a></h3>
-    <% end %>
+      <% if @consultation == [] %>
+      <h3>You haven't added any consultations yet. <a href="/consultations/new">Add one now.</a></h3>
+      <% end %>
 
-  </table>
+    </table>
 
-</div>
+  </div>

@@ -20,6 +20,7 @@ module Merit
   class BadgeRules
     attr_accessor :badge_values
     include Merit::BadgeRulesMethods
+
     def initialize
       #Presentation Badges
       @badge_values = { 'Consult Ninja' => 20,
@@ -96,8 +97,9 @@ module Merit
         consultation.user.consultations.count >= @badge_values['Consult Ninja']
       end
       #Transition Badges
-      grant_on 'transitions#create', badge_id: 17, badge: "1 Transition", level: 1, to: :user, temporary: true do |transition|
-        transition.user.transitions.count >= @badge_values['1 Transition']
+
+      grant_on 'transitions#create', badge_id: 17, badge: "1 Transition", level: 1, to: :transition_user, temporary: true do |transition|
+        transition.transitions_user.transitions.count >= @badge_values['1 Transition']
       end
       grant_on 'transitions#create', badge_id: 18, badge: "20 Transitions", level: 2,  to: :user, temporary: true do |transition|
         transition.user.transitions.count >= @badge_values['20 Transitions']
@@ -116,7 +118,7 @@ module Merit
       #   user.presentations.count >= 9
       # end
       # grant_on 'presentations#create', badge_id: 5, badge: "create-11-presentations", level: 2,  to: :user, temporary: true do |presentation|
-      #   
+      #
       #   presentation.user.presentations.count >= 23
       # end
       #

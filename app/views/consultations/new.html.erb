@@ -6,7 +6,7 @@
   <div class="row">
     <div class="six columns">
       <%= f.label :date %>
-      <%= f.text_field :date, class: "input-group date u-full-width", required: true, value: "mm/dd/2016, --:-- --" %><p/>
+      <%= f.datetime_local_field :date, class: "u-full-width", required: true %><p/>
     </div>
     <div class="six columns">
       <%= f.label :clientname, "Client Name", id: "client" %>
@@ -14,8 +14,14 @@
     </div>
   </div>
   <div class="row">
-    <%= f.label :focus, "Primary Focus" %>
-    <%= f.text_area :focus, class: "u-full-width" %><p/>
+    <div class="six columns">
+      <%= f.label :user_id, "Consultant(s)" %><p/>
+      <%= f.collection_select :user_id, User.order('first_name ASC').all, :id, :full_name, { :selected => @current_user_id }, { :multiple => true, :prompt => true, :class => "u-full-width" } %>
+    </div>
+    <div class="six columns">
+      <%= f.label :focus, "Primary Focus" %>
+      <%= f.text_area :focus, class: "u-full-width" %><p/>
+    </div>
   </div>
   <div class="row">
     <%= f.label :link_to_notes %>

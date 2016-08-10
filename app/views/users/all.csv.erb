@@ -1,4 +1,4 @@
-<%- headers = ['User ID', 'First Name', 'Last Name', 'Email', 'Account Created', 'Last Signed In'] -%>
+<%- headers = ['User ID', 'First Name', 'Last Name', 'Email', 'Account Created', 'Last Signed In', 'Consultations', 'Documentation', 'Observations', 'Presentations', 'Transitions'] -%>
 <%= CSV.generate_line headers %>
 <%- @user.each do |user| -%>
 <% if user.last_sign_in_at != nil %>
@@ -6,5 +6,10 @@
 <% else %>
   <% last_sign_in = user.last_sign_in_at %>
 <% end %>
-<%= CSV.generate_line([user.id, user.first_name, user.last_name, user.email, user.created_at.to_s(:pretty_dt), last_sign_in]).html_safe -%>
+<% user_consults = Consultation.where(user_id: user.id) %>
+<% user_documents = Documentation.where(user_id: user.id) %>
+<% user_observations = Observation.where(user_id: user.id) %>
+<% user_presentations = Presentation.where(user_id: user.id) %>
+<% user_transitions = Transition.where(user_id: user.id) %>
+<%= CSV.generate_line([user.id, user.first_name, user.last_name, user.email, user.created_at.to_s(:pretty_dt), last_sign_in, user_consults.count, user_documents.count, user_observations.count, user_presentations.count, user_transitions.count]).html_safe -%>
 <%- end -%>

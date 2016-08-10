@@ -4,7 +4,6 @@ class ConsultationsController < ApplicationController
 
   def all
     @consultation = Consultation.all
-
     # client name autocomplete
     @availableClient = []
 
@@ -19,7 +18,10 @@ class ConsultationsController < ApplicationController
   end
 
   def index
-    @consultation = Consultation.where(user_id: current_user.id)
+@consultation = Consultation.all
+# @consultation = Consultation.where {|a| a.user_id.to_s == ['current_user.id']}
+    # @consultation = current_user.consultations
+    # binding.pry
 
     # client name autocomplete
     @availableClient = []
@@ -29,10 +31,15 @@ class ConsultationsController < ApplicationController
     consultation_hash = params.delete('consultation')
     @consultation = Consultation.new
     @consultation.clientname = consultation_hash['clientname']
-    @consultation.user_id = current_user.id
+    @consultation.user_id = consultation_hash['user_id']
     @consultation.date = consultation_hash['date']
     @consultation.focus = consultation_hash['focus']
     @consultation.link_to_notes = consultation_hash['link_to_notes']
+
+    if @consultation.user_id.first == nil
+      @consultation.user_id.delete_at(0)
+    end
+
     if @consultation.save
       redirect_to consultation_path(@consultation.id)
     end
@@ -62,16 +69,13 @@ class ConsultationsController < ApplicationController
       @availableClient << @clientname
     end
 
+    @current_user_id = current_user.id
+
   end
 
 def show
   id = params[:id]
   @consultation = Consultation.find(id)
-
-  @userid = @consultation.user_id
-  a = User.find(@userid)
-  @consultant_name = a.first_name.to_s + " " + a.last_name.to_s
-
   # client name autocomplete
   @availableClient = []
 end
@@ -82,6 +86,8 @@ def edit
 
   # client name autocomplete
   @availableClient = []
+
+  @selected = @consultation.user_id
 
   Client.all.each do |client|
     @clientname = client.full_name
@@ -94,10 +100,13 @@ def update
   consultation_hash = params.delete('consultation')
   @consultation = Consultation.new
   @consultation.clientname = consultation_hash['clientname']
-  @consultation.user_id = current_user.id
+  @consultation.user_id = consultation_hash['user_id']
   @consultation.date = consultation_hash['date']
   @consultation.focus = consultation_hash['focus']
   @consultation.link_to_notes = consultation_hash['link_to_notes']
+  if @consultation.user_id.first == nil
+    @consultation.user_id.delete_at(0)
+  end
   if @consultation.save
     redirect_to consultation_path(@consultation.id)
   end

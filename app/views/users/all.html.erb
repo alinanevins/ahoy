@@ -8,9 +8,14 @@
       <th>Last Name</th>
       <th>Email</th>
       <th>Last Signed In</th>
+      <th>Consults</th>
+      <th>Documents</th>
+      <th>Observes</th>
+      <th>Presents</th>
+      <th>Trans</th>
     </thead>
-    <% @user.each do |a| %>
-    <tr  class='clickable-row' data-href= <%= "/users/#{a.id}" %>>
+    <% @user.order(:id).each do |a| %>
+    <tr class='clickable-row' data-href= <%= "/users/#{a.id}" %>>
       <td><%= link_to a.id, "/users/#{a.id}", method: 'get' %></td>
       <td><%= a.first_name %></td>
       <td><%= a.last_name %></td>
@@ -20,7 +25,27 @@
       <% else %>
         <%= a.last_sign_in_at %>
       <% end %></td>
+      <td><% user_consults = [] %>
+        <% Consultation.all.each do |c| %>
+          <% if c.user_id.include?(current_user.id) %>
+            <% user_consults << c.id %>
+          <% end %>
+        <% end %>
+        <%= user_consults.count %>
+      </td>
+      <td><% user_documents = Documentation.where(user_id: a.id) %>
+        <%= user_documents.count %>
+      </td>
+      <td><% user_observations = Observation.where(user_id: a.id) %>
+        <%= user_observations.count %>
+      </td>
+      <td><% user_presentations = Presentation.where(user_id: a.id) %>
+        <%= user_presentations.count %>
+      </td>
+      <td><% user_transitions = Transition.where(user_id: a.id) %>
+        <%= user_transitions.count %>
+      </td>
     </tr>
     <% end %>
   </table>
-</div>
+  <%= link_to 'Export to CSV', all_users_path(format: :csv) %>

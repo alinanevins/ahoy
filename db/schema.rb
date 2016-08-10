@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802191826) do
+ActiveRecord::Schema.define(version: 20160810171115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,14 +44,22 @@ ActiveRecord::Schema.define(version: 20160802191826) do
 
   create_table "consultations", force: :cascade do |t|
     t.integer  "client_id"
-    t.integer  "user_id"
+    t.string   "user_id_old",                             array: true
     t.datetime "date"
     t.text     "focus"
     t.string   "link_to_notes"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "clientname"
+    t.integer  "user_id",       default: [],              array: true
   end
+
+  create_table "consultations_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "consultation_id"
+  end
+
+  add_index "consultations_users", ["user_id", "consultation_id"], name: "index_consultations_users_on_user_id_and_consultation_id", unique: true, using: :btree
 
   create_table "documentations", force: :cascade do |t|
     t.integer  "user_id"
@@ -140,20 +148,26 @@ ActiveRecord::Schema.define(version: 20160802191826) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.integer  "sash_id"
     t.integer  "level",                  default: 0
+    t.integer  "tot_consultations"
+    t.integer  "tot_documentations"
+    t.integer  "tot_observations"
+    t.integer  "tot_presentations"
+    t.integer  "tot_transitions"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

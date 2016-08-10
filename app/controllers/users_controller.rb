@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         headers['Content-Type'] ||= 'text/csv'
       end
     end
+    # @user.tot_consultations =
   end
 
   def index

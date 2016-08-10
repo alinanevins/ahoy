@@ -7,7 +7,10 @@ class BadgesController < ApplicationController
         @badge_status << x.id
     end
     @user=current_user
+
     @badge_values = Merit::BadgeRules.new.badge_values
+
+
   end
 end
 
